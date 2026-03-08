@@ -20,8 +20,8 @@ namespace OrdoMill.Views.Patients
         {
             SelectedAssure = new Assure();
             ShowMeAndAddCommand = new RelayCommand<Assure>(async a => await ShowMeAddEx(a));
-            WeakReferenceMessenger.Default.Register<Assure>(this, msg => SelectedAssure = msg);
-            WeakReferenceMessenger.Default.Register<ObservableCollection<Assure>>(this, msg => AssuresList = msg);
+            WeakReferenceMessenger.Default.Register<Assure>(this, (r, msg) => SelectedAssure = msg);
+            WeakReferenceMessenger.Default.Register<ObservableCollection<Assure>>(this, (r, msg) => AssuresList = msg);
             SuspendCommand = new RelayCommand(async () => await SuspendEx(true));
             UnSuspendCommand = new RelayCommand(async () => await SuspendEx(false));
             ChangePatientNameCommand = new RelayCommand(() =>

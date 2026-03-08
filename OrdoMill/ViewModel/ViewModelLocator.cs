@@ -39,9 +39,9 @@ namespace OrdoMill.ViewModel
         {
             var services = new ServiceCollection();
 
-            services.AddSingleton<IDialogCoordinator>(DialogCoordinator.Instance);
+            services.AddSingleton<IDialogCoordinator>(sp => DialogCoordinator.Instance);
             services.AddTransient<DbCon>(sp => new DbCon(Settings.Default.ConnectionString));
-            services.AddSingleton<IMapper>(CreateMap);
+            services.AddSingleton<IMapper>(sp => CreateMap());
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddTransient<MainPage>();

@@ -51,7 +51,7 @@ namespace OrdoMill.Services
             GoToHomePage = new RelayCommand(async () => await NavigateTo(typeof(THomeView)), () => !IsEditable);
             GoToDetailsPage = new RelayCommand<int>(async x => await GoToDetailsPageEx(x), UpdateCanEx);
             SearchPattern = "";
-            WeakReferenceMessenger.Default.Register<Tuple<string, int>>(this, m =>
+            WeakReferenceMessenger.Default.Register<Tuple<string, int>>(this, (r, m) =>
             {
                 if (m.Item1 == "PageSize") PageSize = m.Item2;
             });
@@ -176,10 +176,6 @@ namespace OrdoMill.Services
                     pagesCount++;
                 result = new Tuple<int, int>(resultCount, pagesCount);
                 return result;
-            }
-            catch (OperationCanceledException c)
-            {
-                //
             }
             catch (OperationCanceledException)
             {

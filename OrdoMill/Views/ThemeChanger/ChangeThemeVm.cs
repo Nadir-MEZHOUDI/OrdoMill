@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
-using MahApps.Metro;
+using ControlzEx.Theming;
 using OrdoMill.Properties;
 using OrdoMill.Services;
 
@@ -13,21 +13,21 @@ namespace OrdoMill.Views.ThemeChanger
     {
         public ChangeThemeVm()
         {
-            AccentColors = ThemeManager.Accents
+            AccentColors = ThemeManager.Current.Themes
+                .Where(t => t.IsAccent)
                 .Select(
-                    a => new AccentColorMenuData {Name = a.Name, ColorBrush = a.Resources["AccentColorBrush"] as Brush})
+                    a => new AccentColorMenuData { Name = a.DisplayName, ColorBrush = a.Resources["MahApps.Brushes.Accent"] as Brush })
                 .ToList();
 
-            // create metro theme color menu items for the demo
-            AppThemes = ThemeManager.AppThemes
+            AppThemes = ThemeManager.Current.Themes
+                .Where(t => t.IsTheme)
                 .Select(
-                    a =>
-                        new AppThemeMenuData
-                        {
-                            Name = a.Name,
-                            BorderColorBrush = a.Resources["BlackColorBrush"] as Brush,
-                            ColorBrush = a.Resources["WhiteColorBrush"] as Brush
-                        })
+                    a => new AppThemeMenuData
+                    {
+                        Name = a.DisplayName,
+                        BorderColorBrush = a.Resources["MahApps.Brushes.Black"] as Brush,
+                        ColorBrush = a.Resources["MahApps.Brushes.White"] as Brush
+                    })
                 .ToList();
         }
 
@@ -39,16 +39,16 @@ namespace OrdoMill.Views.ThemeChanger
         {
             try
             {
-                var appTheme = ThemeManager.GetAppTheme(Settings.Default.AppTheme) ??
-                               new AppTheme("BaseLight",
-                                   new Uri(
-                                       "pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml"));
+                var theme = ThemeManager.Current.DetectTheme(Application.Current);
+                if (theme != null) return;
 
-                var accent = ThemeManager.GetAccent(Settings.Default.AppAccent) ??
-                             new Accent("teal",
-                                 new Uri("pack://application:,,,/MahApps.Metro;component/Styles/Accents/teal.xaml"));
+                var appTheme = ThemeManager.Current.Themes.FirstOrDefault(t => t.DisplayName == Settings.Default.AppTheme && t.IsTheme);
+                var accent = ThemeManager.Current.Themes.FirstOrDefault(t => t.DisplayName == Settings.Default.AppAccent && t.IsAccent);
 
-                ThemeManager.ChangeAppStyle(Application.Current, accent, appTheme);
+                if (appTheme != null && accent != null)
+                {
+                    ThemeManager.Current.ChangeTheme(Application.Current, $"{appTheme.BaseColorScheme}.{accent.ColorScheme}");
+                }
             }
             catch (Exception ex)
             {

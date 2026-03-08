@@ -58,25 +58,24 @@ namespace OrdoMill.Services
         {
             switch (Settings.Default.SaveMode)
             {
-                case "����":
+                case "لا شيء":
                     break;
 
-                case "�����":
+                case "يوميا":
                     SaveBackUp();
                     break;
 
-                case "�������":
+                case "أسبوعيا":
                     if ((Now() - Settings.Default.LastSaveDate).TotalDays >= 7)
                         SaveBackUp();
                     break;
 
-                case "�����":
+                case "شهريا":
                     if ((Now() - Settings.Default.LastSaveDate).TotalDays >= 30)
                         SaveBackUp();
-
                     break;
 
-                case "�����":
+                case "سنويا":
                     if ((Now() - Settings.Default.LastSaveDate).TotalDays >= 364.25)
                         SaveBackUp();
                     break;

@@ -21,10 +21,9 @@ namespace OrdoMill.Views.Bordereau
         public FacturesViewModel()
         {
             PrintFactureCommand = new RelayCommand(async () => await PrintFacturEx(), () => true);
-            WeakReferenceMessenger.Default.Register<Data.Model.Info>(this, msg => PharmacieInfo = msg);
+            WeakReferenceMessenger.Default.Register<Data.Model.Info>(this, (r, msg) => PharmacieInfo = msg);
             ToBordereauCommand = new RelayCommand(ToBordereauEx);
-            WeakReferenceMessenger.Default.Register<ObservableCollection<Data.Model.Bordereau>>(this,
-                async msg => await RefreshBordereauxList());
+            WeakReferenceMessenger.Default.Register<ObservableCollection<Data.Model.Bordereau>>(this, async (r, msg) => await RefreshBordereauxList());
         }
 
         private Data.Model.Info PharmacieInfo { get; set; }

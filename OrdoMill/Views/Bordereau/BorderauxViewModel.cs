@@ -20,7 +20,7 @@ namespace OrdoMill.Views.Bordereau
             PrintFacturesCommand = new RelayCommand(async () => await PrintFactursEx(), CanPrint);
             PrintResumeCommand = new RelayCommand(async () => await PrintResumeEx(), CanPrint);
             PrintEtiquettesCommand = new RelayCommand(async () => await PrintEtiquettesEx(), CanPrint);
-            WeakReferenceMessenger.Default.Register<Data.Model.Info>(this, msg => PharmacieInfo = msg);
+            WeakReferenceMessenger.Default.Register<Data.Model.Info>(this, (r, msg) => PharmacieInfo = msg);
         }
 
         private Data.Model.Info PharmacieInfo { get; set; }

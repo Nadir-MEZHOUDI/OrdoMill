@@ -20,7 +20,7 @@ namespace OrdoMill.ViewModel
         public DialogsFormatter(MetroDialogColorScheme colorScheme = MetroDialogColorScheme.Accented)
         {
 
-            WeakReferenceMessenger.Default.Register<MetroWindow>(this, a =>
+            WeakReferenceMessenger.Default.Register<MetroWindow>(this, (r, a) =>
             {
                 ViewModel.ShowAction = async () => await a.ShowMetroDialogAsync(Dialog);
                 ViewModel.HideAction = async () => await a.HideMetroDialogAsync(Dialog);

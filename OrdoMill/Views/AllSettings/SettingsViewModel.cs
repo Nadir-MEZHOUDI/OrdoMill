@@ -1,5 +1,6 @@
 ﻿using System;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using OrdoMill.Properties;
 using OrdoMill.Services;
 using OrdoMill.Views.DbConnector;
@@ -32,7 +33,7 @@ namespace OrdoMill.Views.AllSettings
                 pageSize = value;
                 Settings.Default.PageSize = value;
                 Settings.Default.Save();
-                MessengerInstance.Send(new Tuple<string, int>("PageSize", value));
+                WeakReferenceMessenger.Default.Send(new Tuple<string, int>("PageSize", value));
             }
         }
     }

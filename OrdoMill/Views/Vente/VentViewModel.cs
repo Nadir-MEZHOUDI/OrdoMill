@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
@@ -25,7 +27,7 @@ namespace OrdoMill.Views.Vente
     {
         public VentViewModel()
         {
-            if (IsInDesignMode)
+            if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
             {
                 Matricule = "123456789";
                 Assure = new Assure
@@ -50,8 +52,8 @@ namespace OrdoMill.Views.Vente
                 SearchMedecinsCommand = new RelayCommand(async () => await SearchMedecinsEx());
                 SearchClient = new RelayCommand(async () => await SearchClientEx(Matricule));
                 CheckPatient = new RelayCommand(async () => await CheckPatientEx());
-                WeakReferenceMessenger.Default.Register<Data.Model.Ordonnance>(this, msg => { SelectedItem = msg; });
-                WeakReferenceMessenger.Default.Register<ObservableCollection<MedOrd>>(this, msg =>
+                WeakReferenceMessenger.Default.Register<Data.Model.Ordonnance>(this, (r, msg) => { SelectedItem = msg; });
+                WeakReferenceMessenger.Default.Register<ObservableCollection<MedOrd>>(this, (r, msg) =>
                 {
                     if (SelectedItem != null)
                     {
@@ -59,7 +61,7 @@ namespace OrdoMill.Views.Vente
                         SelectedItem.Medicaments = msg;
                     }
                 });
-                WeakReferenceMessenger.Default.Register<ObservableCollection<Pathologie>>(this, msg => Pathologies = msg);
+                WeakReferenceMessenger.Default.Register<ObservableCollection<Pathologie>>(this, (r, msg) => Pathologies = msg);
                 IsEditable = true;
                 IsFocused = true;
             }
@@ -199,7 +201,7 @@ namespace OrdoMill.Views.Vente
                             .ToListAsync());
 
             await RefreshFacturesList();
-            WeakReferenceMessenger.Default.Register<ObservableCollection<Facture>>(this, async msg => await RefreshFacturesList());
+            WeakReferenceMessenger.Default.Register<ObservableCollection<Facture>>(this, async (r, msg) => await RefreshFacturesList());
         }
 
         private async Task AddOrUpdatePatientEx()
