@@ -8,7 +8,7 @@ using PropertyChanged;
 
 namespace OrdoMill.ViewModel
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public abstract class DialogContentViewModel : ViewModelBase, IDialogContentViewModel
     {
         public RelayCommand ShowDialogIfNecessariesCommand { get; set; }

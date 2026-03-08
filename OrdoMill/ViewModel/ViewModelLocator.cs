@@ -29,7 +29,7 @@ using SmartApp.Helpers.Helpers;
 
 namespace OrdoMill.ViewModel
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class ViewModelLocator
     {
         static ViewModelLocator()

@@ -10,7 +10,7 @@ using SmartApp.Helpers.Helpers;
 
 namespace OrdoMill.Data.Model
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class Ordonnance : EntityBase
     {
         public Ordonnance()

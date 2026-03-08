@@ -15,7 +15,7 @@ using SmartApp.Helpers.Helpers;
 
 namespace OrdoMill.Views.Bordereau
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public sealed class FacturesViewModel : Repository<Facture, FacturesView, FacturesView>
     {
         public FacturesViewModel()

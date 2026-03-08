@@ -14,7 +14,7 @@ using SmartApp.Helpers.Helpers;
 
 namespace OrdoMill.Views.Home
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public partial class SplashScreen
     {
         public SplashScreen()

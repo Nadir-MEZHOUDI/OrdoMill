@@ -12,7 +12,7 @@ using SmartApp.Helpers.Helpers;
 
 namespace OrdoMill.Views.Bordereau
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public   class BordereauxViewModel : Repository<Data.Model.Bordereau, BordereauView, BordereauView>
     {
         public BordereauxViewModel()

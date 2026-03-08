@@ -11,7 +11,7 @@ using PropertyChanged;
 
 namespace OrdoMill.Services
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class ViewModelWithDialogs : ViewModelBase, INotifyPropertyChanged
     {       
         #region Messages Implementation

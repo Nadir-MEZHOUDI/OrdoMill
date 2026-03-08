@@ -7,7 +7,7 @@ using SmartApp.Helpers.Helpers;
 
 namespace OrdoMill.Views.Medecins
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class MedecinsViewModel : Repository<Medecin, ShowMedecinsView, MedecinsDetailsView>
     {          
         public override async Task SearchEx()

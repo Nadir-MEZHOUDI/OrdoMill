@@ -4,7 +4,7 @@ using PropertyChanged;
 
 namespace OrdoMill.Dto
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class AssureDto
     {
         public int Id { get; set; }
@@ -28,7 +28,7 @@ namespace OrdoMill.Dto
         public List<PatientDto> Patients { get; set; }
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class PatientDto
     {
         public int Id { get; set; }
@@ -45,7 +45,7 @@ namespace OrdoMill.Dto
         public bool Activé => !Suspende;
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class OrdonnanceDto
     {
         public int Id { get; set; }
@@ -66,7 +66,7 @@ namespace OrdoMill.Dto
         public List<string> Problems { get; set; }
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class FactureDto
     {
         public int Id { get; set; }
@@ -79,7 +79,7 @@ namespace OrdoMill.Dto
         public List<OrdonnanceDto> Ordonnances { get; set; }
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class BordereauDto
     {
         public int Id { get; set; }
@@ -92,7 +92,7 @@ namespace OrdoMill.Dto
         public List<FactureDto> Factures { get; set; }
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class MedecinDto
     {
         public int Id { get; set; }
@@ -103,7 +103,7 @@ namespace OrdoMill.Dto
         public string FullName => Nom;
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class MedicamentDto
     {
         public int Id { get; set; }
@@ -120,7 +120,7 @@ namespace OrdoMill.Dto
         public FormeDto Forme { get; set; }
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class MedOrdDto
     {
         public int Id { get; set; }
@@ -132,7 +132,7 @@ namespace OrdoMill.Dto
         public MedicamentDto Medicament { get; set; }
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class FormeDto
     {
         public int Id { get; set; }
@@ -140,7 +140,7 @@ namespace OrdoMill.Dto
         public string Abrg { get; set; }
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class PathologieDto
     {
         public int Id { get; set; }
@@ -148,7 +148,7 @@ namespace OrdoMill.Dto
         public string Nom { get; set; }
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class UserDto
     {
         public int Id { get; set; }
@@ -161,7 +161,7 @@ namespace OrdoMill.Dto
         public bool AllowPrintDocs { get; set; }
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class InfoDto
     {
         public int Id { get; set; }
@@ -178,7 +178,7 @@ namespace OrdoMill.Dto
         public string Region { get; set; }
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class HistoriqueDto
     {
         public int Id { get; set; }

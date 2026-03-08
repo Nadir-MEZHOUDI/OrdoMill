@@ -10,7 +10,7 @@ using PropertyChanged;
 
 namespace OrdoMill.Views.Home
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class LoginViewModel : DialogContentViewModel
     {
         public static DbCon Context => new DbCon(Settings.Default.ConnectionString);

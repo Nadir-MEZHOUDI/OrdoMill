@@ -14,7 +14,7 @@ using PropertyChanged;
 
 namespace OrdoMill.Views.Home
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public sealed class MainViewModel : ViewModelWithDialogs
     {
         public MainViewModel()

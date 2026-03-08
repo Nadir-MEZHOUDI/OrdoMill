@@ -13,7 +13,7 @@ using SmartApp.Helpers.Helpers;
 
 namespace OrdoMill.Views.Patients
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public sealed class PatientsViewModel : Repository<Patient, ShowPatientsView, PatientDetailsView>
     {
         public PatientsViewModel()

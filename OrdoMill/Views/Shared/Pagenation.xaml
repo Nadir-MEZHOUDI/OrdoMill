@@ -4,7 +4,7 @@
              xmlns:command="http://www.galasoft.ch/mvvmlight"
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              d:DataContext="{Binding Source={StaticResource Locator},
                                      Path=ClientViewModel}"
@@ -141,7 +141,7 @@
                    HorizontalAlignment="Right"
                    VerticalAlignment="Center"
                    Content="Items:" />
-            <controls:NumericUpDown Grid.Column="4"
+            <xctk:IntegerUpDown Grid.Column="4"
                                     MinWidth="90"
                                     VerticalAlignment="Center"
                                     controls:TextBoxHelper.ClearTextButton="False"
@@ -156,7 +156,7 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
 
-            </controls:NumericUpDown>
+            </xctk:IntegerUpDown>
         </Grid>
     </Border>
 

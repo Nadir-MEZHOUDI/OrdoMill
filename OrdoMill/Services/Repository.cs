@@ -22,7 +22,7 @@ using static MahApps.Metro.Controls.Dialogs.MessageDialogStyle;
 
 namespace OrdoMill.Services
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public abstract class Repository<TEntity, THomeView, TDetailsView> : NavigableViewModel, IRepository<TEntity> where TEntity : class, IEntity, new() where THomeView : class where TDetailsView : class
     {
         private CancellationTokenSource searchCts;

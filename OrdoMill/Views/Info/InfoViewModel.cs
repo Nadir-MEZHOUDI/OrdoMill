@@ -7,7 +7,7 @@ using PropertyChanged;
 
 namespace OrdoMill.Views.Info
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public sealed class InfoViewModel : Repository<Data.Model.Info, InfoView, InfoView>
     {
         public InfoViewModel()

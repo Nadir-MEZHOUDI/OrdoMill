@@ -9,7 +9,7 @@ using PropertyChanged;
 
 namespace OrdoMill.ViewModel
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class DialogsFormatter<TView, TViewModel> where TView : UserControl, new() where TViewModel : IDialogContentViewModel, new()
     {
         public RelayCommand ShowDialogIfNecessariesCommand { get; set; }

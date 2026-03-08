@@ -99,7 +99,7 @@
                                                        Margin="40,0"
                                                        IsIndeterminate="{Binding IsSearchingPCs}" />
                             <Label Grid.Row="2" Content="Port:" />
-                            <controls:NumericUpDown Grid.Row="2"
+                            <xctk:IntegerUpDown Grid.Row="2"
                                                     Grid.Column="1"
                                                     VerticalAlignment="Center"
                                                     TextAlignment="Center"

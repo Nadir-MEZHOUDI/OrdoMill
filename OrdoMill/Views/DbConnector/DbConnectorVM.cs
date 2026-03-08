@@ -16,7 +16,7 @@ using SmartApp.Helpers.Helpers;
 
 namespace OrdoMill.Views.DbConnector
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class DbConnectorVm : ViewModelWithDialogs
     {
         private static readonly List<string> InsatncesList = new List<string>

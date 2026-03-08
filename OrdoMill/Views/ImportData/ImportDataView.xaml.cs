@@ -27,7 +27,7 @@ namespace OrdoMill.Views.ImportData
     /// <summary>
     ///     Interaction logic for ImportDataView.xaml
     /// </summary>
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public partial class ImportDataView
     {
         public double ProgressIndicator { get; set; }

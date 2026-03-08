@@ -6,12 +6,12 @@ using PropertyChanged;
 
 namespace OrdoMill.Dto
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class Assure : Data.Model.Assure
     {
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class Bordereau : Data.Model.Bordereau
     {
         public int OrdonancesCount { get; set; }
@@ -20,12 +20,12 @@ namespace OrdoMill.Dto
 
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class Info : Data.Model.Info
     {
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class Facture : Data.Model.Facture
     {
         public int OrdonancesCount { get; set; }
@@ -33,52 +33,52 @@ namespace OrdoMill.Dto
 
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class Forme : Data.Model.Forme
     {
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class Historique : Data.Model.Historique
     {
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class Medecin : Data.Model.Medecin
     {
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class Medicament : Data.Model.Medicament
     {
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class Pathologie : Data.Model.Pathologie
     {
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class MedOrd : Data.Model.MedOrd
     {
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class Ordonnance : Data.Model.Ordonnance
     {
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class Patient : Data.Model.Patient
     {
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class User : Data.Model.User
     {
     }
 
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class Operation : Data.Model.Operation
     {
     }

@@ -10,7 +10,7 @@ using SmartApp.Helpers.Bases;
 namespace OrdoMill.Data.Model
 {
     [Serializable]
-	[ImplementPropertyChanged]
+	[AddINotifyPropertyChangedInterface]
 	public  class Forme : EntityBase
 	{       
 		public string Name { get; set; }

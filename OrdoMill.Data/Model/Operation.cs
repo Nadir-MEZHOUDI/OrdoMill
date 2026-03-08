@@ -5,7 +5,7 @@ using SmartApp.Helpers.Bases;
 
 namespace OrdoMill.Data.Model
 {
-	[ImplementPropertyChanged]
+	[AddINotifyPropertyChangedInterface]
 	public class Operation:EntityBase
 	{
 		public string Name { get; set; }

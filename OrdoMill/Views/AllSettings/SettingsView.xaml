@@ -34,7 +34,7 @@
                     </StackPanel>
                 </Button>
                 <Label Grid.Row="1" Content="Item par page:" />
-                <controls:NumericUpDown Grid.Row="1"
+                <xctk:IntegerUpDown Grid.Row="1"
                                         Grid.Column="1"
                                         Value="{Binding PageSize}" />
             </Grid>

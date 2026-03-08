@@ -5,7 +5,7 @@ using PropertyChanged;
 
 namespace OrdoMill.Views.Home
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class LicenseViewModel : DialogContentViewModel
     {
         const string SuccessMessage = "‘ﬂ—« .. „ «· ”ÃÌ· »‰Ã«Õ ...";

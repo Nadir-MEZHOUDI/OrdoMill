@@ -6,7 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
              xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions;assembly=SmartApp.Helpers"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              Name="ThisIsVentView"
              d:DataContext="{Binding Source={StaticResource Locator},
@@ -342,7 +342,7 @@
                     <TextBlock Margin="0"
                                Foreground="{DynamicResource GrayBrush1}"
                                Text="{DynamicResource QuantiteD}" />
-                    <controls:NumericUpDown Grid.Column="1"
+                    <xctk:IntegerUpDown Grid.Column="1"
                                             MinWidth="100"
                                             VerticalAlignment="Center"
                                             controls:TextBoxHelper.SelectAllOnFocus="True"
@@ -362,7 +362,7 @@
                                Margin="0"
                                Foreground="{DynamicResource GrayBrush1}"
                                Text="PPA:" />
-                    <controls:NumericUpDown Grid.Column="3"
+                    <xctk:IntegerUpDown Grid.Column="3"
                                             MinWidth="100"
                                             Margin="0,0,5,0"
                                             VerticalAlignment="Center"
@@ -383,7 +383,7 @@
                             <services:AllowableCharactersTextBoxBehavior MaxLength="10" RegularExpression="^[0-9.]+$" />
                             <services:TextBoxInputBehavior InputMode="DecimalInput" />
                         </i:Interaction.Behaviors>-->
-                    </controls:NumericUpDown>
+                    </xctk:IntegerUpDown>
                     <Button Grid.Column="4"
                             Margin="5,0"
                             Command="{Binding SaveCommand}"

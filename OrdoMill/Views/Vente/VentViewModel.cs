@@ -20,7 +20,7 @@ using SmartApp.Helpers.Helpers;
 
 namespace OrdoMill.Views.Vente
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public sealed class VentViewModel : Repository<Data.Model.Ordonnance, VentView, VentView>
     {
         public VentViewModel()

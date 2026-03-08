@@ -8,7 +8,7 @@ using PropertyChanged;
 
 namespace OrdoMill.Services
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public sealed class StaticServices
     {
         public StaticServices()

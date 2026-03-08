@@ -9,7 +9,7 @@ using SmartApp.Helpers.Bases;
 namespace OrdoMill.Data.Model
 {
     [Serializable]
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public  class Medicament : EntityBase
     {    
         public string CnasId { get; set; }

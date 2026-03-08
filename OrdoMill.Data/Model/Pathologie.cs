@@ -6,7 +6,7 @@ using SmartApp.Helpers.Bases;
 namespace OrdoMill.Data.Model
 {
 	[Serializable]
-	[ImplementPropertyChanged]
+	[AddINotifyPropertyChangedInterface]
 	public  class Pathologie : EntityBase
 	{
 	    public string Code { get; set; }	

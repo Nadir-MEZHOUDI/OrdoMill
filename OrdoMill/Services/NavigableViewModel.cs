@@ -7,7 +7,7 @@ using UserControl = System.Windows.Controls.UserControl;
 
 namespace OrdoMill.Services
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class NavigableViewModel : ViewModelWithDialogs
     {
         protected NavigableViewModel()

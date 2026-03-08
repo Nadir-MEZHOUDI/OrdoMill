@@ -8,7 +8,7 @@ using SmartApp.Helpers.Helpers;
 
 namespace OrdoMill.Views.Users
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class UsersViewModel : Repository<User, UsersView, UsersView>
     {
         public override async Task SearchEx()

@@ -13,7 +13,7 @@ using MessageBox = System.Windows.MessageBox;
 
 namespace OrdoMill.Views.Medicaments
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class MedicamentsViewModel : Repository<Medicament, ShowMedicamentsView, MedicamentDetailsView>
     {
 

@@ -7,7 +7,7 @@ using PropertyChanged;
 
 namespace OrdoMill.Views.AllSettings
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class SettingsViewModel : NavigableViewModel
     {
         private int pageSize;

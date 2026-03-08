@@ -18,7 +18,7 @@ using Patient = OrdoMill.Dto.Patient;
 
 namespace OrdoMill.Views.Ordonnance
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class OrdonnanceViewModel : Repository<Data.Model.Ordonnance, ShowOrdonancesView, ShowOrdonancesView>
     {
         public OrdonnanceViewModel()

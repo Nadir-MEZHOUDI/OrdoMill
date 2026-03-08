@@ -9,7 +9,7 @@ namespace OrdoMill.Views.Home
     /// <summary>
     ///     Interaction logic for MainPage.xaml
     /// </summary>
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public partial class MainPage
     {
         public MainPage()

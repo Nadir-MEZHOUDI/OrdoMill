@@ -10,7 +10,7 @@ using System.Linq;
 namespace OrdoMill.Data.Model
 {
     [Serializable]
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
     public class Facture : EntityBase
     {
         public Facture()

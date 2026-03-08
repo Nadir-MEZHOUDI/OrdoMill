@@ -8,7 +8,7 @@ using SmartApp.Helpers.Helpers;
 
 namespace OrdoMill.Views.About
 {
-    [ImplementPropertyChanged]
+    [AddINotifyPropertyChangedInterface]
 	public sealed class  ContactUsViewModel : ViewModelBase
 	{
 		public EmailSender Sender { get; set; }
