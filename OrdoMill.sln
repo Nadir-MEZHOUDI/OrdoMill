@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 18
+VisualStudioVersion = 18.4.11519.219 insiders
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdoMill.Data", "OrdoMill.Data\OrdoMill.Data.csproj", "{75857EAA-DD66-43B8-BF7B-1CFD929FD1E9}"
 EndProject
@@ -10,6 +10,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartApp.Helpers", "..\SmartApp.Utils\SmartApp.Helpers\SmartApp.Helpers.csproj", "{F8DA29B5-0D4B-4B5F-8435-CE45BD73A5F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdoMill", "OrdoMill\OrdoMill.csproj", "{C5D5431B-0684-4777-A1DE-F7C39579CA54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5DDF47D0-564C-46F8-9BBF-A745F495CDFC}"
+	ProjectSection(SolutionItems) = preProject
+		FIXES_APPLIED.md = FIXES_APPLIED.md
+		Review_Report.md = Review_Report.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,5 +59,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0594C68D-07B4-4396-AD9A-4822F75F019B}
 	EndGlobalSection
 EndGlobal

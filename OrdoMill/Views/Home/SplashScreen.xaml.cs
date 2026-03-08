@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
-using GalaSoft.MvvmLight.Messaging;
-using GalaSoft.MvvmLight.Threading;
+using CommunityToolkit.Mvvm.Messaging;
+using System.Windows.Threading;
 using MahApps.Metro.Controls;
 using OrdoMill.Data.Model;
 using OrdoMill.Properties;
@@ -27,9 +27,9 @@ namespace OrdoMill.Views.Home
         {
             try
             {
-                await DispatcherHelper.RunAsync(CheckDb);
+                Dispatcher.Invoke(CheckDb);
                 ViewModelLocator.Instance.MainView.Show();
-                Messenger.Default.Send<MetroWindow>(ViewModelLocator.Instance.MainView);
+                WeakReferenceMessenger.Default.Send<MetroWindow>(ViewModelLocator.Instance.MainView);
             }
             catch (Exception ex)
             {

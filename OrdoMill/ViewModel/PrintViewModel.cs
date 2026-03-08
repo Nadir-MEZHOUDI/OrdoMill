@@ -1,5 +1,5 @@
 using System.Windows.Controls;
-using GalaSoft.MvvmLight.Command;
+using CommunityToolkit.Mvvm.Input;
 using OrdoMill.Services;
 using SmartApp.Helpers.Bases;
 using static OrdoMill.ViewModel.PrintHelper;
@@ -17,6 +17,6 @@ namespace OrdoMill.ViewModel
 		public RelayCommand<Grid> PrintCommand { get; set; }
 		public RelayCommand<Grid> QPrintCommand { get; set; }
 
-		public string Title => "Aperçu".GetString();
+		public string Title => "Aperï¿½u".GetString();
 	}
 }

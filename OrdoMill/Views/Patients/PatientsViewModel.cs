@@ -4,8 +4,8 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Threading.Tasks;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using OrdoMill.Data.Model;
 using OrdoMill.Services;
 using PropertyChanged;
@@ -20,8 +20,8 @@ namespace OrdoMill.Views.Patients
         {
             SelectedAssure = new Assure();
             ShowMeAndAddCommand = new RelayCommand<Assure>(async a => await ShowMeAddEx(a));
-            Messenger.Default.Register<Assure>(this, msg => SelectedAssure = msg);
-            Messenger.Default.Register<ObservableCollection<Assure>>(this, msg => AssuresList = msg);
+            WeakReferenceMessenger.Default.Register<Assure>(this, msg => SelectedAssure = msg);
+            WeakReferenceMessenger.Default.Register<ObservableCollection<Assure>>(this, msg => AssuresList = msg);
             SuspendCommand = new RelayCommand(async () => await SuspendEx(true));
             UnSuspendCommand = new RelayCommand(async () => await SuspendEx(false));
             ChangePatientNameCommand = new RelayCommand(() =>

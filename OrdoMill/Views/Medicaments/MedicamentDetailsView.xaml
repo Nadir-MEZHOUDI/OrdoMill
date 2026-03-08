@@ -2,6 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions;assembly=SmartApp.Helpers"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -112,12 +113,12 @@
                                Grid.Column="1"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
-                               IsChecked="{Binding SelectedItem.Remboursable,
+                               IsOn="{Binding SelectedItem.Remboursable,
                                                    Mode=TwoWay,
                                                    NotifyOnValidationError=True,
                                                    ValidatesOnDataErrors=True}"
-                               OffLabel="{DynamicResource No}"
-                               OnLabel="{DynamicResource Yes}" />
+                               OffContent="{DynamicResource No}"
+                               OnContent="{DynamicResource Yes}" />
         <Label Grid.Row="10"
                HorizontalAlignment="Left"
                VerticalAlignment="Center"
@@ -127,12 +128,12 @@
                                Grid.Column="1"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
-                               IsChecked="{Binding SelectedItem.Controle,
+                               IsOn="{Binding SelectedItem.Controle,
                                                    Mode=TwoWay,
                                                    NotifyOnValidationError=True,
                                                    ValidatesOnDataErrors=True}"
-                               OffLabel="{DynamicResource No}"
-                               OnLabel="{DynamicResource Yes}" />
+                               OffContent="{DynamicResource No}"
+                               OnContent="{DynamicResource Yes}" />
 
     </Grid>
 </UserControl>

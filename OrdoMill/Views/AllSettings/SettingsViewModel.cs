@@ -1,5 +1,5 @@
 ﻿using System;
-using GalaSoft.MvvmLight.Command;
+using CommunityToolkit.Mvvm.Input;
 using OrdoMill.Properties;
 using OrdoMill.Services;
 using OrdoMill.Views.DbConnector;

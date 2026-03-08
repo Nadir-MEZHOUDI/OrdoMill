@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using GalaSoft.MvvmLight.Command;
+using CommunityToolkit.Mvvm.Input;
 using OrdoMill.Data.Model;
 using OrdoMill.Properties;
 using OrdoMill.Services;
@@ -76,34 +76,6 @@ namespace OrdoMill.Views.Home
                             db.SaveChanges();
                         }
 
-                        return true;
-                    }
-                    ErrorMessage = "خطأ في كلمة المرور أو اسم المستخدم ";
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                ex.AppLogging();
-                return false;
-            }
-        }
-
-                        if (!user.IsWork)
-                        {
-                            ErrorMessage = "هذا الحساب موقف يرجى مراجعة المسؤول ";
-                            return false;
-                        }
-
-                        if (PasswordHasher.NeedsRehash(user.Password))
-                        {
-                            user.Password = PasswordHasher.HashPassword(Password);
-                            db.SaveChanges();
-                        }
-
-                        LoggedUser = user;
-                        Settings.Default.LastUser = user?.UserName;
-                        Settings.Default.Save();
                         return true;
                     }
                     ErrorMessage = "خطأ في كلمة المرور أو اسم المستخدم ";

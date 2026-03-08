@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using GalaSoft.MvvmLight.Messaging;
+using CommunityToolkit.Mvvm.Messaging;
 using OrdoMill.Data.Model;
 using OrdoMill.Services;
 using SmartApp.Helpers.Helpers;
@@ -35,7 +35,7 @@ namespace OrdoMill.Views.Specialities
         public override async Task SaveEx()
         {
             await base.SaveEx();
-            Messenger.Default.Send(new ObservableCollection<Pathologie>());
+            WeakReferenceMessenger.Default.Send(new ObservableCollection<Pathologie>());
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using GalaSoft.MvvmLight.Command;
+using CommunityToolkit.Mvvm.Input;
 using MahApps.Metro.Controls.Dialogs;
 using OrdoMill.Data.Model;
 using OrdoMill.Services;

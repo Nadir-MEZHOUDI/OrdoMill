@@ -1,15 +1,15 @@
 using System;
 using System.Threading.Tasks;
 using System.Windows;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using OrdoMill.Interfaces;
 using PropertyChanged;
 
 namespace OrdoMill.ViewModel
 {
     [AddINotifyPropertyChangedInterface]
-    public abstract class DialogContentViewModel : ViewModelBase, IDialogContentViewModel
+    public abstract class DialogContentViewModel : ObservableRecipient, IDialogContentViewModel
     {
         public RelayCommand ShowDialogIfNecessariesCommand { get; set; }
         public RelayCommand HideDialogIfPossibleCommand { get; set; }

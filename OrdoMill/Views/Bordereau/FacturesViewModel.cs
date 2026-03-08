@@ -5,8 +5,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using OrdoMill.Data.Model;
 using OrdoMill.Properties;
 using OrdoMill.Services;
@@ -21,9 +21,9 @@ namespace OrdoMill.Views.Bordereau
         public FacturesViewModel()
         {
             PrintFactureCommand = new RelayCommand(async () => await PrintFacturEx(), () => true);
-            Messenger.Default.Register<Data.Model.Info>(this, msg => PharmacieInfo = msg);
+            WeakReferenceMessenger.Default.Register<Data.Model.Info>(this, msg => PharmacieInfo = msg);
             ToBordereauCommand = new RelayCommand(ToBordereauEx);
-            Messenger.Default.Register<ObservableCollection<Data.Model.Bordereau>>(this,
+            WeakReferenceMessenger.Default.Register<ObservableCollection<Data.Model.Bordereau>>(this,
                 async msg => await RefreshBordereauxList());
         }
 
@@ -102,7 +102,7 @@ namespace OrdoMill.Views.Bordereau
         public override async Task SaveEx()
         {
             await base.SaveEx();
-            Messenger.Default.Send(new ObservableCollection<Facture>());
+            WeakReferenceMessenger.Default.Send(new ObservableCollection<Facture>());
         }
 
         private async Task<bool> GetPharmacieInfo()
@@ -128,7 +128,7 @@ namespace OrdoMill.Views.Bordereau
             if ((op.ShowDialog() == DialogResult.OK) && (SelectedItem != null))
             {
                 var controller =
-                    await ShowProgressMessage("Transformation de la Facture en Excel ...", "S'il vous plaît, attendez");
+                    await ShowProgressMessage("Transformation de la Facture en Excel ...", "S'il vous plaï¿½t, attendez");
                 controller.SetProgress(0);
                 try
                 {
@@ -148,7 +148,7 @@ namespace OrdoMill.Views.Bordereau
                         var val = v / 100;
 
                         controller.SetProgress(val);
-                        controller.SetMessage("S'il vous plaît, attendez \n" + v + " % ");
+                        controller.SetMessage("S'il vous plaï¿½t, attendez \n" + v + " % ");
                     });
 
                     var savePath = op.SelectedPath;

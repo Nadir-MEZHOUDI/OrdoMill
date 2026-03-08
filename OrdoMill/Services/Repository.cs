@@ -8,8 +8,8 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using GalaSoft.MvvmLight.CommandWpf;
-using GalaSoft.MvvmLight.Messaging;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using MahApps.Metro.Controls.Dialogs;
 using OrdoMill.Data.Model;
 using OrdoMill.Interfaces;
@@ -51,7 +51,7 @@ namespace OrdoMill.Services
             GoToHomePage = new RelayCommand(async () => await NavigateTo(typeof(THomeView)), () => !IsEditable);
             GoToDetailsPage = new RelayCommand<int>(async x => await GoToDetailsPageEx(x), UpdateCanEx);
             SearchPattern = "";
-            Messenger.Default.Register<Tuple<string, int>>(this, m =>
+            WeakReferenceMessenger.Default.Register<Tuple<string, int>>(this, m =>
             {
                 if (m.Item1 == "PageSize") PageSize = m.Item2;
             });

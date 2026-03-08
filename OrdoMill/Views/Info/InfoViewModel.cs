@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Threading.Tasks;
-using GalaSoft.MvvmLight.Messaging;
+using CommunityToolkit.Mvvm.Messaging;
 using OrdoMill.Services;
 using PropertyChanged;
 
@@ -42,7 +42,7 @@ namespace OrdoMill.Views.Info
                 {
                     SelectedItem.Id = 1;
                     await base.SaveEx();
-                    Messenger.Default.Send(SelectedItem);
+                    WeakReferenceMessenger.Default.Send(SelectedItem);
                 }
                 Locator.PharmacieInfo = SelectedItem;
                 Locator.Main.IsInfoFlyoutOpen = false;

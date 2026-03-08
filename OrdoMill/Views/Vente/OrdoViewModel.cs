@@ -6,8 +6,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Media;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using MahApps.Metro.Controls.Dialogs;
 using OrdoMill.Data.Model;
 using OrdoMill.Services;
@@ -150,7 +150,7 @@ namespace OrdoMill.Views.Vente
         {
             Vignettes = MedicamentsList?.Sum(med => med.Quantite) ?? 0;
             Total = MedicamentsList?.Sum(ord => ord.Ppa * ord.Quantite) ?? 0;
-            Messenger.Default.Send(MedicamentsList);
+            WeakReferenceMessenger.Default.Send(MedicamentsList);
             await Task.Delay(1);
         }
 

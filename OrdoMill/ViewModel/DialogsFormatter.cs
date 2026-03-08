@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Controls;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using OrdoMill.Interfaces;
@@ -20,7 +20,7 @@ namespace OrdoMill.ViewModel
         public DialogsFormatter(MetroDialogColorScheme colorScheme = MetroDialogColorScheme.Accented)
         {
 
-            Messenger.Default.Register<MetroWindow>(this, a =>
+            WeakReferenceMessenger.Default.Register<MetroWindow>(this, a =>
             {
                 ViewModel.ShowAction = async () => await a.ShowMetroDialogAsync(Dialog);
                 ViewModel.HideAction = async () => await a.HideMetroDialogAsync(Dialog);

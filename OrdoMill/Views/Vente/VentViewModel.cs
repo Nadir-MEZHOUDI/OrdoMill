@@ -7,8 +7,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Media;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using MahApps.Metro.Controls.Dialogs;
 using OrdoMill.Data.Model;
 using OrdoMill.Services;
@@ -50,8 +50,8 @@ namespace OrdoMill.Views.Vente
                 SearchMedecinsCommand = new RelayCommand(async () => await SearchMedecinsEx());
                 SearchClient = new RelayCommand(async () => await SearchClientEx(Matricule));
                 CheckPatient = new RelayCommand(async () => await CheckPatientEx());
-                Messenger.Default.Register<Data.Model.Ordonnance>(this, msg => { SelectedItem = msg; });
-                Messenger.Default.Register<ObservableCollection<MedOrd>>(this, msg =>
+                WeakReferenceMessenger.Default.Register<Data.Model.Ordonnance>(this, msg => { SelectedItem = msg; });
+                WeakReferenceMessenger.Default.Register<ObservableCollection<MedOrd>>(this, msg =>
                 {
                     if (SelectedItem != null)
                     {
@@ -59,7 +59,7 @@ namespace OrdoMill.Views.Vente
                         SelectedItem.Medicaments = msg;
                     }
                 });
-                Messenger.Default.Register<ObservableCollection<Pathologie>>(this, msg => Pathologies = msg);
+                WeakReferenceMessenger.Default.Register<ObservableCollection<Pathologie>>(this, msg => Pathologies = msg);
                 IsEditable = true;
                 IsFocused = true;
             }
@@ -199,7 +199,7 @@ namespace OrdoMill.Views.Vente
                             .ToListAsync());
 
             await RefreshFacturesList();
-            Messenger.Default.Register<ObservableCollection<Facture>>(this, async msg => await RefreshFacturesList());
+            WeakReferenceMessenger.Default.Register<ObservableCollection<Facture>>(this, async msg => await RefreshFacturesList());
         }
 
         private async Task AddOrUpdatePatientEx()

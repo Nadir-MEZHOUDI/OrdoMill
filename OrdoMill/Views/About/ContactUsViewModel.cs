@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using MahApps.Metro.Controls.Dialogs;
 using OrdoMill.Services;
 using PropertyChanged;
@@ -9,7 +9,7 @@ using SmartApp.Helpers.Helpers;
 namespace OrdoMill.Views.About
 {
     [AddINotifyPropertyChangedInterface]
-	public sealed class  ContactUsViewModel : ViewModelBase
+	public sealed class  ContactUsViewModel : ObservableObject
 	{
 		public EmailSender Sender { get; set; }
 

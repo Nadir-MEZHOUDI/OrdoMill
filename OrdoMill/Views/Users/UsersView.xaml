@@ -179,21 +179,21 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <cl:ToggleSwitchButton Grid.Column="1" IsChecked="{Binding SelectedItem.AllowAdd, Mode=TwoWay}" />
+                    <cl:ToggleSwitch Grid.Column="1" IsOn="{Binding SelectedItem.AllowAdd, Mode=TwoWay}" />
                     <Label Grid.Column="2" Content="{DynamicResource Edit}" />
-                    <cl:ToggleSwitchButton Grid.Column="3" IsChecked="{Binding SelectedItem.AllowUpdate, Mode=TwoWay}" />
+                    <cl:ToggleSwitch Grid.Column="3" IsOn="{Binding SelectedItem.AllowUpdate, Mode=TwoWay}" />
                     <Label Grid.Row="0" Content="{DynamicResource Addtxt}" />
                     <Label Grid.Row="1" Content="{DynamicResource Print}" />
-                    <cl:ToggleSwitchButton Grid.Row="1"
+                    <cl:ToggleSwitch Grid.Row="1"
                                            Grid.Column="1"
-                                           IsChecked="{Binding SelectedItem.AllowPrintDocs,
+                                           IsOn="{Binding SelectedItem.AllowPrintDocs,
                                                                Mode=TwoWay}" />
                     <Label Grid.Row="1"
                            Grid.Column="2"
                            Content="{DynamicResource Activé}" />
-                    <cl:ToggleSwitchButton Grid.Row="1"
+                    <cl:ToggleSwitch Grid.Row="1"
                                            Grid.Column="3"
-                                           IsChecked="{Binding SelectedItem.IsWork,
+                                           IsOn="{Binding SelectedItem.IsWork,
                                                                Mode=TwoWay}" />
                 </Grid>
             </GroupBox>

@@ -4,8 +4,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using OrdoMill.Services;
 using PropertyChanged;
 using SmartApp.Helpers.Helpers;
@@ -20,7 +20,7 @@ namespace OrdoMill.Views.Bordereau
             PrintFacturesCommand = new RelayCommand(async () => await PrintFactursEx(), CanPrint);
             PrintResumeCommand = new RelayCommand(async () => await PrintResumeEx(), CanPrint);
             PrintEtiquettesCommand = new RelayCommand(async () => await PrintEtiquettesEx(), CanPrint);
-            Messenger.Default.Register<Data.Model.Info>(this, msg => PharmacieInfo = msg);
+            WeakReferenceMessenger.Default.Register<Data.Model.Info>(this, msg => PharmacieInfo = msg);
         }
 
         private Data.Model.Info PharmacieInfo { get; set; }
@@ -34,7 +34,7 @@ namespace OrdoMill.Views.Bordereau
         public override async Task SaveEx()
         {
             await base.SaveEx();
-            Messenger.Default.Send(new ObservableCollection<Data.Model.Bordereau>());
+            WeakReferenceMessenger.Default.Send(new ObservableCollection<Data.Model.Bordereau>());
         }
 
         private async Task PrintResumeEx()

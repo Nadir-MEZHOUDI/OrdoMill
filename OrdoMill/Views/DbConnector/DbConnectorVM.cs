@@ -6,8 +6,8 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GalaSoft.MvvmLight.CommandWpf;
-using GalaSoft.MvvmLight.Ioc;
+using CommunityToolkit.Mvvm.Input;
+using Microsoft.Extensions.DependencyInjection;
 using OrdoMill.Data.Model;
 using OrdoMill.Properties;
 using OrdoMill.Services;
@@ -108,11 +108,6 @@ namespace OrdoMill.Views.DbConnector
         {
             try
             {
-                if (SimpleIoc.Default.IsRegistered<DbCon>())
-                    SimpleIoc.Default.Unregister<DbCon>();
-
-                SimpleIoc.Default.Register(() => new DbCon(Settings.Default.ConnectionString));
-
                 Settings.Default.ConnectionString = await BuildConnectionStr();
                 Settings.Default.Save();
                 await ShowMessage("تهانينا", "تم حفظ الإعدادات بنجاح");

@@ -1,9 +1,9 @@
+using System;
 using System.Windows;
 using AutoMapper;
-using GalaSoft.MvvmLight.Ioc;
-using GalaSoft.MvvmLight.Messaging;
+using CommunityToolkit.Mvvm.Messaging;
 using MahApps.Metro.Controls.Dialogs;
-using Microsoft.Practices.ServiceLocation;
+using Microsoft.Extensions.DependencyInjection;
 using OrdoMill.Data.Model;
 using OrdoMill.Interfaces;
 using OrdoMill.Properties;
@@ -32,108 +32,99 @@ namespace OrdoMill.ViewModel
     [AddINotifyPropertyChangedInterface]
     public class ViewModelLocator
     {
+        private static IServiceProvider _serviceProvider;
+        private static readonly object _lock = new object();
+
         static ViewModelLocator()
         {
-            //if (!SimpleIoc.Default.IsRegistered<EmailSender>())
-            //    SimpleIoc.Default.Register(() =>
-            //        new EmailSender("nadirelghazali@gmail.com", "pass",
-            //            Settings.Default.ClientEMail ?? "nadirelghazali@gmail.com"));
-            if (!SimpleIoc.Default.IsRegistered<IDialogCoordinator>())
+            var services = new ServiceCollection();
 
-                SimpleIoc.Default.Register(() => MahApps.Metro.Controls.Dialogs.DialogCoordinator.Instance);
+            services.AddSingleton<IDialogCoordinator>(DialogCoordinator.Instance);
+            services.AddTransient<DbCon>(sp => new DbCon(Settings.Default.ConnectionString));
+            services.AddSingleton<IMapper>(CreateMap);
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-            if (!SimpleIoc.Default.IsRegistered<DbCon>())
-                SimpleIoc.Default.Register(() => new DbCon(Settings.Default.ConnectionString));
+            services.AddTransient<MainPage>();
+            services.AddTransient<StaticServices>();
+            services.AddTransient<VentViewModel>();
+            services.AddTransient<MainViewModel>();
+            services.AddTransient<ClientsViewModel>();
+            services.AddTransient<MedecinsViewModel>();
+            services.AddTransient<PathologiesViewModel>();
+            services.AddTransient<MedicamentsViewModel>();
+            services.AddTransient<OrdonnanceViewModel>();
+            services.AddTransient<InfoViewModel>();
+            services.AddTransient<PatientsViewModel>();
+            services.AddTransient<OrdoViewModel>();
+            services.AddTransient<PrintViewModel>();
+            services.AddTransient<Ordonnance>();
+            services.AddTransient<ChangeThemeVm>();
+            services.AddTransient<UsersViewModel>();
+            services.AddTransient<FacturesViewModel>();
+            services.AddTransient<BordereauxViewModel>();
+            services.AddTransient<ContactUsViewModel>();
+            services.AddTransient<LicenseViewModel>();
+            services.AddTransient<IDatabaseService, DatabaseService>();
+            services.AddTransient<DbConnectorVm>();
+            services.AddTransient<SettingsViewModel>();
+            services.AddTransient<StatisticsViewModel>();
 
-            if (!SimpleIoc.Default.IsRegistered<IMapper>())
-                SimpleIoc.Default.Register(CreatMap);
-
-            if (!SimpleIoc.Default.IsRegistered<IUnitOfWork>())
-                SimpleIoc.Default.Register<IUnitOfWork, UnitOfWork>();
-
-            SimpleIoc.Default.Register<MainPage>();
-            SimpleIoc.Default.Register<StaticServices>();
-            SimpleIoc.Default.Register<VentViewModel>();
-            SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<ClientsViewModel>();
-            SimpleIoc.Default.Register<MedecinsViewModel>();
-            SimpleIoc.Default.Register<PathologiesViewModel>();
-            SimpleIoc.Default.Register<MedicamentsViewModel>();
-            SimpleIoc.Default.Register<OrdonnanceViewModel>();
-            SimpleIoc.Default.Register<InfoViewModel>();
-            SimpleIoc.Default.Register<PatientsViewModel>();
-            SimpleIoc.Default.Register<OrdoViewModel>();
-            SimpleIoc.Default.Register<PrintViewModel>();
-            SimpleIoc.Default.Register<Ordonnance>();
-            SimpleIoc.Default.Register<ChangeThemeVm>();
-            SimpleIoc.Default.Register<UsersViewModel>();
-            SimpleIoc.Default.Register<FacturesViewModel>();
-            SimpleIoc.Default.Register<BordereauxViewModel>();
-            SimpleIoc.Default.Register<ContactUsViewModel>();
-            SimpleIoc.Default.Register<LicenseViewModel>();
-            SimpleIoc.Default.Register<IDatabaseService, DatabaseService>();
-            SimpleIoc.Default.Register<DbConnectorVm>();
-            SimpleIoc.Default.Register<SettingsViewModel>();
-            SimpleIoc.Default.Register<StatisticsViewModel>();
+            _serviceProvider = services.BuildServiceProvider();
         }
 
         public ViewModelLocator()
         {
-            Messenger.Default?.Register<Ordonnance>(this, msg => SelectedOrdonnance = msg);
+            WeakReferenceMessenger.Default?.Register<Data.Model.Ordonnance>(this, (r, msg) => SelectedOrdonnance = msg);
         }
 
-        public IMapper Mapper => ServiceLocator.Current.GetInstance<IMapper>();
-
-
-        //public EmailSender EmailSender => ServiceLocator.Current.GetInstance<EmailSender>();
+        public IMapper Mapper => _serviceProvider.GetRequiredService<IMapper>();
 
         public static ViewModelLocator Instance => Application.Current.Resources["Locator"] as ViewModelLocator;
 
-        public StaticServices StaticServices => ServiceLocator.Current.GetInstance<StaticServices>();
+        public StaticServices StaticServices => _serviceProvider.GetRequiredService<StaticServices>();
 
-        public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
+        public MainViewModel Main => _serviceProvider.GetRequiredService<MainViewModel>();
 
-        public ClientsViewModel ClientViewModel => ServiceLocator.Current.GetInstance<ClientsViewModel>();
+        public ClientsViewModel ClientViewModel => _serviceProvider.GetRequiredService<ClientsViewModel>();
 
-        public MedecinsViewModel MedecinsViewModel => ServiceLocator.Current.GetInstance<MedecinsViewModel>();
+        public MedecinsViewModel MedecinsViewModel => _serviceProvider.GetRequiredService<MedecinsViewModel>();
 
-        public PathologiesViewModel PathologiesViewModel => ServiceLocator.Current.GetInstance<PathologiesViewModel>();
+        public PathologiesViewModel PathologiesViewModel => _serviceProvider.GetRequiredService<PathologiesViewModel>();
 
-        public MedicamentsViewModel MedicamentsViewModel => ServiceLocator.Current.GetInstance<MedicamentsViewModel>();
+        public MedicamentsViewModel MedicamentsViewModel => _serviceProvider.GetRequiredService<MedicamentsViewModel>();
 
-        public VentViewModel VentViewModel => ServiceLocator.Current.GetInstance<VentViewModel>();
+        public VentViewModel VentViewModel => _serviceProvider.GetRequiredService<VentViewModel>();
 
-        public OrdonnanceViewModel OrdonancesViewModel => ServiceLocator.Current.GetInstance<OrdonnanceViewModel>();
+        public OrdonnanceViewModel OrdonancesViewModel => _serviceProvider.GetRequiredService<OrdonnanceViewModel>();
 
-        public InfoViewModel InfoViewModel => ServiceLocator.Current.GetInstance<InfoViewModel>();
+        public InfoViewModel InfoViewModel => _serviceProvider.GetRequiredService<InfoViewModel>();
 
-        public PatientsViewModel PatientsViewModel => ServiceLocator.Current.GetInstance<PatientsViewModel>();
-     
-        public IDialogCoordinator DialogCoordinator => ServiceLocator.Current.GetInstance<IDialogCoordinator>();
+        public PatientsViewModel PatientsViewModel => _serviceProvider.GetRequiredService<PatientsViewModel>();
+      
+        public IDialogCoordinator DialogCoordinator => _serviceProvider.GetRequiredService<IDialogCoordinator>();
 
-        public UsersViewModel UsersViewModel => ServiceLocator.Current.GetInstance<UsersViewModel>();
+        public UsersViewModel UsersViewModel => _serviceProvider.GetRequiredService<UsersViewModel>();
 
-        public ContactUsViewModel ContactUsViewModel => ServiceLocator.Current.GetInstance<ContactUsViewModel>();
+        public ContactUsViewModel ContactUsViewModel => _serviceProvider.GetRequiredService<ContactUsViewModel>();
 
-        public Info PharmacieInfo { get; set; }
+        public Data.Model.Info PharmacieInfo { get; set; }
 
-        public Ordonnance SelectedOrdonnance { get; set; }
+        public Data.Model.Ordonnance SelectedOrdonnance { get; set; }
 
-        public PatientsViewModel VentPatientsViewModel => ServiceLocator.Current.GetInstance<PatientsViewModel>("Vent");
+        public PatientsViewModel VentPatientsViewModel => _serviceProvider.GetRequiredService<PatientsViewModel>();
 
-        public ClientsViewModel VentClientsViewModel => ServiceLocator.Current.GetInstance<ClientsViewModel>("Vent");
+        public ClientsViewModel VentClientsViewModel => _serviceProvider.GetRequiredService<ClientsViewModel>();
 
-        public MedicamentsViewModel VentMedicamentViewModel
-            => ServiceLocator.Current.GetInstance<MedicamentsViewModel>("Vent");
+        public MedicamentsViewModel VentMedicamentViewModel => _serviceProvider.GetRequiredService<MedicamentsViewModel>();
 
-        public DbConnectorVm DbConnectorVm => ServiceLocator.Current.GetInstance<DbConnectorVm>();
-        public MainPage MainView => ServiceLocator.Current.GetInstance<MainPage>();
-        public SettingsViewModel SettingsViewModel => ServiceLocator.Current.GetInstance<SettingsViewModel>();
-        public StatisticsViewModel StatisticsViewModel => ServiceLocator.Current.GetInstance<StatisticsViewModel>();
-        public BordereauxViewModel BordereauxViewModel => ServiceLocator.Current.GetInstance<BordereauxViewModel>();
-        public FacturesViewModel FacturesViewModel => ServiceLocator.Current.GetInstance<FacturesViewModel>();
+        public DbConnectorVm DbConnectorVm => _serviceProvider.GetRequiredService<DbConnectorVm>();
+        public MainPage MainView => _serviceProvider.GetRequiredService<MainPage>();
+        public SettingsViewModel SettingsViewModel => _serviceProvider.GetRequiredService<SettingsViewModel>();
+        public StatisticsViewModel StatisticsViewModel => _serviceProvider.GetRequiredService<StatisticsViewModel>();
+        public BordereauxViewModel BordereauxViewModel => _serviceProvider.GetRequiredService<BordereauxViewModel>();
+        public FacturesViewModel FacturesViewModel => _serviceProvider.GetRequiredService<FacturesViewModel>();
 
-        private static IMapper CreatMap()
+        private static IMapper CreateMap()
         {
             var config = new MapperConfiguration(cfg =>
             {

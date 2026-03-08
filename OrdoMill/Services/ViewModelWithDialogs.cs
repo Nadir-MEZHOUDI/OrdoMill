@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
-using GalaSoft.MvvmLight;
+using CommunityToolkit.Mvvm.ComponentModel;
 using MahApps.Metro.Controls.Dialogs;
 using OrdoMill.Annotations;
 using PropertyChanged;
@@ -12,7 +12,7 @@ using PropertyChanged;
 namespace OrdoMill.Services
 {
     [AddINotifyPropertyChangedInterface]
-    public class ViewModelWithDialogs : ViewModelBase, INotifyPropertyChanged
+    public class ViewModelWithDialogs : ObservableObject, INotifyPropertyChanged
     {       
         #region Messages Implementation
         protected async Task<MessageDialogResult> ShowMessage(object context, string title, string message, MessageDialogStyle style = MessageDialogStyle.Affirmative, MetroDialogSettings settings = null)

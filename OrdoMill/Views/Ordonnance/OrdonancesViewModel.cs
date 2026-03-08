@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using GalaSoft.MvvmLight.Command;
+using CommunityToolkit.Mvvm.Input;
 using LinqKit;
 using MahApps.Metro.Controls.Dialogs;
 using OrdoMill.Data.Model;

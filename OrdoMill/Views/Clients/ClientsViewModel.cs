@@ -4,8 +4,8 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Threading.Tasks;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using OrdoMill.Data.Model;
 using OrdoMill.Services;
 using PropertyChanged;
@@ -107,7 +107,7 @@ namespace OrdoMill.Views.Clients
                 if (Locator.VentViewModel.Matricule == SelectedItem.Matricule)
                     await Locator.VentViewModel?.SearchClientEx(SelectedItem.Matricule);
                 await SearchEx();
-                Messenger.Default.Send(new ObservableCollection<Assure>());
+                WeakReferenceMessenger.Default.Send(new ObservableCollection<Assure>());
             }
             catch (Exception ex)
             {
