@@ -1,0 +1,24 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Resources" #>
+<#@ import namespace="System.Globalization" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Reflection" #>
+<#@ assembly name="F:\New SmartApp Folder\OrdoMill\OrdoMill.Resources\bin\Debug\OrdoMill.GlobalResources.dll" #>
+<#@ output extension=".cs" #>
+ namespace OrdoMill.GlobalResources.Res
+{
+    public  enum ResEnum
+        {<#  
+         var resourceSet =Application.Current.Resources.MergedDictionaries.Where(x=>x.Source.ToString() == "Icons.xaml");
+        foreach (var entry in resourceSet)
+        { #> 				<#=entry.ToString() #> ,
+			   <# } #> 
+        }
+}
+    
+    
+
+    

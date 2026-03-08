@@ -1,0 +1,184 @@
+﻿<UserControl x:Class="OrdoMill.Views.Specialities.SpecialitesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:command="http://www.galasoft.ch/mvvmlight"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions;assembly=SmartApp.Helpers"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:shared="clr-namespace:OrdoMill.Views.Shared"
+             d:DesignHeight="500"
+             d:DesignWidth="1000"
+             dialog:DialogParticipation.Register="{Binding}"
+             DataContext="{Binding PathologiesViewModel,
+                                   Source={StaticResource Locator}}"
+             Style="{DynamicResource CustomUserControl}"
+             mc:Ignorable="d">
+    <UserControl.InputBindings>
+        <KeyBinding Key="S"
+                    Command="{Binding SaveCommand}"
+                    Modifiers="Control" />
+        <KeyBinding Key="N"
+                    Command="{Binding AddCommand}"
+                    Modifiers="Ctrl" />
+        <KeyBinding Key="Delete" Command="{Binding DeleteCommand}" />
+        <KeyBinding Key="Escape" Command="{Binding CancelCommand}" />
+
+        <KeyBinding Key="U"
+                    Command="{Binding DeleteCommand}"
+                    Modifiers="Control" />
+    </UserControl.InputBindings>
+    <Grid extensions:MarginSetter.Margin="3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <WrapPanel>
+            <WrapPanel.Resources>
+                <ResourceDictionary Source="../../Resources/Styles/BarButtonsStyle.xaml" />
+            </WrapPanel.Resources>
+
+            <Button Command="{Binding AddCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Add}" />
+                    <TextBlock Text="{DynamicResource Addtxt}" />
+                </StackPanel>
+            </Button>
+
+            <Button Command="{Binding UpdateCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Editor}" />
+                    <TextBlock Text="{DynamicResource Edit}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding DeleteCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Recycle-Bin}" />
+                    <TextBlock Text="{DynamicResource Del}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding SaveCommand}" CommandParameter="{Binding SelectedItem.Id}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Save}" />
+                    <TextBlock Text="{DynamicResource SaveTxt}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding CancelCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Cancel}" />
+                    <TextBlock Text="{DynamicResource Canceltxt}" />
+                </StackPanel>
+            </Button>
+        </WrapPanel>
+        <Grid Grid.Row="1"
+              DataContext="{Binding Source={StaticResource Locator},
+                                    Path=PathologiesViewModel.SelectedItem}"
+              IsEnabled="{Binding Source={StaticResource Locator},
+                                  Path=PathologiesViewModel.IsEditable}"
+              Visibility="{Binding Source={StaticResource Locator},
+                                   Path=PathologiesViewModel.IsEditable,
+                                   Converter={StaticResource VisibileToCollapsedConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Label HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Content="{DynamicResource NumD}" />
+            <TextBox Grid.Column="1"
+                     VerticalAlignment="Center"
+                     Text="{Binding Code,
+                                    Mode=TwoWay}"
+                     TextAlignment="Center" />
+            <Label Grid.Column="2"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Content="{DynamicResource Pathologie}" />
+            <TextBox Grid.Column="3"
+                     VerticalAlignment="Center"
+                     Text="{Binding Nom}" />
+        </Grid>
+
+        <TextBox Grid.Row="2"
+                 controls:TextBoxHelper.ClearTextButton="True"
+                 controls:TextBoxHelper.Watermark="{DynamicResource SearchWatermark}"
+                 CharacterCasing="Upper"
+                 IsEnabled="{Binding IsEditable,
+                                     Converter={StaticResource BoolInverser}}"
+                 Text="{Binding Path=SearchPattern,
+                                UpdateSourceTrigger=PropertyChanged,
+                                Mode=TwoWay}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="TextChanged">
+                    <command:EventToCommand Command="{Binding SearchCommand, UpdateSourceTrigger=PropertyChanged}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </TextBox>
+
+        <DataGrid Grid.Row="3"
+                  ItemsSource="{Binding ListToDisplay}"
+                  SelectedValue="{Binding SelectedItem}">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Binding="{Binding Code}" Header="{DynamicResource Code}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ContentControl Width="30"
+                                            Height="30"
+                                            Margin="15,0"
+                                            Content="{DynamicResource HeartEcg}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Nom,
+                                                      Mode=OneWay}"
+                                    FontSize="15"
+                                    FontWeight="Bold"
+                                    Header="{DynamicResource Specialite}" />
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <WrapPanel Background="Transparent" Visibility="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsMouseOver, Converter={StaticResource VisibileToHiddenConverter}}">
+                                <WrapPanel.Resources>
+                                    <ResourceDictionary Source="../../Resources/Styles/BarButtonsStyle.xaml" />
+                                </WrapPanel.Resources>
+                                <Button Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.AddCommand}">
+                                    <ContentControl Content="{DynamicResource Add}" />
+                                </Button>
+
+                                <Button Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.UpdateCommand}" CommandParameter="{Binding Id}">
+                                    <ContentControl Content="{DynamicResource Editor}" />
+                                </Button>
+                                <Button Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.DeleteCommand}" CommandParameter="{Binding Id}">
+                                    <ContentControl Content="{DynamicResource Recycle-Bin}" />
+                                </Button>
+                                <Button Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.GoToDetailsPage}" CommandParameter="{Binding Id}">
+                                    <ContentControl Content="{DynamicResource Preview}" />
+                                </Button>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <shared:Pagenation Grid.Row="4" />
+
+    </Grid>
+</UserControl>

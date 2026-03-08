@@ -1,0 +1,166 @@
+﻿<controls:MetroWindow x:Class="OrdoMill.Views.Home.MainPage"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+                      xmlns:home="clr-namespace:OrdoMill.Views.Home"
+                      xmlns:info="clr-namespace:OrdoMill.Views.Info"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:themeChanger="clr-namespace:OrdoMill.Views.ThemeChanger"
+                      Title="OrdoMill"
+                      dialog:DialogParticipation.Register="{Binding}"
+                      Closing="MetroWindow_Closing"
+                      DataContext="{Binding Source={StaticResource Locator},
+                                            Path=Main}"
+                      Icon="../../Resources/Icons/OrdoMill.ico"
+                      MouseDown="Window_MouseDown"
+                      ResizeMode="CanResizeWithGrip"
+                      ShowIconOnTitleBar="False"
+                      Style="{StaticResource CustomWindow}"
+                      TextOptions.TextFormattingMode="Ideal"
+                      TextOptions.TextRenderingMode="ClearType"
+                      WindowState="Maximized"
+                      WindowTitleBrush="{DynamicResource GrayBrush1}"
+                      mc:Ignorable="d">
+    <controls:MetroWindow.TitleTemplate>
+        <DataTemplate>
+            <TextBlock Width="{Binding ElementName=SideBarGrid,
+                                       Path=ActualWidth,
+                                       UpdateSourceTrigger=PropertyChanged,
+                                       Mode=OneWay}"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Stretch"
+                       Background="{DynamicResource AccentColorBrush}"
+                       FontFamily="MicroMieps Phat"
+                       FontSize="22"
+                       FontStyle="Italic"
+                       FontWeight="Bold"
+                       Foreground="{DynamicResource WhiteColorBrush}"
+                       Text="SmartApp"
+                       TextAlignment="Center"
+                       TextTrimming="CharacterEllipsis" />
+        </DataTemplate>
+    </controls:MetroWindow.TitleTemplate>
+    <controls:MetroWindow.IconTemplate>
+        <DataTemplate>
+            <Image Width="0" />
+        </DataTemplate>
+    </controls:MetroWindow.IconTemplate>
+    <controls:MetroWindow.InputBindings>
+        <KeyBinding Key="Space"
+                    Command="{Binding ChangeLngCommand}"
+                    Modifiers="Windows" />
+        <KeyBinding Key="Space"
+                    Command="{Binding LoginDialog.ShowDialogIfNecessariesCommand}"
+                    Modifiers="Ctrl" />
+    </controls:MetroWindow.InputBindings>
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            <ToggleButton IsChecked="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:MetroWindow}}, Path=IgnoreTaskbarOnMaximize}">
+                <WrapPanel>
+                    <ContentControl Width="20"
+                                    Height="20"
+                                    Margin="5,0"
+                                    Background="{DynamicResource WhiteBrush}"
+                                    Content="{DynamicResource Check-02}" />
+                    <TextBlock Text="FullScreen" />
+                </WrapPanel>
+            </ToggleButton>
+
+            <Button Margin="5,0"
+                    Command="{Binding OpenChangeThemeFlyout}"
+                    FlowDirection="LeftToRight">
+                <WrapPanel>
+                    <ContentControl Width="20"
+                                    Height="20"
+                                    Margin="5,0"
+                                    Background="{DynamicResource WhiteBrush}"
+                                    Content="{DynamicResource Men-T-Shirt-01}" />
+                    <TextBlock Text="{DynamicResource Apparence}" />
+                </WrapPanel>
+            </Button>
+            <Button Margin="5,0" Command="{Binding Source={StaticResource Locator}, Path=Main.LoginDialog.ViewModel.LogOutCommand}">
+                <WrapPanel>
+                    <ContentControl Width="20"
+                                    Height="20"
+                                    Margin="5,0"
+                                    Background="{DynamicResource WhiteBrush}"
+                                    Content="{DynamicResource Sign-Up-02}" />
+                    <TextBlock Text="{DynamicResource Logout}" />
+                </WrapPanel>
+            </Button>
+            <Button Margin="5,0"
+                    Command="{Binding OpenInfoFlyoutCommand}"
+                    Visibility="{Binding Locator.Main.LoginDialog.ViewModel.LoggedUser.IsAdmin,
+                                         Converter={StaticResource VisibileToCollapsedConverter}}">
+                <WrapPanel>
+                    <ContentControl Width="20"
+                                    Height="20"
+                                    Margin="5,0"
+                                    Background="{DynamicResource WhiteBrush}"
+                                    Content="{DynamicResource CircleInfo02}" />
+                    <TextBlock Text="{DynamicResource Pharmacie}" />
+                </WrapPanel>
+            </Button>
+            <Button Margin="5,0"
+                    Command="{Binding ChangeLngCommand}"
+                    FlowDirection="LeftToRight">
+                <WrapPanel>
+                    <ContentControl Width="20"
+                                    Height="20"
+                                    Margin="5,0"
+                                    Background="{DynamicResource WhiteBrush}"
+                                    Content="{DynamicResource LngIcon}" />
+                    <TextBlock Text="{DynamicResource LangueName}" />
+                </WrapPanel>
+            </Button>
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+    <controls:MetroWindow.Flyouts>
+        <controls:FlyoutsControl>
+            <controls:Flyout Header="{DynamicResource Apparence}"
+                             IsOpen="{Binding IsChngThemeFlyoutOpen}"
+                             IsPinned="False"
+                             Position="Right"
+                             Theme="Accent">
+                <themeChanger:ChangeThemeView />
+            </controls:Flyout>
+
+            <controls:Flyout Header="{DynamicResource Info}"
+                             IsOpen="{Binding IsInfoFlyoutOpen}"
+                             IsPinned="False"
+                             Position="Right"
+                             Theme="Accent">
+                <info:InfoView />
+            </controls:Flyout>
+        </controls:FlyoutsControl>
+    </controls:MetroWindow.Flyouts>
+    <Grid Margin="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Viewbox Name="SideBarGrid"
+                 Grid.RowSpan="2"
+                 Margin="0">
+            <home:SideBar Margin="0" />
+        </Viewbox>
+        <ContentControl Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="White"
+                        Content="{Binding CurrentView}"
+                        DataContext="{Binding Source={StaticResource Locator},
+                                              Path=StaticServices}"
+                        IsTabStop="False" />
+
+    </Grid>
+</controls:MetroWindow>

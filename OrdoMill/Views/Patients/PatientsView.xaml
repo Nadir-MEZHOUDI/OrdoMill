@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="OrdoMill.Views.Patients.PatientsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions;assembly=SmartApp.Helpers"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="700"
+             d:DesignWidth="1000"
+             dialog:DialogParticipation.Register="{Binding}"
+             DataContext="{Binding Source={StaticResource Locator},
+                                   Path=PatientsViewModel}"
+             Style="{DynamicResource CustomUserControl}"
+             mc:Ignorable="d">
+    <UserControl.InputBindings>
+        <KeyBinding Key="S"
+                    Command="{Binding SaveCommand}"
+                    Modifiers="Control" />
+        <KeyBinding Key="N"
+                    Command="{Binding AddCommand}"
+                    Modifiers="Ctrl" />
+        <KeyBinding Key="Delete" Command="{Binding DeleteCommand}" />
+        <KeyBinding Key="Escape" Command="{Binding CancelCommand}" />
+
+        <KeyBinding Key="U"
+                    Command="{Binding DeleteCommand}"
+                    Modifiers="Control" />
+    </UserControl.InputBindings>
+    <Grid extensions:MarginSetter.Margin="3">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <WrapPanel>
+            <WrapPanel.Resources>
+                <ResourceDictionary Source="../../Resources/Styles/BarButtonsStyle.xaml" />
+            </WrapPanel.Resources>
+            <Button Command="{Binding GoToHomePage}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource ListIcon}" />
+                    <TextBlock Text="{DynamicResource ShowPatientsList}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding AddCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Add}" />
+                    <TextBlock Text="{DynamicResource Addtxt}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding GoToDetailsPage}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource User-Profile}" />
+                    <TextBlock Text="{DynamicResource DetailsText}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding UpdateCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Editor}" />
+                    <TextBlock Text="{DynamicResource Edit}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding DeleteCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Recycle-Bin}" />
+                    <TextBlock Text="{DynamicResource Del}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding SaveCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Save}" />
+                    <TextBlock Text="{DynamicResource SaveTxt}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding CancelCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Cancel}" />
+                    <TextBlock Text="{DynamicResource Canceltxt}" />
+                </StackPanel>
+            </Button>
+        </WrapPanel>
+        <ContentControl Grid.Row="1" Content="{Binding Path=CurrentPage}" />
+    </Grid>
+</UserControl>

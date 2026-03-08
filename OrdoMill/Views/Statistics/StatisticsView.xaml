@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="OrdoMill.Views.Statistics.StatisticsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:metroChart="clr-namespace:De.TorstenMandelkow.MetroChart;assembly=De.TorstenMandelkow.MetroChart"
+             d:DesignHeight="600"
+             d:DesignWidth="1300"
+             DataContext="{Binding Source={StaticResource Locator},
+                                   Path=StatisticsViewModel}"
+             Style="{DynamicResource CustomUserControl}"
+             mc:Ignorable="d">
+    <TabControl ItemsSource="{Binding Charts}">
+        <TabControl.ItemTemplate>
+            <!--  this is the header template  -->
+            <DataTemplate>
+                <TextBlock Text="{Binding Title}" />
+            </DataTemplate>
+        </TabControl.ItemTemplate>
+        <TabControl.ContentTemplate>
+            <!--  this is the body of the TabItem template  -->
+            <DataTemplate>
+                <metroChart:ClusteredColumnChart ChartSubTitle="{Binding SubTitle}" ChartTitle="{Binding Title}">
+                    <metroChart:ClusteredColumnChart.Series>
+                        <metroChart:ChartSeries DisplayMember="Name"
+                                                ItemsSource="{Binding Series}"
+                                                SeriesTitle="{Binding Title}"
+                                                ValueMember="Count" />
+                    </metroChart:ClusteredColumnChart.Series>
+                </metroChart:ClusteredColumnChart>
+            </DataTemplate>
+        </TabControl.ContentTemplate>
+    </TabControl>
+    <!--<TabControl ItemsSource="{Binding Charts}">
+        <TabItem DataContext="{Binding Chart}" Header="{DynamicResource MedicamentsTxt}">
+            <ScrollViewer HorizontalScrollBarVisibility="Visible">
+                <metroCharts:ClusteredColumnChart ChartSubTitle="{Binding SubTitle}" ChartTitle="{Binding Title}">
+                    <metroCharts:ClusteredColumnChart.Series>
+                        <metroCharts:ChartSeries DisplayMember="Name"
+                                                 ItemsSource="{Binding Series}"
+                                                 SeriesTitle="{Binding Title}"
+                                                 ValueMember="Count" />
+                    </metroCharts:ClusteredColumnChart.Series>
+                </metroCharts:ClusteredColumnChart>
+            </ScrollViewer>
+        </TabItem>
+
+        <TabItem Header="{DynamicResource Assure}">
+            <metroCharts:ClusteredBarChart ChartSubTitle="Population in millions" ChartTitle="Countries by population">
+                <metroCharts:ClusteredBarChart.Series>
+                    <metroCharts:ChartSeries DisplayMember="Name"
+                                             ItemsSource="{Binding Series}"
+                                             SeriesTitle="Les Medicament par order"
+                                             ValueMember="Count" />
+                </metroCharts:ClusteredBarChart.Series>
+            </metroCharts:ClusteredBarChart>
+        </TabItem>
+
+    </TabControl>-->
+</UserControl>

@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="OrdoMill.Views.Ordonnance.OrdonancesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions;assembly=SmartApp.Helpers"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ordonnance="clr-namespace:OrdoMill.Views.Ordonnance"
+             d:DesignHeight="500"
+             d:DesignWidth="1200"
+             dialog:DialogParticipation.Register="{Binding}"
+             DataContext="{Binding Source={StaticResource Locator},
+                                   Path=OrdonancesViewModel}"
+             Style="{DynamicResource CustomUserControl}"
+             mc:Ignorable="d">
+    <UserControl.InputBindings>
+        <KeyBinding Key="S"
+                    Command="{Binding SaveCommand}"
+                    Modifiers="Control" />
+        <KeyBinding Key="N"
+                    Command="{Binding AddCommand}"
+                    Modifiers="Ctrl" />
+        <KeyBinding Key="Delete" Command="{Binding DeleteCommand}" />
+        <KeyBinding Key="Escape" Command="{Binding CancelCommand}" />
+
+        <KeyBinding Key="U"
+                    Command="{Binding DeleteCommand}"
+                    Modifiers="Control" />
+    </UserControl.InputBindings>
+    <Grid extensions:MarginSetter.Margin="3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.ColumnSpan="3">
+            <WrapPanel.Resources>
+                <ResourceDictionary Source="../../Resources/Styles/BarButtonsStyle.xaml" />
+            </WrapPanel.Resources>
+            <Button Command="{Binding CocherTousCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Check-03}" />
+                    <TextBlock Text="{DynamicResource CheckTous}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding DecocherTousCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource UnChekdeBox}" />
+                    <TextBlock Text="{DynamicResource UnCheckTous}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding RefreshCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource RefreshIco}" />
+                    <TextBlock Text="{DynamicResource Refresh}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding CheckCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Check-02}" />
+                    <TextBlock Text="{DynamicResource Check}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding ClôturerCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource ClôturerIcon}" />
+                    <TextBlock Text="{DynamicResource Clôturer}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding AddCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Add}" />
+                    <TextBlock Text="{DynamicResource Addtxt}" />
+                </StackPanel>
+            </Button>
+
+            <Button Command="{Binding UpdateCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Editor}" />
+                    <TextBlock Text="{DynamicResource Edit}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding DeleteCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Recycle-Bin}" />
+                    <TextBlock Text="{DynamicResource Del}" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding ShowDetailsCommand}">
+                <StackPanel>
+                    <ContentControl Content="{DynamicResource Preview}" />
+                    <TextBlock Text="{DynamicResource Apercu}" />
+                </StackPanel>
+            </Button>
+        </WrapPanel>
+        <Popup>
+            <GroupBox>
+                <ListBox Foreground="Red" ItemsSource="{Binding SelectedItem.Problems}" />
+            </GroupBox>
+        </Popup>
+        <ordonnance:ShowOrdonancesView Grid.Row="1" DataContext="{Binding OrdonancesViewModel, Source={StaticResource Locator}}" />
+    </Grid>
+</UserControl>

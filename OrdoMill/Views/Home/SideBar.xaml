@@ -1,0 +1,391 @@
+﻿<UserControl x:Class="OrdoMill.Views.Home.SideBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:about="clr-namespace:OrdoMill.Views.About"
+             xmlns:archive="clr-namespace:OrdoMill.Views.Bordereau"
+             xmlns:clients="clr-namespace:OrdoMill.Views.Clients"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:designTime="clr-namespace:OrdoMill.Views.ImportData"
+             xmlns:local="clr-namespace:OrdoMill.Views.Home"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:medecins="clr-namespace:OrdoMill.Views.Medecins"
+             xmlns:medicaments="clr-namespace:OrdoMill.Views.Medicaments"
+             xmlns:ordonnance="clr-namespace:OrdoMill.Views.Ordonnance"
+             xmlns:patients1="clr-namespace:OrdoMill.Views.Patients"
+             xmlns:settings="clr-namespace:OrdoMill.Views.AllSettings"
+             xmlns:specialities="clr-namespace:OrdoMill.Views.Specialities"
+             xmlns:statistics="clr-namespace:OrdoMill.Views.Statistics"
+             xmlns:users="clr-namespace:OrdoMill.Views.Users"
+             xmlns:vente="clr-namespace:OrdoMill.Views.Vente"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="AutoHideGrid" TargetType="{x:Type Grid}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Duration="0:0:0.100"
+                                                 Storyboard.TargetProperty="Width"
+                                                 To="125" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Duration="0:0:0.100"
+                                                 Storyboard.TargetProperty="Width"
+                                                 To="30" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+            </Style.Triggers>
+
+            <Setter Property="Width" Value="30" />
+            <!--<Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Width" Value="140" />
+                </Trigger>
+            </Style.Triggers>-->
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="{DynamicResource GrayBrush1}"
+          DataContext="{Binding Source={StaticResource Locator},
+                                Path=StaticServices}"
+          Style="{StaticResource AutoHideGrid}">
+        <Grid.Resources>
+            <ResourceDictionary Source="../../Resources/Styles/MainSideBarButtonsStyle.xaml" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Border Grid.RowSpan="4"
+                BorderBrush="{DynamicResource GrayBrush1}"
+                BorderThickness="0" />
+        <StackPanel Orientation="Vertical">
+            <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type local:Home}">
+                <Grid HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Content="{DynamicResource Pharmacy-02}" />
+                    <TextBlock Grid.Column="1"
+                               HorizontalAlignment="Center"
+                               FontStyle="Italic"
+                               FontWeight="Bold"
+                               Text="OrdoMill" />
+                </Grid>
+            </Button>
+            <Button Command="{Binding NavigateToCommand}"
+                    CommandParameter="{x:Type vente:VentView}"
+                    ToolTip="{DynamicResource Vente}">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Content="{DynamicResource Sales-Order}" />
+                    <TextBlock Grid.Column="1" Text="{DynamicResource Vente}" />
+                </Grid>
+            </Button>
+
+            <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type clients:ClientsView}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Content="{DynamicResource Soldier}" />
+                    <TextBlock Grid.Column="1" Text="{DynamicResource Clients}" />
+                </Grid>
+            </Button>
+
+            <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type patients1:PatientsView}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Content="{DynamicResource BénéficiairesIcon}" />
+                    <TextBlock Grid.Column="1" Text="{DynamicResource Bénéficiaires}" />
+                </Grid>
+            </Button>
+            <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type medicaments:MedicamentsView}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Content="{DynamicResource Pills}" />
+                    <TextBlock Grid.Column="1" Text="{DynamicResource MedicamentsTxt}" />
+                </Grid>
+            </Button>
+
+            <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type ordonnance:OrdonancesView}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Content="{DynamicResource Agreement-02}" />
+                    <TextBlock Grid.Column="1" Text="{DynamicResource Ordonnances}" />
+                </Grid>
+            </Button>
+            <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type medecins:MedecinsView}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Content="{DynamicResource Doctor}" />
+                    <TextBlock Grid.Column="1" Text="{DynamicResource Medecins}" />
+                </Grid>
+            </Button>
+            <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type specialities:SpecialitesView}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Content="{DynamicResource HeartEcg}" />
+                    <TextBlock Grid.Column="1" Text="{DynamicResource Specialites}" />
+                </Grid>
+            </Button>
+        </StackPanel>
+        <Separator Grid.Row="1"
+                   Margin="20"
+                   Background="{DynamicResource GrayBrush1}" />
+        <StackPanel Grid.Row="2">
+            <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type archive:ArchivesView}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Content="{DynamicResource AdressBook}" />
+                    <TextBlock Grid.Column="1" Text="{DynamicResource Bordereau}" />
+                </Grid>
+            </Button>
+            <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type statistics:StatisticsView}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Content="{DynamicResource BarChar01}" />
+                    <TextBlock Grid.Column="1" Text="{DynamicResource Statistics}" />
+                </Grid>
+            </Button>
+        </StackPanel>
+        <Separator Grid.Row="3"
+                   Margin="20"
+                   Background="{DynamicResource GrayBrush1}" />
+        <StackPanel Grid.Row="4">
+            <Button Command="{Binding NavigateToCommand}"
+                    CommandParameter="{x:Type settings:SettingsView}"
+                    Visibility="{Binding Source={StaticResource Locator},
+                                         Path=Main.LoginDialog.ViewModel.LoggedUser.IsAdmin,
+                                         Converter={StaticResource VisibileToHiddenConverter}}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Content="{DynamicResource MSettings}" FlowDirection="{DynamicResource InvesdDirection}" />
+                    <TextBlock Grid.Column="1" Text="{DynamicResource SettingsText}" />
+                </Grid>
+            </Button>
+            <Button Command="{Binding StaticServices.NavigateToCommand,
+                                      Source={StaticResource Locator}}"
+                    CommandParameter="{x:Type users:UsersView}"
+                    IsEnabled="{Binding Source={StaticResource Locator},
+                                        Path=Main.LoginDialog.ViewModel.LoggedUser.IsAdmin}"
+                    Visibility="{Binding Source={StaticResource Locator},
+                                         Path=Main.LoginDialog.ViewModel.LoggedUser.IsAdmin,
+                                         Mode=OneWay,
+                                         UpdateSourceTrigger=PropertyChanged,
+                                         Converter={StaticResource VisibileToCollapsedConverter}}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Content="{DynamicResource UserSettings}" />
+                    <TextBlock Grid.Column="1" Text="{DynamicResource UsersText}" />
+                </Grid>
+            </Button>
+            <Button Command="{Binding StaticServices.NavigateToCommand, Source={StaticResource Locator}}" CommandParameter="{x:Type about:ContactUs}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Background="{DynamicResource WhiteBrush}" Content="{DynamicResource MailIcon}" />
+                    <TextBlock Grid.Column="1" Text="{DynamicResource ContactUsText}" />
+                </Grid>
+            </Button>
+
+            <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type designTime:ImportDataView}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Content="{DynamicResource HelpIco}" FlowDirection="{DynamicResource InvesdDirection}" />
+                    <TextBlock Grid.Column="1" Text="{DynamicResource Aide}" />
+                </Grid>
+            </Button>
+
+        </StackPanel>
+
+    </Grid>
+
+
+    <!--<StackPanel Background="{DynamicResource AccentColorBrush}"
+                DataContext="{Binding Source={StaticResource Locator},
+                                      Path=StaticServices}"
+                Orientation="Vertical"
+                Style="{StaticResource AutoHideGrid}">
+        <StackPanel.Resources>
+            <ResourceDictionary Source="../../Resources/MainSideBarButtonsStyle.xaml" />
+        </StackPanel.Resources>
+        <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type local:Home}">
+            <Grid HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ContentControl Content="{DynamicResource Pharmacy-02}" />
+                <TextBlock Grid.Column="1"
+                           HorizontalAlignment="Center"
+                           FontStyle="Italic"
+                           FontWeight="Bold"
+                           Text="OrdoMill" />
+            </Grid>
+        </Button>
+        <Button Command="{Binding NavigateToCommand}"
+                CommandParameter="{x:Type vente:VentView}"
+                ToolTip="{DynamicResource Vente}">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ContentControl Content="{DynamicResource Sales-Order}" />
+                <TextBlock Grid.Column="1" Text="{DynamicResource Vente}" />
+            </Grid>
+        </Button>
+
+        <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type clients:ClientsView}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ContentControl Content="{DynamicResource Soldier}" />
+                <TextBlock Grid.Column="1" Text="{DynamicResource Clients}" />
+            </Grid>
+        </Button>
+
+        <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type patients1:PatientsView}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ContentControl Content="{DynamicResource BénéficiairesIcon}" />
+                <TextBlock Grid.Column="1" Text="{DynamicResource Bénéficiaires}" />
+            </Grid>
+        </Button>
+        <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type medicaments:MedicamentsView}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ContentControl Content="{DynamicResource Pills}" />
+                <TextBlock Grid.Column="1" Text="{DynamicResource MedicamentsTxt}" />
+            </Grid>
+        </Button>
+
+        <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type ordonnances:OrdonnancesView}">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ContentControl Content="{DynamicResource Agreement-02}" />
+                <TextBlock Grid.Column="1" Text="{DynamicResource Ordonnances}" />
+            </Grid>
+        </Button>
+        <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type medecins:MedecinsView}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ContentControl Content="{DynamicResource Doctor}" />
+                <TextBlock Grid.Column="1" Text="{DynamicResource Medecins}" />
+            </Grid>
+        </Button>
+        <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type specialities:SpecialitesView}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ContentControl Content="{DynamicResource HeartEcg}" />
+                <TextBlock Grid.Column="1" Text="{DynamicResource Specialites}" />
+            </Grid>
+        </Button>
+        <Separator Margin="20" Background="{DynamicResource GrayBrush1}" />
+
+        <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type archive:ArchivesView}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ContentControl Content="{DynamicResource AdressBook}" />
+                <TextBlock Grid.Column="1" Text="{DynamicResource Bordereau}" />
+            </Grid>
+        </Button>
+        <Separator Margin="20" Background="{DynamicResource GrayBrush1}" />
+        <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type designTime:ImportDataView}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ContentControl Content="{DynamicResource HelpIco}" FlowDirection="{DynamicResource InvesdDirection}" />
+                <TextBlock Grid.Column="1" Text="{DynamicResource Aide}" />
+            </Grid>
+        </Button>
+    -->
+    <!--  TODO Close MEssage  -->
+    <!--<Button>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ContentControl Content="{DynamicResource Cancel}" />
+                    <TextBlock Grid.Column="1" Text="{DynamicResource Closetxt}" />
+                </Grid>
+            </Button>-->
+    <!--<ordoMill:IconButton ImageSource="{DynamicResource User-Profile}" Content="{DynamicResource UserName}"></ordoMill:IconButton>-->
+    <!--
+    </StackPanel>-->
+
+
+</UserControl>

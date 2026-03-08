@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="OrdoMill.Views.Shared.ControlBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+    <UserControl.InputBindings>
+        <KeyBinding Key="S"
+                    Command="{Binding SaveCommand}"
+                    Modifiers="Control" />
+        <KeyBinding Key="N"
+                    Command="{Binding AddCommand}"
+                    Modifiers="Ctrl" />
+        <KeyBinding Key="Delete" Command="{Binding DeleteCommand}" />
+        <KeyBinding Key="Escape" Command="{Binding CancelCommand}" />
+
+        <KeyBinding Key="U"
+                    Command="{Binding DeleteCommand}"
+                    Modifiers="Control" />
+    </UserControl.InputBindings>
+    <WrapPanel>
+        <WrapPanel.Resources>
+            <ResourceDictionary Source="../../Resources/Styles/BarButtonsStyle.xaml" />
+        </WrapPanel.Resources>
+        <Button Command="{Binding AddCommand}">
+            <StackPanel>
+                <ContentControl Content="{DynamicResource Add}" />
+                <TextBlock Text="{DynamicResource Addtxt}" />
+            </StackPanel>
+        </Button>
+
+        <Button Command="{Binding UpdateCommand}">
+            <StackPanel>
+                <ContentControl Content="{DynamicResource Editor}" />
+                <TextBlock Text="{DynamicResource Edit}" />
+            </StackPanel>
+        </Button>
+        <Button Command="{Binding DeleteCommand}">
+            <StackPanel>
+                <ContentControl Content="{DynamicResource Recycle-Bin}" />
+                <TextBlock Text="{DynamicResource Del}" />
+            </StackPanel>
+        </Button>
+        <Button Command="{Binding SaveCommand}" CommandParameter="{Binding SelectedItem.Id}">
+            <StackPanel>
+                <ContentControl Content="{DynamicResource Save}" />
+                <TextBlock Text="{DynamicResource SaveTxt}" />
+            </StackPanel>
+        </Button>
+        <Button Command="{Binding CancelCommand}">
+            <StackPanel>
+                <ContentControl Content="{DynamicResource Cancel}" />
+                <TextBlock Text="{DynamicResource Canceltxt}" />
+            </StackPanel>
+        </Button>
+    </WrapPanel>
+</UserControl>

@@ -1,0 +1,388 @@
+001AEROSOL                                          AERO.               
+002AMPOULE                                          AMP.                
+003AMPOULE BUVABLE                                  AMP.BUV.            
+004AMPOULE INJECTABLE                               AMP.INJ.            
+005BOITE                                            BTE.                
+007CAPSULE                                          CAPS.               
+008CAPSULE SPINHALER                                CAPS.+SPINA         
+009CAPSULE VAGINALE                                 CAPS.VAG.           
+010CARPULE                                          CARP.               
+011CARTOUCHE                                        CART.               
+012COLLUTOIRE                                       COLLU.              
+013COLLYRE                                          COLLY.              
+014COMPRIME                                         COMP.               
+015COMP. EFFERVESCENT                               COMP.EFFER.         
+016COMPRIME OU GELULE                               COMP.OU GLES        
+017COMPRIME GENECOLOGIQUE                           COMP.GYNECO.        
+018COMPRIME INHALATION                              COMP.INHAL          
+019CORRICIDE                                        COR.                
+020CREME                                            CRE.                
+021DRAGEE                                           DRG.                
+022FLACON                                           FL.                 
+023GEL                                              GEL                 
+024GEL DERMIQUE                                     GEL.DERM.           
+025GEL (FLACON MONODOSE)                            GEL.FL.MONODOSE     
+026GEL RECTAL                                       GEL.RECT.           
+027GELULES                                          GLES.               
+028GELULE MICRONISEE                                GLES.MICRON.        
+029GRAND MODELE                                     GM.                 
+030GRANULE                                          GRLES.              
+031GOUTTES BUVABLES                                 GTTES.BUV.          
+032INJECTABLE                                       INJ.                
+033INJECTABLE FLACON UNIDOSE                        INJ.FL.             
+034INJECTION INTRA-DERMIQUE                         INJ.ID.             
+035INJECTION SOUS CUTANEE OU INTRA-MUSCULAIRE       INJ.SC.OU IM.       
+036LIQUIDE                                          LIQ.                
+037LIQUIDE STERILE                                  LIQ.STER.           
+038MOUSSE RECTALE                                   MOUS.RECT.          
+039OVULE                                            OV.                 
+040POMMADE                                          PDE.                
+041POMMADE DERMIQUE                                 PDE.DERM.           
+042POMMADE OPHTALMIQUE                              PDE.OPHT.           
+043POUDRE                                           PDRE.               
+044POUDRE (AEROSOL)                                 PDRE.AERO.          
+045POUDRE FLACON                                    PDRE.FL.            
+046POUDRE LOCALE                                    PDRE.LOC.           
+047POUDRE ORALE                                     PDRE.OR.            
+048POUDRE RECTALE                                   PDRE.RECT.          
+049POUDRE POUR SOLUTION BUVABLE (SACHET)            PDRE.SOL.BUV.       
+050POUDRE SOLUTION INTRADISCALE                     PDRE.SOL.I-DISC     
+051PDRE P/SOL INJECTABLE                            PDRE.SOL.INJ.       
+052POUDRE POUR SOLUTION INJECTABLE INTRA-MUSCULAIRE PDRE.SOL.INJ.IM     
+053POUDRE POUR SOLUTION INJECTABLE INTRA-VEINEUSE   PDRE.SOL.INJ.IV     
+054PDR.SUSP.BUVABLE                                 PDRE.SUSP.BUV.      
+055PETIT MODELE                                     PM.                 
+056SIROP                                            SIR.                
+057SIROP ADULTE                                     SIR.AD.             
+058SIROP ENFANT                                     SIR.ENF.            
+059SIROP NOURRISSON                                 SIR.NOUR.           
+060SOLUTION                                         SOL.                
+061SOLUTION NON INJECTABLE                          SOL. NON INJ.       
+062SOLUTION AEROSOL                                 SOL.AERO.           
+063SOLUTION AQUEUSE                                 SOL.AQ.             
+064SOLUTION AQUEUSE CRISTALLINE                     SOL.AQ.CRIST.       
+065SOLUTION AURICULAIRE                             SOL.AURI.           
+066SOLUTION BUVABLE                                 SOL.BUV.            
+067SOLUTION BUVABLE /SOLUTION RECTALE               SOL.BUV./RECT.      
+068SOLUTION BUV GTTES                               SOL.BUV.GTTES.      
+069SOLUTION DERMIQUE                                SOL.DERM.           
+070SOLUTION INHALATION                              SOL.INHAL.          
+071SOLUTION INJECTABLE                              SOL.INJ.            
+072SOL INJ INTRA-MUSCULAIRE                         SOL;INJ.IM.         
+073SOL.INJ.IV                                       SOL.INJ.IV.         
+074SOLUTION INJECTABLE INTRA-VEINEUSE POUR PERFUSIONSOL.INJ.IV.PERF     
+075SOL INJ SC                                       SOL.INJ.SC.         
+076SOLUTION INTRA-RACHIDIENNE                       SOL.IR.             
+077SOLUTION POUR LAVAGE DU SINUS                    SOL.LAV.SINUS.      
+078SOLUTION NASALE                                  SOL.NAS.            
+079SOLUTION NEBULISEUR                              SOL.NEBUL.          
+080SOLUTION NON INJECTABLE                          SOL.NON INJ.        
+081SOLUTION OPHTALMIQUE                             SOL.OPHT.           
+082SOLUTION RECTALE                                 SOL.RECT.           
+083SOLUTE BUVABLE                                   SOLUTE BUV.         
+084SUPPOSITOIRE                                     SUPPO.              
+085SUPPOSITOIRE ADULTE                              SUPPO.AD.           
+086SUPPOSITOIRE ENFANT                              SUPPO.ENF.          
+087SUSPENSION                                       SUSP.               
+088SUSPENSION BUVABLE                               SUSP.BUV.           
+089SUSPENSION INJECTABLE                            SUSP.INJ.           
+090SUSPENSION NASALE                                SUSP.NAS.           
+091SUSPENSION ORL                                   SUSP.ORL.           
+092SUSPENSION RECTALE                               SUSP.RECT.          
+093TABLETTE                                         TABL.               
+006BOUFFEE                                          BOUF.               
+094SPRAY                                            SPRAY               
+095PASTILLE                                         PASTI               
+096SOL.INJ.PERF                                     SOL.INJ.PERF        
+097PATCH                                            PATCH               
+098TAMPON                                           TMP                 
+099LAIT                                             LAIT                
+100LOTION                                           LOTION              
+101APG (TUBE 15G)                                   APG                 
+102INDICE UVA                                       IND UVA             
+103INDICE UVB                                       IND UVB             
+104POUDRE SUSPENTION                                PDR.SUSP            
+105PATE                                             PATE                
+106POUDRE SUSPENSION ORALE                          PDR SUSP OR         
+107TIMBRE                                           TIMB                
+108SOLUTION SUSPENSION INJECTABLE                   SOL.SUSP.INJ        
+109INJECTION INTRA-VEINEUSE                         INJ.IV              
+110SACHET                                           SCHT                
+111STERILET                                         STRL                
+112EPONGE                                           EPG                 
+113GAZE                                             GZE                 
+114COFRET                                           CRFT                
+115PDRE SOL INJEC IM/IV                             PDRE SOL INJ IV/IM  
+116VACCIN                                           VACC                
+117ORALE FLACON                                     OR(FL)              
+118INJECTABLE SOUS-CUTANE INTRAVEINEUSE             INJ SC/IV           
+119EAU DISTILLE                                     EAU.DIST            
+120BUVABLE                                          BUV                 
+121STERILLE                                         STRL                
+122POCHET                                           PCHT                
+123LANGUETTES                                       LGTS                
+124AEROSOL                                          AERO                
+125SUPPOSITOIRES NOURRISSON                         SUPPO.NOUR          
+126ORL                                              ORL                 
+127BAIN DE BOUCHE                                   B.B                 
+128TABLETTE                                         TABL                
+129GEL GENGIVAL                                     GEL.GENG            
+130AMPOULE INJECTION PERFUSION                      AMP.INJ.PERF        
+131GLUCOSE LITTRE                                   GLUCO.LITR          
+132POCHE                                            POCH                
+133POCHE 1 LITRE                                    POCH.1LIT           
+134CRAYON                                           CRAY                
+135SPECIAL PLAQUETTES                               SPC.PLAQ            
+136CREME VAGINALE                                   CRE.VAG.            
+137COMPRIME A CROQUER                               COMP. A CROQUER     
+138PERE.FLACON                                      PERE.FLACON         
+139COMPRIME A SUCER                                 COMP.SUCER          
+140GEL OPHTALMIQUE                                  GEL OPHTALMIQUE     
+141SOLUTION INJECTABLE PERFUSION                    SOL.INJ.PERF.       
+143COMP.PELLICULE                                   COMP.PELLI          
+144COMP./DRG./CAPS.                                 COMP./DRG./CAPS     
+145SOLUTION NASALE/SPRAY                            SOL.NASAL/SPRAY     
+142POUDRE OPHTALMIQUE                               PDE.OPHT.           
+146COMPRIME/GELULES/CAPSULES                        COMP/GLES/CAPS.     
+148CRTOUCHE 1,5ML                                   CART.1,5ML          
+149CARTOUCHE 3ML                                    CART.3ML            
+147POUDRE PERFUSION INTRA-VEINEUSE                  PDRE.PERF.IV.       
+150GRANULES SUSP/BUVABLE                            GRLES.SUSP.BUV.     
+151GEL APPLICATION CUTANEE                          GEL.APP.CUTANEE     
+152COMPRIME SEC.                                    COMP.SEC.           
+153LYOPHILI.INJ                                     LYOPHILI.INJ        
+154CREME DERMIQUE                                   CRE.DERMIQUE        
+155COMP.GAST.RESISTANTS                             COMP.GASTRO.RES     
+156COMPRIME ENROB.                                  COMP.ENRO.          
+157MECHE                                            MECHE               
+158LOTION P/APP.DERMIQUE                            LOTION DERM.        
+159POUDRE.SOL.INJ.IV/IM                             PDRE.S.INJ.IVIM     
+160POUDRE A USAGE PARENTALE                         PDRE.USAGE.PARE     
+161COMP PELL.SEC                                    COMP.PELLI.SEC      
+162COMPRIME DRAGE                                   COMP.DRAG.          
+163LIOPHILISAT A USAGE PARENTAL                     LOPHILI.US.PARE     
+164COMPRIME ENROBE LP.                              COMP.ENRO.LP.       
+165AMPOULE INJ.IV.                                  AMP.INJ.IV.         
+166LAIT DERMIQUE                                    LAIT.DERM.          
+167GLES.MICR0GRAN/GAST.RESIST                       GLES MIC/GRA.GAST.RE
+168ANGUENT                                          ANGUENT             
+169GOUTTES AURICULAIRE                              GTTES AURICU.       
+170POUDRE SOL.INJ.IM/SC                             PDE.SOLINJIM/SC     
+171SERINGUES PREREMPLIES                            SERINGUES PRER.     
+172SUSP.INHAL.                                      SUSP.INHAL.         
+173COMPRIME LP.                                     COMP.LP.            
+174PATE ENDODONTIQUE                                PATE ENDODONTIQ     
+175GELULES LP.                                      GLES.LP.            
+176INJ.HUIL.                                        INJ.HUIL.           
+177COMPRIME VAGINALE                                COMP.VAGINALE       
+178LYOPHILISAT POUR PERFUSION                       LYOPHILI.PERF.      
+179LYOPHILISAT ORALE                                LYOPHILI.ORAL.      
+180CREME DERMIQUE                                   CRE.DERM.           
+181COPRIME SEC.LP.                                  COMP.SEC.LP.        
+182SUSP.APPLIC.ENDO.SINUSIENNE                      SUSP.APPL.END.S     
+183SUPPOSITOIRE NOURISSON                           SUPPO.NOURIS        
+184COMPRESSE                                        COMPRESSE           
+185TULLE                                            TULLE               
+186GEL MOUSSANT                                     GEL MOUSSANT        
+187EMUL DERMIQUE                                    EMUL DERM.          
+188POUDRE EFFER.                                    PDRE EFFER.         
+189SOLUTION GINGIVALE                               SOL.GING.           
+190POMMADE DECONGESTIONNANTE                        PDE.DECONGEST.      
+191GELULES … MICROGRANULE                           GLES MICROG.        
+192SOL.ADM.ENDONASALE                               SOL.ADM.END.        
+193SOLUTION BUVABLE SACHET                          SOL.BUV.SACHET      
+194GLES.MICRONI.GASTRO.RESIST                       GLES.MIC.GAS.RE     
+195GELEE                                            GELEE               
+196BAUME                                            BAUME               
+197SPRAY NASAL                                      SPRAY NASAL         
+198PULVER.NASAL                                     PULVER.NASAL        
+199LYOPH SOL INJ IM/SC                              LYOPH.SOL.INJ.S     
+200COMP. DISPERSIBLE                                COMP.DISPERSIBL     
+201SOLUTION INJECTABLE SER-PR‚-RMP                  SOL.INJ.SER-PRE-RMP 
+202PDRE P/INHAL GELULES                             PDRE.INHAL EN GLES  
+203SOL.INJ.IM/IV                                    SOL.INJ.IM.IV       
+204COMP.ENROBES.LP                                  COMP.ENROBES.LP     
+205GEL P/APPLICAT LOCALE                            GEL.APPL.LOCALE     
+206SUSP.INHAL.BUCCALE                               SUSP.INHAL.BUCCALE  
+207PDRE POUR SOL EN SACHET                          PDRE SOL SACHET     
+208PDRE POUR USAGE PARENTERAL IM/IV                 PDRE USAGE PARENTERA
+209GEL BUV.                                         GEL BUV             
+210CAPS A GRAN.GASTRO RESIST                        CAPS A GRAN.GASTRO.R
+211GLES A GRAN.GASTRO RESIST                        GLES A GRAN.GASTRO.R
+212PDRE INHAL                                       PDRE INHAL          
+213GRANULE SOL.BUV/SACHETS                          GRAN.SOL.BUV/SACHETS
+214PDE ORAL EFF.SACHET                              PDE ORAL EFF.SACHET 
+215CP DISP.SEC                                      CP DISP.SEC         
+216PDE+SOL/SOL INJ IM LP                            PDE+SOL/SOL INJ IMLP
+217SUSP.INJ CARTOUCHE                               SUSP.INJ CARTOUCHE  
+218CP,PEL,SEC                                       CP,PEL,SEC          
+219SUSP P/INHAL PAR NEBULISATEUR RECIPIENTS UNIDOSESSUSP P/INHAL NEB REC
+220PDE P/INHAL BUCCALE                              PDE P/INHAL BUCCALE 
+221MICROG LP EN GLES                                MICROG LP EN GLES   
+222COMP.ENROB.SEC                                   COMP.ENROB.SEC      
+223CAPSULE MOLLE                                    CAPSULE MOLLE       
+224PDRE LYOPH P/INJ                                 PDRE LYOPH P/INJ    
+225SUPPO SEC.                                       SUPPO SEC.          
+226IMPLANT S/C.                                     IMPLANT S/C.        
+227COMPRIME ENRO GR .                               COMP ENRO GR .      
+228PDR.SOLV.P/SUSP INJ                              PDRE SOLV P/SUSP INJ
+229COMPRIME LIBERATION MODIFIEE.                    CP LIBERATION MODIFI
+230PDRE SOLV P/SOL INJ                              PDRE SOLV P/SOL INJ 
+231COMP.ORO DISP                                    COMP ORO DISP       
+232CAPS LP                                          CAPS LP             
+233COMP QUADRI SECABLE                              COMP QUADRI SECABLE 
+234COMP.EFF.SEC                                     COMP.EFF.SEC.       
+235COMPRIME A MACHER                                COMP.MACHER         
+236COMRIME LYOC                                     COMP.LYOC           
+237BANDELETTE                                       BANDELETTE          
+238PREPARATION                                      PREPARATION         
+239GLES GR LP                                       GLES GR LP          
+240CAPS.MOL.ORAL OU VAG                             CAPS. MOL ORAL      
+241SOLUTION BUVABLE AMPOULE                         SOL.BUV.AMP         
+242GEL P/APPLICATION LOCAL                          GEL P/APPLI LOC     
+243COMP PELL.A.LIB.MOD                              COMP PELL.A.LIB.MOD 
+244SOL POUR APPL LOC                                SOL APPL LOC        
+245GEL BUCC                                         GEL BUCC            
+246SOL P/APPL CUTANEE                               SOL.APP.CUT         
+247SOL FILMOG‚NE P/APPL LOC                         SOL FILMOG.APPL.L   
+248PDRE SOLV/SOL.INJ.MULTIDOSE.SC                   PDR.SOLV/SOL.INJ.SC 
+249SOL.INJ.SC.STYLO.PREREMPLI                       SOL.INJ.SC.STYL.PRER
+250PDRE+SOL.P/SOL.INJ SC                            PDRE+SOL.P/SOL.INJSC
+251PDRE ORALE EFFE                                  PDRE ORALE EFFE     
+253COMP LYOPH ORAL                                  COMP.LYOPH.ORAL     
+254PDRE.SOL BUV SACHETS                             PDR.SOL.BUV.SACHET  
+255OVULE A LIB PROL                                 OVULE … LIB PROL    
+256SIROP 15%                                        SIROP 15%           
+257SOL.INJ S/C CARTOUCHE 3ML                        SOL.INJ CARTOUCH 3ML
+258SOL.INJ.SERING PRE/REMPLI                        SOL.INJ.SER PRE/REMP
+259COLLYRE/SOL AURIC/SOL NASAL                      COLL/SOL.AURI/SOL.NA
+260COLLYRE SOL.LIB PRO                              COLLYRE.SOL.LIB.PRO 
+261SOL P/PULV BUCCALE                               SOL P/PULV BUCCALE  
+262COMP PELL A LIB PRO                              COMP PELL A LIB PRO 
+263PDRE.SOL.INJ.PARENT                              PDRE.SOL.INJ.PARENT 
+264POUDRE DERMIQUE                                  PDRE DERMQUE        
+265PDRE P/PREP INJ VOIE IV                          PDRE PREP INJ IV    
+266COMP ENROB G.R                                   COMP ENROB G.R      
+267GOUTTES BUVABLES                                 GTE BUV             
+268SOL BUV PEDIATRIQUE                              SOL BUV PADIATRIQ   
+269PDRE P.SOL BUV                                   PDRE SOLUTION BUVABL
+270CP ENRO GASTR RESIST                             COMP ENROB GAST ENRO
+271EMULSION GEL                                     EMULSION GEL        
+272COMP ENROB PELL SEC                              COMP ENROB PELL SEC 
+273COMP PELL QUADRISEC                              COMP PELL QUADRISEC 
+274SOL INJ IM/IV SC                                 SOL INJ IM/IV SC    
+275GLE/MIC GRAN GAS/RESI                            GLE/MIC/GRAN/G/RESIS
+276GRNL P/SUSP BUV SACHETS                          GRAN P/SUSP BUV SACH
+277COMP ORO DISP                                    COMP ORO DISP       
+278SUSP BUV GTTES                                   SUSP BUV GTTES      
+279PDRE SUSP BUV SACHET                             PDRE SUSP BUV SACHET
+280SUSP POUR INHAL BUC                              SUSP POUR INHAL BUC 
+281PDRE SOLV/SUSP INJIM                             PDRE SOLV/SUSP INJIM
+282PDR P/INHAL GLES+INHALATEUR                      PDR P/INHAL GLES+INH
+283COMP DISPER SEC                                  COMP.DISP.SEC       
+284PDRE.SOL INJ.IV OU PERFUSION                     PDRE.SOL.INJ.IV.PER 
+285COLLYRE EN SOLUTION                              COLLYRE.SOL         
+286COMP.ORO.DISP.SEC                                COMP.ORO.DISP.SEC   
+287MICRO.SOL.PARE(SC/IM)LP                          MICROS.SOL.USA.PAREN
+288SHAMPOING                                        SHAMPOING           
+289SOL INJ.SC/FLACON                                SOL.INJ.SC.FLACON   
+290GRAN.P/SOL BUVABLE                               GRAN.SOL.BUV        
+291EMPLATRE                                         EMPLATRE            
+292GLES.GAST RESIST                                 GLES.GAST.RES       
+293GLES/COMP.PELL                                   GLES.COMP.PELL      
+294SOL.AURI.STERILE                                 SOL.AURI.STERILE    
+295SUSP .SPRAY NASALE                               SUSP.SPRAY.NASALE   
+296GRAN SACHET                                      GRAN SACHET         
+297SOL.INJ.SER.PR/RE.SC                             SOL.INJ SER.PRE.REMP
+298PDRE P/INHAL EN GLES                             PDRE P/INHAL EN GLES
+299COMP.PELL.LP                                     COMP.PELL.LP        
+300SOL.INJ.SERG.PREM.IM                             SOL.INJ.SER.PRREM.IM
+301PDRE.INHAL.DISKUS                                PDRE.INHAL.DISKUS   
+302PDRE+SOLV/SUS+INJ(SC/IM)LP                       PDR/SOL/SUS/ONJ(SCIM
+303PDRE INHAL BUC GLES                              PDRE.INHA.BUCCA.GLES
+304SUSP INJ EN FLACON                               SUSP.INJ.EN FL      
+305SUSP.INJ EN S/C                                  SUSP.INJ S/C        
+306PDR+SOLV /SOL.INJ.IM                             PDR SOLV SOL INJ IM 
+307A‚ROSOL P/INHALATION                             AERO P INHALATION   
+308GOUTTES OPHTAL                                   GOUTTES OPHTAL*     
+309SOL.BUV.SANS SUCRE                               SOL.BUV.SANS SUCRE  
+310COMP PELL SEC LP                                 COMP.PELL.SEC.LP    
+311CAPS.MOL OU VAGINALE                             CAPS.MOLLEOU VAGINAL
+312GELUL.MICRO GR/LP                                GELUL.MICRO GRANS LP
+313SPRAY NASAL                                      SPRAY NASAL         
+314OVULE LP                                         OVULE LP            
+315GLES/DOUBLE LIB                                  GLE … BOUBLE LIB    
+316SOL/DILUER P/PERF/IV                             SOL/DILLUER/ PERF/IV
+317PDRE LYOPH+SOLV P/SOL … DILLUER POUR PERFUSION IVPDR/LYO/SOLV/PERF IV
+318SOL.INJ.SC.LP SERG PR‚ REMPLIE                   SOL.INJ.SC.LP SER PR
+319SPRAY P/INHAL BUCCALE                            SPRAY P/INHAL BUCCAL
+320SPRAY BUCCAL                                     SPRAY BUCCAL        
+321PDRE.ORALE SACHET                                PDR.ORALE.SACHET    
+322SOL BUV ENFANT                                   SOL BUV ENFANT      
+323SOL BUV ENF/NOURRISON                            SOL BUV ENF/NOURRISO
+324PDR+SOLVP/SOLINJIMLP                             PDR+SOLVP/SOLINJIMLP
+325GLES/MICR/GAST/RESI LP                           GLS/MICR/GAST/RESIST
+326GLES MICROGRANUL LP                              GLES MICROGRANUL LP 
+327PDR+SOLV PS/INJ.IMIV                             PDR+SOLV P/SOLINJIMI
+328COMP.PELLI … LM                                  COMP.PELLI … LM     
+329SOL INJ S/C.I/V CAR P/STYLO                                          
+330SUSP BUV P/ENF NOURI                             SUSP.BUV P/ENF NOURI
+999                                                                     
+331SUSP,BUV, EN SACHET                              SUSP,BUV,EN SACHET  
+332GEL.APPLI.CAPILLAIRE                             GEL.APPL.CAPILLAIRE 
+333SUSP.INJ.SC.CART.STY                             SUSP.INJ.SC/CART.STY
+334SOL.INJ/STY.PRE.SC                               SOL.INJ.EN/STY.PRE.S
+335SOL.INJ/STY.PREREM                               SOL.INJ.EN/STY.PRERE
+336COLLY.SOL.REC.UNIDOSE                            COLLY.SOL.REC.UNIDOS
+337COMP.ENROB.ENTERIQUE                             COMP.ENROB.ENTERIQUE
+338GEL.P/APPL.LOCALE1%                              GEL .P/APPL.LOCALE1%
+339GEL P/APPL CUTANEE                               GEL P/APPL CUTANEE  
+340COMPRIME ENROBE LP                               COMP ENROB LP       
+341SOL CONCENT P/PERF I.V                           SOL CONCT P/PERF I.V
+342PDR SOLVP/SUSP.INJ IM/IV                         PDR SLV/SUSP.INJIMIV
+343MICROGRAN EN GLES                                MICROGRAN EN GLES   
+344MICROGRAN LP EN GLES                             MICROGRAN LP EN GLES
+345SOL.INJ.SC.IV INTRAVASCULAIRE                    SOL.INJ.SC.IV INTRAV
+346PLETS MICROG GLES LP                             PLETS MICROG GLES LP
+347SUSP P/PULV NASALE                               SUSP P/PULV NASALE  
+348COMP PELL LIB MODIF                              COMP PELL LIB MIDIF 
+349SOL INJ IV/PERF IV                               SOL INJ IV/PERF IV  
+350MICGR GAST RESIS GLS                             MICGR GAST RESIS GLS
+351LOTION DERMIQ                                    LOTION DERMIQ       
+352COMP PELL GAST RESIST                            COMP PELL GAST RESIS
+353PDRE P/SUSP.BUV.ENFANT ET NOURISSON              PDR P/SUSP.BUV.EF.NR
+354PDRE.P/SUSP.BUV EN SACHET-DOSE                   PDRE.P/SUSP.BUV.SACH
+355PDR P/SUSP BUV ADULT                             PDR P/SUSP BUV ADULT
+356COMP QUADRISECABLE                               COMP QUADRISECABLE  
+357PDRE P/SUSP BUV ENFT                             PDRE P/SUSP BUV ENFT
+358OVULE VAGINALE                                   OVULE VAGINALE      
+359SOL BUV COMPT GOUTTE                             SOL BUV COMPT GOUTTE
+360SOL ORAL EN GOUTTES                              SOL ORAL EN GOUTTES 
+361GEL MOUSS RECP UNIDO                             GEL MOUSS RECP UNIDO
+362LOTION DERMIQUE                                  LOTION DERMIQUE     
+363SOL.INJ.S/C SERG PRER                            SOL.INJ.S/C SERG PRE
+364SOL.INJ.SC.EN MULTIDOSE                          SOL.INJ.SC.EN MULTID
+365LYOPH.ORAL SUBLINGUAL                            LYOPH.ORAL SUBLINGUA
+366PDRE.ET SOLV.P/SOL.INJ.SC                        PDRE SOLV P/SOLINJSC
+367COLLYRE EN SUSPENSION                            COLLYRE EN SUSPENSIO
+368SUSP.INJ.SC EN STYLO PREREMPLI                   SUSP.INJ.SC STL PREM
+369PDR.LYOPH.P/PERFUSION IV                         PDR.LYOPH.P/PERFU IV
+370LYOPH SOL INJ IV                                 LYOPH.SOL.INJ.IV.   
+371PDRE P/INHAL                                     PDRE P/INHAL        
+372SUSP.INJ.IM/IL                                   SUSP.INJ.IM/IL      
+373PD.P/INHAL.GLES INHAL                            PDR.P/INHAL.GLES INH
+374PD P/SUSP B.SACH ENF                             PDR P/SUS B.SACH ENF
+375SUSP.INJ.IM OU LOCALE                            SUSP.INJ.IM OU LOCAL
+376COLLYRE EN SOLUTION  SANS CONSERVATEUR           COLLY SOL SANS CONSV
+377GEL OPHTALMIQUE EN RECIPIENT  UNIDOSE            GEL OPH RECIP UNDOSE
+378SOL. A USAGE EXTERNE                             SOL. A USAGE EXTERNE
+379SOL.MOUSSANTE                                    SOL.MOUSSANTE       
+380SUSP.BUV.GOUT MENTHE                             SUSP.BUV.GOUT MENTHE
+381GRAN.P/SUSP.BUV.                                 GRAN.P/SUSP.BUV.    
+382PDR P/SOLBUV OU GAST_ENTERALE                    PD P/SOL BUV OU GAST
+383COMP.DISP.ET ORODISP.                            COMP.DISP.ET ORODISP
+384SOL.INJ.IV LENTE,IM                              SOL.INJ.IV LENTE,IM 
+385EMULSION FLUIDE(LAIT DERMIQUE)                   EMULSION FLUIDE     
+386COMP A L.M                                       COMP A L.M          
+387PD.P/SOLBUV ENT SACHET                           PD.P/SOLBUV ENT SACH
+388MICRO.GRAN SACH DOSE                             MICRO.GRAN SACH DOSE

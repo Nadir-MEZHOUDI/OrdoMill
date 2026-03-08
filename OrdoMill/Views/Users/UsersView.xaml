@@ -1,0 +1,227 @@
+﻿<UserControl x:Class="OrdoMill.Views.Users.UsersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:cl="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:converters="clr-namespace:SmartApp.Helpers.Converters;assembly=SmartApp.Helpers"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:dialogs="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions;assembly=SmartApp.Helpers"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:shared="clr-namespace:OrdoMill.Views.Shared"
+             d:DesignHeight="720"
+             d:DesignWidth="1200"
+             dialogs:DialogParticipation.Register="{Binding}"
+             DataContext="{Binding Source={StaticResource Locator},
+                                   Path=UsersViewModel}"
+             Style="{DynamicResource CustomUserControl}"
+             mc:Ignorable="d">
+    <UserControl.InputBindings>
+        <KeyBinding Key="S"
+                    Command="{Binding SaveCommand}"
+                    Modifiers="Control" />
+        <KeyBinding Key="N"
+                    Command="{Binding AddCommand}"
+                    Modifiers="Ctrl" />
+        <KeyBinding Key="Delete" Command="{Binding DeleteCommand}" />
+        <KeyBinding Key="Escape" Command="{Binding CancelCommand}" />
+
+        <KeyBinding Key="U"
+                    Command="{Binding DeleteCommand}"
+                    Modifiers="Control" />
+    </UserControl.InputBindings>
+    <Grid extensions:MarginSetter.Margin="3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <WrapPanel Grid.Column="1">
+            <WrapPanel.Resources>
+                <ResourceDictionary Source="../../Resources/Styles/ButtonsStyle.xaml" />
+            </WrapPanel.Resources>
+            <Button Margin="5,0"
+                    Click="btnAdd_Click"
+                    Command="{Binding AddCommand}">
+                <WrapPanel>
+                    <ContentControl Content="{DynamicResource User-Add}" />
+                    <TextBlock VerticalAlignment="Center" Text="{DynamicResource Addtxt}" />
+                </WrapPanel>
+            </Button>
+            <Button Margin="5,0"
+                    Click="btnAdd_Click"
+                    Command="{Binding UpdateCommand}">
+                <WrapPanel>
+                    <ContentControl Content="{DynamicResource Editor}" />
+                    <TextBlock Text="{DynamicResource Edit}" />
+                </WrapPanel>
+            </Button>
+            <Button Margin="5,0"
+                    Click="btnAdd_Click"
+                    Command="{Binding DeleteCommand}">
+                <WrapPanel>
+                    <ContentControl Content="{DynamicResource Recycle-Bin}" />
+                    <TextBlock Text="{DynamicResource Del}" />
+                </WrapPanel>
+            </Button>
+        </WrapPanel>
+        <DataGrid Grid.Row="1"
+                  Grid.RowSpan="3"
+                  Grid.Column="0"
+                  ColumnWidth="Auto"
+                  IsEnabled="{Binding IsEditable,
+                                      Converter={StaticResource BoolInverser}}"
+                  ItemsSource="{Binding ListToDisplay}"
+                  SelectedValue="{Binding SelectedItem,
+                                          Mode=TwoWay}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="Auto"
+                                    Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow},
+                                                      Converter={converters:RowToIndexConverter}}"
+                                    Header="{DynamicResource Num}"
+                                    IsReadOnly="True" />
+
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=FullName}"
+                                    Header="{DynamicResource Name}" />
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Path=UserName}"
+                                    Header="{DynamicResource UserName}" />
+                <DataGridCheckBoxColumn Binding="{Binding Path=AllowAdd}"
+                                        EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        Header="{DynamicResource Addtxt}" />
+                <DataGridCheckBoxColumn Binding="{Binding Path=AllowUpdate}"
+                                        EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        Header="{DynamicResource Edit}" />
+                <DataGridCheckBoxColumn Binding="{Binding Path=AllowPrintDocs}"
+                                        EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        Header="{DynamicResource Print}" />
+                <DataGridCheckBoxColumn Binding="{Binding Path=IsWork}"
+                                        EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        Header="{DynamicResource Yes}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="1"
+              Grid.Column="1"
+              extensions:MarginSetter.Margin="3"
+              IsEnabled="{Binding IsEditable}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBox Name="TxtFullName"
+                     Grid.ColumnSpan="2"
+                     cl:TextBoxHelper.Watermark="{DynamicResource NameD}"
+                     extensions:FocusExtension.IsFocused="{Binding IsFocused,
+                                                                   Mode=TwoWay}"
+                     FontSize="15"
+                     Text="{Binding SelectedItem.FullName,
+                                    Mode=TwoWay,
+                                    ValidatesOnDataErrors=True,
+                                    NotifyOnValidationError=True}" />
+
+            <TextBox Grid.Row="1"
+                     Grid.ColumnSpan="2"
+                     cl:TextBoxHelper.Watermark="{DynamicResource UserName}"
+                     FontSize="15"
+                     Text="{Binding SelectedItem.UserName,
+                                    Mode=TwoWay,
+                                    ValidatesOnDataErrors=True,
+                                    NotifyOnValidationError=True}" />
+
+            <PasswordBox Grid.Row="2"
+                         cl:TextBoxHelper.Watermark="{DynamicResource Password}"
+                         extensions:PasswordHelper.Attach="True"
+                         extensions:PasswordHelper.Password="{Binding SelectedItem.Password,
+                                                                      Mode=TwoWay,
+                                                                      ValidatesOnDataErrors=True,
+                                                                      NotifyOnValidationError=True}"
+                         FontSize="15" />
+
+            <PasswordBox Grid.Row="3"
+                         cl:TextBoxHelper.Watermark="{DynamicResource Password}"
+                         extensions:PasswordHelper.Attach="True"
+                         extensions:PasswordHelper.Password="{Binding SelectedItem.ConfirmationPassword,
+                                                                      Mode=TwoWay,
+                                                                      ValidatesOnDataErrors=True,
+                                                                      NotifyOnValidationError=True}"
+                         FontSize="15" />
+            <GroupBox Grid.Row="4">
+                <GroupBox.Header>
+                    <TextBlock Grid.ColumnSpan="2"
+                               FontStyle="Italic"
+                               Text="{DynamicResource DroitDacces}"
+                               TextAlignment="Center" />
+                </GroupBox.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <cl:ToggleSwitchButton Grid.Column="1" IsChecked="{Binding SelectedItem.AllowAdd, Mode=TwoWay}" />
+                    <Label Grid.Column="2" Content="{DynamicResource Edit}" />
+                    <cl:ToggleSwitchButton Grid.Column="3" IsChecked="{Binding SelectedItem.AllowUpdate, Mode=TwoWay}" />
+                    <Label Grid.Row="0" Content="{DynamicResource Addtxt}" />
+                    <Label Grid.Row="1" Content="{DynamicResource Print}" />
+                    <cl:ToggleSwitchButton Grid.Row="1"
+                                           Grid.Column="1"
+                                           IsChecked="{Binding SelectedItem.AllowPrintDocs,
+                                                               Mode=TwoWay}" />
+                    <Label Grid.Row="1"
+                           Grid.Column="2"
+                           Content="{DynamicResource Activé}" />
+                    <cl:ToggleSwitchButton Grid.Row="1"
+                                           Grid.Column="3"
+                                           IsChecked="{Binding SelectedItem.IsWork,
+                                                               Mode=TwoWay}" />
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Row="2"
+              Grid.Column="1"
+              Margin="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <ResourceDictionary Source="../../Resources/Styles/ButtonsStyle.xaml" />
+            </Grid.Resources>
+            <Button Grid.Column="0" Command="{Binding SaveCommand}">
+                <WrapPanel>
+                    <TextBlock Text="{DynamicResource SaveTxt}" />
+                    <ContentControl Content="{DynamicResource Save}" />
+                </WrapPanel>
+            </Button>
+            <Button Grid.Column="2" Command="{Binding CancelCommand}">
+                <WrapPanel>
+                    <TextBlock Text="{DynamicResource Canceltxt}" />
+                    <ContentControl Content="{DynamicResource Cancel}" />
+                </WrapPanel>
+            </Button>
+        </Grid>
+        <shared:Pagenation Grid.Row="4" />
+    </Grid>
+</UserControl>
