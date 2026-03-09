@@ -1,18 +1,32 @@
-﻿using System.Data.Entity;
-using OrdoMill.Data.Migrations;
+﻿using Microsoft.EntityFrameworkCore;
+using OrdoMill.Helpers.Bases;
 
 namespace OrdoMill.Data.Model
 {
     public sealed class DbCon : DbContext
     {
-        public DbCon() : this("DbCon")
+        public DbCon()
         {
+
         }
-        public DbCon(string dbPath) : base(dbPath)
+        public DbCon(string dbCon)
         {
-            Configuration.ProxyCreationEnabled = false;
-            Configuration.LazyLoadingEnabled = true;
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DbCon, Configuration>(true));
+
+        }
+
+        public async Task AddOrUpdate<T>(T entity) where T : EntityBase
+        {
+            if (entity == null)
+            {
+                return;
+            }
+
+            if (entity.Id > 0)
+                Entry(entity).State = EntityState.Modified;
+            else
+                Set<T>().Add(entity);
+            await SaveChangesAsync();
+
         }
 
         public DbSet<Assure> Assures { get; set; }

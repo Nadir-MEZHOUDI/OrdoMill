@@ -21,7 +21,7 @@ namespace OrdoMill.Views.DbConnector
 
         private void DbConnectorView_OnClosing(object sender, CancelEventArgs e)
         {
-            if (!new DbCon(Settings.Default.ConnectionString).Database.Exists())
+            if (!new DbCon(Settings.Default.ConnectionString).Database.CanConnect())
                 Application.Current.Shutdown(0);
         }
 

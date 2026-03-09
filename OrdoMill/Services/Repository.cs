@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Data.Entity;
-using System.Data.Entity.Migrations;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;

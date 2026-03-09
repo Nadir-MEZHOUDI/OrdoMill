@@ -5,7 +5,6 @@ using System.Windows.Threading;
 using MahApps.Metro.Controls;
 using OrdoMill.Services;
 using OrdoMill.Helpers.Extensions;
-using WpfBindingErrors;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
 
@@ -20,8 +19,6 @@ namespace OrdoMill
                 AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
                 ReturnNext.RegisterReturnEvent();
                EventManager.RegisterClassHandler(typeof(ToggleSwitch), UIElement.KeyDownEvent, new KeyEventHandler(ToggleSwitch_KeyDown));
-               var listener = new BindingErrorListener();
-               listener.ErrorCatched += async s => await new BindingException(s).AppLoggingAsync();
              }
             catch (Exception)
             {

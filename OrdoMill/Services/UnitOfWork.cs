@@ -1,5 +1,5 @@
-using System;
-using System.Data.Entity;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using OrdoMill.Data.Model;
 using OrdoMill.Interfaces;

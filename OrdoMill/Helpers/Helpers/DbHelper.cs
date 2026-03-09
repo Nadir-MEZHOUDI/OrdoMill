@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -62,12 +62,10 @@ namespace OrdoMill.Helpers
                 Directory.CreateDirectory(fullName);
             }
 
-            var conn = new SqlConnection(connectionString);
-            try
+             try
             {
-                var cmd = new SqlCommand($"BACKUP DATABASE {dbName} TO DISK = '{backUpPath}'") { Connection = conn };
-                conn.Open();
-                cmd.ExecuteNonQuery();
+               //add Postgres backup code here
+
                 return true;
             }
             catch (Exception ex)
@@ -76,20 +74,15 @@ namespace OrdoMill.Helpers
             }
             finally
             {
-                conn.Close();
+ 
             }
         }
 
         public static bool RestorDb(string fromPath, string dbName, string serverName)
         {
-            var conn = new SqlConnection($"Server={serverName};Database=master;Integrated Security=True;");
-            try
+             try
             {
-                string a =
-                    $"RESTORE FILELISTONLY FROM DISK ='{fromPath}' ALTER DATABASE {dbName} SET SINGLE_USER WITH ROLLBACK IMMEDIATE RESTORE DATABASE {dbName} FROM DISK ='{fromPath}' WITH REPLACE ALTER DATABASE {dbName} SET MULTI_USER ";
-                var cmd = new SqlCommand(a, conn);
-                conn.Open();
-                cmd.ExecuteNonQuery();
+               //Add Postgres restore code here
                 return true;
             }
             catch (Exception ex)
@@ -98,7 +91,7 @@ namespace OrdoMill.Helpers
             }
             finally
             {
-                conn.Close();
+                 
             }
         }
 

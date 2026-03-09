@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using System.Data.SqlClient;
 using System.IO;
 using System.Threading.Tasks;
@@ -118,44 +118,10 @@ namespace OrdoMill.Views.DbConnector
             }
         }
 
-        public async Task<string> BuildConnectionStr() => await Task.Run(() =>
+        private async Task<string> BuildConnectionStr()
         {
-            const string initialConString = @"Data Source=(LocalDB)\11.0;Integrated Security=True;MultipleActiveResultSets=True;";
-
-            var builder = new SqlConnectionStringBuilder(initialConString)
-            {
-                DataSource = ServerName + (IsInNetwork ? ":" + Port : ""),
-                IntegratedSecurity = IntegratedSecurity
-            };
-            if (!IntegratedSecurity)
-            {
-                builder.Password = Password;
-                builder.UserID = UserName;
-            }
-            if (IsInNetwork)
-            {
-                 builder.InitialCatalog = DbName;
-            }
-            else
-            {
-                if (IsAttached)
-                {
-                    var a = new FileInfo(DbPath);
-                    builder.AttachDBFilename = DbPath;
-                    DbName = a.Name.Replace(".mdf", "");
-                }
-                else
-                {
-                    // builder.AttachDBFilename = Path.Combine(Application.StartupPath, DbName + ".mdf");
-                    builder.InitialCatalog = DbName;
-                }
-            }
-
-            var c = builder.ConnectionString;
-            var b = builder.ToString();
-
-            return builder.ToString();
-        });
+            throw new NotImplementedException();
+        }
 
         private void BrowseDb_Ex()
         {
@@ -181,25 +147,25 @@ namespace OrdoMill.Views.DbConnector
             controller.SetIndeterminate();
             try
             {
-                var strCon = await BuildConnectionStr();
+                var strCon = ""; //TODO: build the connection string
                 Context = new DbCon(strCon);
                 // Context.Database.Connection.ConnectionString = strCon;
 
                 if (Delete)
-                    Context.Database.Delete();
+                    Context.Database.EnsureDeleted();
                 if (Create)
                 {
                     //var db = new DbCon(strCon);
-                    Context.Database.Create();
-                    if (!Context.Database.Exists())
+                    Context.Database.Migrate();
+                    if (!Context.Database.CanConnect())
                     {
                         //Database.SetInitializer(new DbInitializer());
-                        Context.Database.Initialize(true);
+                        Context.Database.Migrate();
                     }
                     //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DbCon, Configuration>(true));
-                    Context.Database.Initialize(true);
+                    Context.Database.Migrate();
                 }
-                var isDbExist = Context.Database.Exists();
+                var isDbExist = Context.Database.CanConnect();
                 if (isDbExist)
                     await ShowMessage("تهانينا", "تم الإتصال بقاعدة البيانات بنجاح");
                 else

@@ -4,7 +4,6 @@ using OrdoMill.Properties;
 using OrdoMill.ViewModel;
 using OrdoMill.Helpers;
 using System;
-using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -38,13 +37,8 @@ namespace OrdoMill.Services
         {
             try
             {
-                using (var context = new DbCon(Settings.Default.ConnectionString))
-                {
-                    var path = Path.Combine(Settings.Default.backUpPath, GetCopyName() + ".bak");
-                    if (File.Exists(path)) File.Delete(path);
-                    DbHelper.SaveBackup(path, GetConBuilder().InitialCatalog,
-                        context.Database.Connection.ConnectionString);
-                }
+                //TODO: add a progress dialog
+                //TODO: add a setting to choose the backup path
                 Settings.Default.LastSaveDate = DateTime.Now.Date;
                 Settings.Default.Save();
             }
@@ -105,19 +99,7 @@ namespace OrdoMill.Services
                 await ex.AppLoggingAsync(send: false);
             }
         }
-
-        public static SqlConnectionStringBuilder GetConBuilder()
-        {
-            using (var context = new DbCon(Settings.Default.ConnectionString))
-                try
-                {
-                    return new SqlConnectionStringBuilder(context.Database.Connection.ConnectionString);
-                }
-                catch (Exception)
-                {
-                    return null;
-                }
-        }
+               
 
         public static string GetCopyName(string prefix = null)
         {

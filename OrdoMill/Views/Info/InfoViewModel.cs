@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.Messaging;
 using OrdoMill.Services;
