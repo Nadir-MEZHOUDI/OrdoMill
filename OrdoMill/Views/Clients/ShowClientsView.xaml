@@ -64,7 +64,7 @@
                                 Margin="10,0"
                                 VerticalAlignment="Center"
                                 FontWeight="Bold"
-                                Foreground="{DynamicResource GrayBrush1}"
+                                Foreground="{DynamicResource MahApps.Brushes.SystemControlForegroundChromeWhite}"
                                 Text="{Binding Matricule}" />
                             <ContentControl
                                 Grid.Column="2"
@@ -150,7 +150,7 @@
             Grid.Column="1"
             Width="5"
             HorizontalAlignment="Stretch"
-            Background="{DynamicResource AccentColorBrush}" />
+            Background="{DynamicResource MahApps.Brushes.Accent}" />
         <ListView
             Grid.Row="1"
             Grid.Column="2"

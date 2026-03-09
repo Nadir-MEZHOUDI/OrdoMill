@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Microsoft.EntityFrameworkCore;
-using System.Data.SqlClient;
 using System.IO;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Win32;
+using Npgsql;
 using OrdoMill.Data.Model;
 using OrdoMill.Properties;
 using OrdoMill.Services;
@@ -21,10 +21,9 @@ namespace OrdoMill.Views.DbConnector
     {
         private static readonly List<string> InsatncesList = new List<string>
         {
-            "(LocalDB)\\v11.0",
-            "(localdb)\\MSSQLLocalDB",
-            ".\\SQLExpress",
-            LocalMachin + "\\SQLExpress"
+            "localhost",
+            "127.0.0.1",
+            LocalMachin
         };
 
         private readonly IDatabaseService databaseService;
@@ -120,17 +119,30 @@ namespace OrdoMill.Views.DbConnector
 
         private async Task<string> BuildConnectionStr()
         {
-            throw new NotImplementedException();
+            var builder = new NpgsqlConnectionStringBuilder
+            {
+                Host = string.IsNullOrWhiteSpace(ServerName) ? "localhost" : ServerName.Trim(),
+                Port = Port > 0 ? Port : 5432,
+                Database = string.IsNullOrWhiteSpace(DbName) ? "ordomill" : DbName.Trim()
+            };
+
+            if (!IntegratedSecurity)
+            {
+                builder.Username = UserName?.Trim();
+                builder.Password = Password ?? string.Empty;
+            }
+
+            return await Task.FromResult(builder.ConnectionString);
         }
 
         private void BrowseDb_Ex()
         {
-            var op = new OpenFileDialog { Filter = @"Database File *.MDF|*.mdf" };
+            var op = new OpenFileDialog { Filter = @"All files|*.*" };
             if (op.ShowDialog() == true)
             {
                 DbPath = op.FileName;
                 var a = new FileInfo(DbPath);
-                DbName = a.Name.Replace(".mdf", "");
+                DbName = Path.GetFileNameWithoutExtension(a.Name);
             }
         }
 
@@ -147,25 +159,17 @@ namespace OrdoMill.Views.DbConnector
             controller.SetIndeterminate();
             try
             {
-                var strCon = ""; //TODO: build the connection string
+                var strCon = await BuildConnectionStr();
                 Context = new DbCon(strCon);
                 // Context.Database.Connection.ConnectionString = strCon;
 
                 if (Delete)
-                    Context.Database.EnsureDeleted();
+                    await Context.Database.EnsureDeletedAsync();
                 if (Create)
                 {
-                    //var db = new DbCon(strCon);
-                    Context.Database.Migrate();
-                    if (!Context.Database.CanConnect())
-                    {
-                        //Database.SetInitializer(new DbInitializer());
-                        Context.Database.Migrate();
-                    }
-                    //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DbCon, Configuration>(true));
-                    Context.Database.Migrate();
+                    await Context.Database.EnsureCreatedAsync();
                 }
-                var isDbExist = Context.Database.CanConnect();
+                var isDbExist = await Context.Database.CanConnectAsync();
                 if (isDbExist)
                     await ShowMessage("تهانينا", "تم الإتصال بقاعدة البيانات بنجاح");
                 else
@@ -187,30 +191,32 @@ namespace OrdoMill.Views.DbConnector
 
         private async Task GetConnectionFields() => await Task.Run(() =>
         {
-            var builder = new SqlConnectionStringBuilder(Settings.Default.ConnectionString);
+            if (string.IsNullOrWhiteSpace(Settings.Default.ConnectionString))
+            {
+                ServerName = "localhost";
+                Port = 5432;
+                DbName = "ordomill";
+                IntegratedSecurity = false;
+                IsAttached = false;
+                return;
+            }
 
-            var info = builder.DataSource.Split(':');
-            ServerName = info[0];
-            IsInNetwork = info.Length > 1;
-            Port = info.Length > 1 ? int.Parse(info[1]) : 1433;
-            IntegratedSecurity = builder.IntegratedSecurity;
+            var builder = new NpgsqlConnectionStringBuilder(Settings.Default.ConnectionString);
+
+            ServerName = string.IsNullOrWhiteSpace(builder.Host) ? "localhost" : builder.Host;
+            IsInNetwork = ServerName != "localhost" && ServerName != "127.0.0.1" && ServerName != LocalMachin;
+            Port = builder.Port > 0 ? builder.Port : 5432;
+            IntegratedSecurity = string.IsNullOrWhiteSpace(builder.Username) && string.IsNullOrWhiteSpace(builder.Password);
 
             if (!IntegratedSecurity)
             {
-                UserName = builder.UserID;
+                UserName = builder.Username;
                 Password = builder.Password;
             }
-            IsAttached = builder.AttachDBFilename.IsNotNullOrEmpty();
-            if (IsAttached && File.Exists(builder.AttachDBFilename))
-            {
-                DbPath = builder.AttachDBFilename;
-                var a = new FileInfo(DbPath);
-                DbName = a.Name.Replace(".mdf", "");
-            }
-            else
-            {
-                DbName = string.IsNullOrEmpty(builder.InitialCatalog) ? builder.InitialCatalog : $"OrdoMill_Db_{DateTime.Now.Date:yy-MM-dd}";
-            }
+
+            IsAttached = false;
+            DbPath = string.Empty;
+            DbName = string.IsNullOrWhiteSpace(builder.Database) ? "ordomill" : builder.Database;
         });
 
         private async Task GetNetworkPcs()
@@ -236,9 +242,10 @@ namespace OrdoMill.Views.DbConnector
         private async Task RestCon()
         {
             DbName = "OrdoMill_Db";
-            IntegratedSecurity = true;
+            IntegratedSecurity = false;
             IsAttached = false;
-            ServerName = "(LocalDB\\v11.0)";
+            Port = 5432;
+            ServerName = "localhost";
             await ShowMessage("تم", "تم وضع الإعدادات الافتراضية");
 
         }

@@ -25,7 +25,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Grid Background="{DynamicResource AccentColorBrush}" FlowDirection="LeftToRight">
+                <Grid Background="{DynamicResource MahApps.Brushes.Accent}" FlowDirection="LeftToRight">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition Width="Auto" />
@@ -81,7 +81,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <Grid Background="{DynamicResource AccentColorBrush}">
+                <Grid Background="{DynamicResource MahApps.Brushes.Accent}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
 

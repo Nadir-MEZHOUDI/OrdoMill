@@ -278,7 +278,7 @@
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate>
-                                        <Expander Background="{DynamicResource GrayBrush4}" IsExpanded="True">
+                                        <Expander Background="{DynamicResource MahApps.Brushes.Gray4}" IsExpanded="True">
                                             <Expander.Header>
                                                 <StackPanel Height="30" Orientation="Horizontal">
                                                     <TextBlock Margin="10,0,0,0"

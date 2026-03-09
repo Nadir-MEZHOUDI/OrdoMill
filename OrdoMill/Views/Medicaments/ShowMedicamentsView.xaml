@@ -47,7 +47,7 @@
             <CheckBox Content="{DynamicResource Forme}" IsChecked="{Binding IncludeForm}" />
         </StackPanel>
         <DataGrid Grid.Row="2"
-                  AlternatingRowBackground="{DynamicResource AccentColorBrush4}"
+                  AlternatingRowBackground="{DynamicResource MahApps.Brushes.Accent4}"
                   Grid.ColumnSpan="2"
                   IsEnabled="{Binding IsEditable,
                                       Converter={StaticResource BoolInverser}}"

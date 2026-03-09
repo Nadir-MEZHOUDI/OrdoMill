@@ -326,7 +326,7 @@
                               Grid.Column="2"
                               Width="5"
                               HorizontalAlignment="Stretch"
-                              Background="{DynamicResource AccentColorBrush}" />
+                              Background="{DynamicResource MahApps.Brushes.Accent}" />
                 <Grid Grid.Column="3">
                     <Grid.Resources>
                         <ResourceDictionary Source="../../Resources/Styles/ButtonsStyle.xaml" />
@@ -340,7 +340,7 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <TextBlock Margin="0"
-                               Foreground="{DynamicResource GrayBrush1}"
+                               Foreground="{DynamicResource MahApps.Brushes.SystemControlForegroundChromeWhite}"
                                Text="{DynamicResource QuantiteD}" />
                     <mah:NumericUpDown Grid.Column="1"
                                             MinWidth="100"
@@ -360,7 +360,7 @@
                                                             UpdateSourceTrigger=PropertyChanged}" />
                     <TextBlock Grid.Column="2"
                                Margin="0"
-                               Foreground="{DynamicResource GrayBrush1}"
+                               Foreground="{DynamicResource MahApps.Brushes.SystemControlForegroundChromeWhite}"
                                Text="PPA:" />
                     <mah:NumericUpDown Grid.Column="3"
                                              MinWidth="100"
@@ -554,7 +554,7 @@
                       Grid.Column="3"
                       Height="35"
                       Margin="5"
-                      Background="{DynamicResource BlackBrush}"
+                      Background="{DynamicResource MahApps.Brushes.ThemeForeground}"
                       DataContext="{Binding ElementName=ThisIsVentView,
                                             Path=DataContext}">
                     <Grid.ColumnDefinitions>
@@ -568,7 +568,7 @@
                                FontFamily="pack://application:,,,/Resources/Fonts/#Digiface"
                                FontSize="25"
                                FontStyle="Normal"
-                               Foreground="{DynamicResource AccentColorBrush}"
+                               Foreground="{DynamicResource MahApps.Brushes.Accent}"
                                Text="{DynamicResource Vignettes}"
                                TextAlignment="Center" />
                     <TextBlock Grid.Column="1"
@@ -576,7 +576,7 @@
                                FontSize="30"
                                FontStyle="Normal"
                                FontWeight="Bold"
-                               Foreground="{DynamicResource AccentColorBrush}"
+                               Foreground="{DynamicResource MahApps.Brushes.Accent}"
                                Text="{Binding OrdoViewModel.Vignettes,
                                               UpdateSourceTrigger=PropertyChanged}"
                                TextAlignment="Center" />
@@ -585,7 +585,7 @@
                                FontFamily="pack://application:,,,/Resources/Fonts/#Digiface"
                                FontSize="25"
                                FontStyle="Normal"
-                               Foreground="{DynamicResource AccentColorBrush}"
+                               Foreground="{DynamicResource MahApps.Brushes.Accent}"
                                Text="{DynamicResource TotalD}" />
 
                     <TextBlock Grid.Column="3"
@@ -593,7 +593,7 @@
                                FontSize="30"
                                FontStyle="Normal"
                                FontWeight="Bold"
-                               Foreground="{DynamicResource AccentColorBrush}"
+                               Foreground="{DynamicResource MahApps.Brushes.Accent}"
                                Text="{Binding OrdoViewModel.Total,
                                               StringFormat=\{0:F\},
                                               UpdateSourceTrigger=PropertyChanged}"

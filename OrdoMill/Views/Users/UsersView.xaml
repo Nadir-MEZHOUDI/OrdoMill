@@ -93,20 +93,20 @@
                                     Binding="{Binding Path=UserName}"
                                     Header="{DynamicResource UserName}" />
                 <DataGridCheckBoxColumn Binding="{Binding Path=AllowAdd}"
-                                        EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
-                                        ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        EditingElementStyle="{DynamicResource MahApps.Styles.CheckBox.DataGrid}"
+                                        ElementStyle="{DynamicResource MahApps.Styles.CheckBox.DataGrid}"
                                         Header="{DynamicResource Addtxt}" />
                 <DataGridCheckBoxColumn Binding="{Binding Path=AllowUpdate}"
-                                        EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
-                                        ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        EditingElementStyle="{DynamicResource MahApps.Styles.CheckBox.DataGrid}"
+                                        ElementStyle="{DynamicResource MahApps.Styles.CheckBox.DataGrid}"
                                         Header="{DynamicResource Edit}" />
                 <DataGridCheckBoxColumn Binding="{Binding Path=AllowPrintDocs}"
-                                        EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
-                                        ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        EditingElementStyle="{DynamicResource MahApps.Styles.CheckBox.DataGrid}"
+                                        ElementStyle="{DynamicResource MahApps.Styles.CheckBox.DataGrid}"
                                         Header="{DynamicResource Print}" />
                 <DataGridCheckBoxColumn Binding="{Binding Path=IsWork}"
-                                        EditingElementStyle="{DynamicResource MetroDataGridCheckBox}"
-                                        ElementStyle="{DynamicResource MetroDataGridCheckBox}"
+                                        EditingElementStyle="{DynamicResource MahApps.Styles.CheckBox.DataGrid}"
+                                        ElementStyle="{DynamicResource MahApps.Styles.CheckBox.DataGrid}"
                                         Header="{DynamicResource Yes}" />
 
             </DataGrid.Columns>

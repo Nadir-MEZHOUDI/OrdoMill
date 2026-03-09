@@ -1,11 +1,10 @@
-﻿using System;
+using System;
 using System.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Npgsql;
 
 namespace OrdoMill.Helpers
 {
@@ -13,7 +12,7 @@ namespace OrdoMill.Helpers
     {
         public static async Task<bool> CheckDbConnectionAsync(string conStr) => await Task.Run(() =>
         {
-            var con = new SqlConnection(conStr);
+            var con = new NpgsqlConnection(conStr);
             try
             {
                 con.Open();
@@ -34,7 +33,7 @@ namespace OrdoMill.Helpers
 
         public static bool CheckDbConnection(string conStr)
         {
-            var con = new SqlConnection(conStr);
+            var con = new NpgsqlConnection(conStr);
             try
             {
                 con.Open();
@@ -100,7 +99,7 @@ namespace OrdoMill.Helpers
             try
             {
                 var entries = context.ChangeTracker.Entries().Where(e => e.State == EntityState.Modified).ToList();
-                foreach (DbEntityEntry dbEntityEntry in entries)
+                foreach (var dbEntityEntry in entries)
                 {
                     dbEntityEntry.Reload();
                 }

@@ -42,7 +42,7 @@ namespace OrdoMill.Views.Home
         {
             try
             {
-                while (Settings.Default.ConnectionString.IsNullOrEmpty() || !new DbCon(Settings.Default.ConnectionString).Database.Exists())
+                while (Settings.Default.ConnectionString.IsNullOrEmpty() || !new DbCon(Settings.Default.ConnectionString).Database.CanConnect())
                     new DbConnectorView().ShowDialog();
             }
             catch (Exception ex)

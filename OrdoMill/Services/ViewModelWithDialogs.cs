@@ -43,7 +43,7 @@ namespace OrdoMill.Services
         {
             var dialog = new CustomDialog
             {
-                Background = Application.Current.Resources["AccentColorBrush"] as Brush,
+                Background = Application.Current.Resources["MahApps.Brushes.Accent"] as Brush,
                 FontSize = 20,
                 Title = title.GetString(),
                 Content = message.GetString()

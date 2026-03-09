@@ -85,7 +85,7 @@
                                       Text="{Binding ServerName}">
                                 <controls:TextBoxHelper.ButtonContent>
                                     <ContentControl Margin="4"
-                                                    Background="{DynamicResource GrayBrush1}"
+                                                    Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}"
                                                     Content="{DynamicResource NetworkIcon}" />
                                 </controls:TextBoxHelper.ButtonContent>
                             </ComboBox>
@@ -127,7 +127,7 @@
                                                              Mode=TwoWay}"
                                          d:LayoutOverrides="LeftPosition, RightPosition" />
                             <RadioButton Margin="5,3"
-                                         Content="SQL Server Authentication"
+                                         Content="PostgreSQL Authentication"
                                          GroupName="a"
                                          IsChecked="{Binding IntegratedSecurity,
                                                              Converter={StaticResource BoolInverser},
@@ -223,7 +223,7 @@
                                                        Mode=OneWay}">
                             <controls:TextBoxHelper.ButtonContent>
                                 <ContentControl Margin="4"
-                                                Background="{DynamicResource GrayBrush1}"
+                                                Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}"
                                                 Content="{DynamicResource Data-Synchronize}" />
                             </controls:TextBoxHelper.ButtonContent>
                         </ComboBox>
@@ -266,7 +266,7 @@
                                  VerticalAlignment="Center"
                                  controls:TextBoxHelper.ButtonCommand="{Binding BrowsDbCommand}"
                                  IsEnabled="{Binding IsAttached}"
-                                 Style="{DynamicResource SearchMetroTextBox}"
+                                 Style="{DynamicResource MahApps.Styles.TextBox}"
                                  Text="{Binding DbPath,
                                                 Mode=TwoWay}"
                                  Visibility="{Binding IsAttached,
@@ -390,9 +390,6 @@
 
     </Grid>-->
 </controls:MetroWindow>
-
-
-
 
 
 

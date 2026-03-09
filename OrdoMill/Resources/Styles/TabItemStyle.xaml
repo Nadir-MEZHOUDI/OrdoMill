@@ -6,7 +6,7 @@
     <!--  ReSharper disable Xaml.InvalidResourceType  -->
     <converters1:TabSizeConverter x:Key="TabSizeConverter" />
     <Style x:Key="AzureTabItem" TargetType="{x:Type TabItem}">
-        <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.Accent}" />
         <Setter Property="Width">
             <Setter.Value>
                 <MultiBinding Converter="{StaticResource TabSizeConverter}">
@@ -30,7 +30,7 @@
                                 <Style TargetType="Border">
                                     <Setter Property="Background">
                                         <Setter.Value>
-                                            <SolidColorBrush Color="{DynamicResource Gray5}" />
+                                            <SolidColorBrush Color="{DynamicResource MahApps.Colors.Gray5}" />
                                         </Setter.Value>
                                     </Setter>
                                 </Style>
@@ -40,7 +40,7 @@
                                     <Style TargetType="Label">
                                         <Setter Property="Foreground">
                                             <Setter.Value>
-                                                <SolidColorBrush Color="{DynamicResource BlackColor}" />
+                                                <SolidColorBrush Color="{DynamicResource MahApps.Colors.ThemeForeground}" />
                                             </Setter.Value>
                                         </Setter>
                                     </Style>
@@ -57,7 +57,7 @@
                             SnapsToDevicePixels="True">
                             <Path
                                 Data="M 0 0 H 20 L 10 10 Z"
-                                Fill="{DynamicResource AccentColorBrush}"
+                                Fill="{DynamicResource MahApps.Brushes.Accent}"
                                 StrokeThickness="0" />
                         </Canvas>
                     </StackPanel>
@@ -65,17 +65,17 @@
                         <Trigger Property="IsSelected" Value="true">
                             <Setter TargetName="root" Property="Foreground">
                                 <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource WhiteColor}" />
+                                    <SolidColorBrush Color="{DynamicResource MahApps.Colors.ThemeBackground}" />
                                 </Setter.Value>
                             </Setter>
                             <Setter TargetName="border" Property="Background">
                                 <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource AccentColor}" />
+                                    <SolidColorBrush Color="{DynamicResource MahApps.Colors.Accent}" />
                                 </Setter.Value>
                             </Setter>
                             <Setter TargetName="border" Property="BorderBrush">
                                 <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource AccentColor}" />
+                                    <SolidColorBrush Color="{DynamicResource MahApps.Colors.Accent}" />
                                 </Setter.Value>
                             </Setter>
                             <Setter TargetName="arrow" Property="Visibility" Value="Visible" />
@@ -83,7 +83,7 @@
                         <Trigger Property="IsSelected" Value="false">
                             <Setter TargetName="root" Property="Foreground">
                                 <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource BlackColor}" />
+                                    <SolidColorBrush Color="{DynamicResource MahApps.Colors.ThemeForeground}" />
                                 </Setter.Value>
                             </Setter>
                             <Setter TargetName="arrow" Property="Visibility" Value="Hidden" />
@@ -91,13 +91,13 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="root" Property="Foreground">
                                 <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource WhiteColor}" />
+                                    <SolidColorBrush Color="{DynamicResource MahApps.Colors.ThemeBackground}" />
                                 </Setter.Value>
                             </Setter>
-                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource AccentColorBrush}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.Accent}" />
                             <Setter TargetName="border" Property="Background">
                                 <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource AccentColor}" />
+                                    <SolidColorBrush Color="{DynamicResource MahApps.Colors.Accent}" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -130,21 +130,21 @@
                         <Trigger Property="IsSelected" Value="true">
                             <Setter TargetName="root" Property="Foreground">
                                 <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource AccentColor}" />
+                                    <SolidColorBrush Color="{DynamicResource MahApps.Colors.Accent}" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="false">
                             <Setter TargetName="root" Property="Foreground">
                                 <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource Gray2}" />
+                                    <SolidColorBrush Color="{DynamicResource MahApps.Colors.Gray2}" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
                         <Trigger SourceName="root" Property="IsMouseOver" Value="True">
                             <Setter TargetName="root" Property="Foreground">
                                 <Setter.Value>
-                                    <SolidColorBrush Color="{DynamicResource AccentColor}" />
+                                    <SolidColorBrush Color="{DynamicResource MahApps.Colors.Accent}" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>

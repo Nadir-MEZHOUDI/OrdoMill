@@ -5,21 +5,20 @@
     xmlns:extensions="clr-namespace:OrdoMill.Helpers.Extensions"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="LegacyColors.xaml" />
         <ResourceDictionary Source="ToggleButtonStyle.xaml" />
         <ResourceDictionary Source="TabItemStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style BasedOn="{StaticResource MetroDataGridRow}" TargetType="DataGridRow">
+    <Style BasedOn="{StaticResource MahApps.Styles.DataGridRow}" TargetType="DataGridRow">
         <Setter Property="Height" Value="40" />
     </Style>
     <Style TargetType="{x:Type DataGridCheckBoxColumn}">
-        <Setter Property="ElementStyle" Value="{DynamicResource MetroDataGridCheckBox}" />
-        <Setter Property="EditingElementStyle" Value="{DynamicResource MetroDataGridCheckBox}" />
+        <Setter Property="ElementStyle" Value="{DynamicResource MahApps.Styles.CheckBox.DataGrid}" />
+        <Setter Property="EditingElementStyle" Value="{DynamicResource MahApps.Styles.CheckBox.DataGrid}" />
     </Style>
     <Style x:Key="EditBoxStyle" TargetType="UserControl">
-        <Setter Property="Background" Value="{DynamicResource AccentColorBrush4}" />
+        <Setter Property="Background" Value="{DynamicResource MahApps.Brushes.Accent4}" />
         <Setter Property="FontStyle" Value="Italic" />
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="FlowDirection" Value="{DynamicResource Direction}" />
@@ -29,10 +28,19 @@
 
 
 
+    <Style x:Key="AccentedSquareButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource MahApps.Brushes.IdealForeground}" />
+        <Setter Property="Background" Value="{DynamicResource MahApps.Brushes.Accent}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="12,6" />
+        <Setter Property="MinHeight" Value="30" />
+    </Style>
+
     <LinearGradientBrush x:Key="BackgroundBrush" Opacity="0.5" StartPoint="0.5,0" EndPoint="0.5,1">
-        <GradientStop Offset="0" Color="{DynamicResource WhiteColor}" />
-        <GradientStop Offset="0.5" Color="{DynamicResource AccentColor}" />
-        <GradientStop Offset="1" Color="{DynamicResource WhiteColor}" />
+        <GradientStop Offset="0" Color="White" />
+        <GradientStop Offset="0.5" Color="{DynamicResource MahApps.Colors.Accent}" />
+        <GradientStop Offset="1" Color="White" />
     </LinearGradientBrush>
 
     <!--<SolidColorBrush x:Key="BackgroundBrush"
@@ -40,9 +48,9 @@
                      Color="{DynamicResource Gray10}" />-->
 
     <LinearGradientBrush x:Key="ListBackground" Opacity="0.8" StartPoint="0.5,0" EndPoint="0.5,1">
-        <GradientStop Offset="0" Color="{DynamicResource WhiteColor}" />
-        <GradientStop Offset="0.5" Color="{DynamicResource WhiteColor}" />
-        <GradientStop Offset="1" Color="{DynamicResource WhiteColor}" />
+        <GradientStop Offset="0" Color="White" />
+        <GradientStop Offset="0.5" Color="White" />
+        <GradientStop Offset="1" Color="White" />
     </LinearGradientBrush>
 
 
@@ -69,7 +77,7 @@
         <Setter Property="BorderThickness" Value="0,0,0,0.5" />
         <Setter Property="CornerRadius" Value="0" />
 
-        <Setter Property="BorderBrush" Value="{DynamicResource GrayBrush2}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.Gray2}" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
     </Style>
@@ -83,7 +91,7 @@
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
     </Style>
 
-    <Style BasedOn="{StaticResource MetroTextBox}" TargetType="{x:Type TextBox}">
+    <Style BasedOn="{StaticResource MahApps.Styles.TextBox}" TargetType="{x:Type TextBox}">
         <Setter Property="VerticalAlignment" Value="Center" />
         <!--<Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />-->
         <Setter Property="controls:TextBoxHelper.ClearTextButton" Value="True" />
@@ -91,7 +99,7 @@
     <Style TargetType="Control">
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
-    <Style BasedOn="{StaticResource MetroComboBox}" TargetType="{x:Type ComboBox}">
+    <Style BasedOn="{StaticResource MahApps.Styles.ComboBox}" TargetType="{x:Type ComboBox}">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="controls:TextBoxHelper.ClearTextButton" Value="True" />
     </Style>
@@ -119,7 +127,7 @@
         <!--<Setter Property="Background" Value="{DynamicResource AccentColorBrush4}" />-->
         <Setter Property="FlowDirection" Value="{DynamicResource Direction}" />
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
-        <Setter Property="GlowBrush" Value="{DynamicResource AccentColorBrush}" />
+        <Setter Property="GlowBrush" Value="{DynamicResource MahApps.Brushes.Accent}" />
         <!--<Setter Property="SizeToContent" Value="Height" />-->
     </Style>
 
@@ -134,7 +142,7 @@
     </Style>-->
 
     <!--  ReSharper disable Xaml.StaticResourceNotResolved  -->
-    <Style BasedOn="{StaticResource MetroDataGrid}" TargetType="{x:Type DataGrid}">
+    <Style BasedOn="{StaticResource MahApps.Styles.DataGrid}" TargetType="{x:Type DataGrid}">
         <Setter Property="IsReadOnly" Value="True" />
         <Setter Property="GridLinesVisibility" Value="Horizontal" />
         <Setter Property="SelectionUnit" Value="FullRow" />
@@ -205,7 +213,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    <Style BasedOn="{StaticResource MetroCheckBox}" TargetType="CheckBox">
+    <Style BasedOn="{StaticResource MahApps.Styles.CheckBox}" TargetType="CheckBox">
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
     </Style>
 
@@ -251,11 +259,11 @@
         Direction="270"
         ShadowDepth="13"
         Color="#BBBBBB" />
-    <Style BasedOn="{StaticResource MetroRadioButton}" TargetType="RadioButton">
+    <Style BasedOn="{StaticResource MahApps.Styles.RadioButton}" TargetType="RadioButton">
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily}" />
     </Style>
 
-    <Style BasedOn="{StaticResource MetroDatePicker}" TargetType="DatePicker">
+    <Style BasedOn="{StaticResource MahApps.Styles.DatePicker}" TargetType="DatePicker">
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="FontSize" Value="14" />

@@ -30,7 +30,7 @@ namespace OrdoMill.Services
         protected Repository()
         {
             Context = new DbCon(Settings.Default.ConnectionString);
-            Context.Configuration.AutoDetectChangesEnabled = false;
+            Context.ChangeTracker.AutoDetectChangesEnabled = false;
             SearchExpression = entity => true;
             ListToDisplay = new ObservableCollection<TEntity>();
             AddCommand = new RelayCommand(async () => await AddEx(), AddCanEx);

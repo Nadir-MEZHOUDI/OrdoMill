@@ -1,17 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using OrdoMill.Helpers.Bases;
 
 namespace OrdoMill.Data.Model
 {
     public sealed class DbCon : DbContext
     {
+        private readonly string _connectionString;
+
         public DbCon()
         {
-
         }
+
         public DbCon(string dbCon)
         {
-
+            _connectionString = dbCon;
         }
 
         public async Task AddOrUpdate<T>(T entity) where T : EntityBase
@@ -44,6 +46,13 @@ namespace OrdoMill.Data.Model
         public DbSet<Patient> Patients { get; set; }
         public DbSet<User> Users { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured && !string.IsNullOrWhiteSpace(_connectionString))
+            {
+                optionsBuilder.UseNpgsql(_connectionString);
+            }
+        }
 
     }
 }

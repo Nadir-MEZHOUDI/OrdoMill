@@ -8,10 +8,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Width="600"
     Height="300"
-    Background="{DynamicResource GrayBrush4}"
+    Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltMediumHigh}"
     ContentRendered="SplashScreen_OnContentRendered"
     FlowDirection="RightToLeft"
-    GlowBrush="{DynamicResource AccentColorBrush}"
+    GlowBrush="{DynamicResource MahApps.Brushes.Accent}"
     ResizeMode="NoResize"
     ShowInTaskbar="False"
     ShowTitleBar="True"
@@ -50,7 +50,7 @@
                 FontFamily="../../Resources/Fonts/#Wendelin"
                 FontSize="110"
                 FontWeight="ExtraBold"
-                Foreground="{DynamicResource AccentColorBrush}"
+                Foreground="{DynamicResource MahApps.Brushes.Accent}"
                 Text="OrdoMill">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
@@ -81,7 +81,7 @@
                 FontSize="80"
                 FontStyle="Italic"
                 FontWeight="ExtraBold"
-                Foreground="{DynamicResource GrayBrush8}"
+                Foreground="{DynamicResource MahApps.Brushes.SystemControlForegroundBaseMediumHigh}"
                 Text="SmartApp">
                 <TextBlock.RenderTransform>
                     <TransformGroup>

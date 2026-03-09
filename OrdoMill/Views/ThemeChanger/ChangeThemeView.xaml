@@ -7,16 +7,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:themeChanger="clr-namespace:OrdoMill.Views.ThemeChanger"
              d:DesignHeight="600"
-             Background="{DynamicResource AccentColorBrush}"
+              Background="{DynamicResource MahApps.Brushes.Accent}"
              mc:Ignorable="d">
     <UserControl.DataContext>
         <themeChanger:ChangeThemeVm />
     </UserControl.DataContext>
     <UserControl.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/FlatSlider.xaml" />
-            </ResourceDictionary.MergedDictionaries>
 
             <Ellipse x:Key="AppThemeMenuIcon"
                      Width="16"
@@ -74,7 +71,7 @@
         <ListBox Grid.Row="1"
                  Width="200"
                  HorizontalContentAlignment="Stretch"
-                 Background="{DynamicResource AccentColorBrush}"
+                 Background="{DynamicResource MahApps.Brushes.Accent}"
                  BorderThickness="0"
                  ItemsSource="{Binding AccentColors}"
                  Padding="0">

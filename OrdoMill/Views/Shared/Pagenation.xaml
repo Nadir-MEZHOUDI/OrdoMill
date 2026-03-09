@@ -15,53 +15,6 @@
     <UserControl.Resources>
         <ResourceDictionary Source="../../Resources/Styles/CircleButtonStyle.xaml" />
     </UserControl.Resources>
-    <!--<WrapPanel Margin="0,3"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center">
-        <WrapPanel.Resources>
-            <Style BasedOn="{StaticResource CirclButtonStyle}" TargetType="Button">
-                <Setter Property="Margin" Value="4,0" />
-            </Style>
-            <Style TargetType="ContentControl">
-                <Setter Property="Height" Value="20" />
-                <Setter Property="Width" Value="40" />
-                <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="HorizontalAlignment" Value="Center" />
-                <Setter Property="Background" Value="{DynamicResource GrayBrush1}" />
-            </Style>
-        </WrapPanel.Resources>
-        <Button Command="{Binding FirstPage}">
-            <ContentControl Content="{DynamicResource Media-First}" />
-        </Button>
-        <Button Command="{Binding PreviousPage}">
-            <ContentControl Content="{DynamicResource Media-Rewind}" />
-        </Button>
-        <Grid MinWidth="150" VerticalAlignment="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0"
-                       FontWeight="Bold"
-                       Text="{Binding CurrentPageNumber}"
-                       TextAlignment="Right" />
-            <TextBlock Grid.Column="1"
-                       Margin="10,0"
-                       Text="/"
-                       TextAlignment="Center" />
-            <TextBlock Grid.Column="2"
-                       Text="{Binding PagesCount}"
-                       TextAlignment="Left" />
-        </Grid>
-        <Button Command="{Binding NextPage}">
-            <ContentControl Content="{DynamicResource Media-Forward}" />
-        </Button>
-        <Button Command="{Binding LastPage}">
-            <ContentControl Content="{DynamicResource Media-Last}" />
-        </Button>
-    </WrapPanel>-->
-
     <Border Margin="10,0">
         <!--<Border.Resources>
             <Style BasedOn="{StaticResource ButtonStyle}" TargetType="Button">
@@ -78,7 +31,6 @@
                     <Setter Property="Width" Value="40" />
                     <Setter Property="VerticalAlignment" Value="Center" />
                     <Setter Property="HorizontalAlignment" Value="Center" />
-                    <!--<Setter Property="Background" Value="{DynamicResource GrayBrush1}" />-->
                 </Style>
             </Grid.Resources>
             <Grid.ColumnDefinitions>

@@ -87,7 +87,7 @@
                    Grid.ColumnSpan="4"
                    Margin="5"
                    HorizontalAlignment="Stretch"
-                   Foreground="{DynamicResource GrayBrush1}"
+                   Foreground="{DynamicResource MahApps.Brushes.SystemControlForegroundChromeWhite}"
                    Text="{Binding ErrorMessage,
                                   UpdateSourceTrigger=PropertyChanged}"
                    TextAlignment="Center" />

@@ -22,7 +22,7 @@
                       TextOptions.TextFormattingMode="Ideal"
                       TextOptions.TextRenderingMode="ClearType"
                       WindowState="Maximized"
-                      WindowTitleBrush="{DynamicResource GrayBrush1}"
+                       WindowTitleBrush="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}"
                       mc:Ignorable="d">
     <controls:MetroWindow.TitleTemplate>
         <DataTemplate>
@@ -32,12 +32,12 @@
                                        Mode=OneWay}"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Stretch"
-                       Background="{DynamicResource AccentColorBrush}"
+                       Background="{DynamicResource MahApps.Brushes.Accent}"
                        FontFamily="MicroMieps Phat"
                        FontSize="22"
                        FontStyle="Italic"
                        FontWeight="Bold"
-                       Foreground="{DynamicResource WhiteColorBrush}"
+                       Foreground="{DynamicResource MahApps.Brushes.IdealForeground}"
                        Text="SmartApp"
                        TextAlignment="Center"
                        TextTrimming="CharacterEllipsis" />
@@ -63,7 +63,7 @@
                     <ContentControl Width="20"
                                     Height="20"
                                     Margin="5,0"
-                                    Background="{DynamicResource WhiteBrush}"
+                                     Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundChromeWhite}"
                                     Content="{DynamicResource Check-02}" />
                     <TextBlock Text="FullScreen" />
                 </WrapPanel>
@@ -76,7 +76,7 @@
                     <ContentControl Width="20"
                                     Height="20"
                                     Margin="5,0"
-                                    Background="{DynamicResource WhiteBrush}"
+                                     Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundChromeWhite}"
                                     Content="{DynamicResource Men-T-Shirt-01}" />
                     <TextBlock Text="{DynamicResource Apparence}" />
                 </WrapPanel>
@@ -86,7 +86,7 @@
                     <ContentControl Width="20"
                                     Height="20"
                                     Margin="5,0"
-                                    Background="{DynamicResource WhiteBrush}"
+                                     Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundChromeWhite}"
                                     Content="{DynamicResource Sign-Up-02}" />
                     <TextBlock Text="{DynamicResource Logout}" />
                 </WrapPanel>
@@ -99,7 +99,7 @@
                     <ContentControl Width="20"
                                     Height="20"
                                     Margin="5,0"
-                                    Background="{DynamicResource WhiteBrush}"
+                                     Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundChromeWhite}"
                                     Content="{DynamicResource CircleInfo02}" />
                     <TextBlock Text="{DynamicResource Pharmacie}" />
                 </WrapPanel>
@@ -111,7 +111,7 @@
                     <ContentControl Width="20"
                                     Height="20"
                                     Margin="5,0"
-                                    Background="{DynamicResource WhiteBrush}"
+                                     Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundChromeWhite}"
                                     Content="{DynamicResource LngIcon}" />
                     <TextBlock Text="{DynamicResource LangueName}" />
                 </WrapPanel>

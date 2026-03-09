@@ -16,7 +16,7 @@ namespace OrdoMill.Views.Bordereau
             try
             {
                // using (var db = new DbCon(Settings.Default.ConnectionString))
-                using (var db = new DbCon())
+                using (var db = new DbCon(Settings.Default.ConnectionString))
                 {
                     var factur = await db.Factures
                         .Include(facture => facture.Ordonnances.Select(a => a.Medecin))
@@ -39,7 +39,7 @@ namespace OrdoMill.Views.Bordereau
             try
             {
                // using (var db = new DbCon(Settings.Default.ConnectionString))
-                using (var db = new DbCon())
+                using (var db = new DbCon(Settings.Default.ConnectionString))
                 {
                     var bordereau = await db.Bordereaus.Include(b => b.Factures.Select(f => f.Ordonnances.Select(o => o.Medecin)))
                         .Include(b => b.Factures.Select(facture =>facture.Ordonnances.Select(ordonnance => ordonnance.Medicaments.Select(ord => ord.Medicament.Forme))))

@@ -51,7 +51,7 @@
             </Style.Triggers>-->
         </Style>
     </UserControl.Resources>
-    <Grid Background="{DynamicResource GrayBrush1}"
+    <Grid Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}"
           DataContext="{Binding Source={StaticResource Locator},
                                 Path=StaticServices}"
           Style="{StaticResource AutoHideGrid}">
@@ -66,7 +66,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Border Grid.RowSpan="4"
-                BorderBrush="{DynamicResource GrayBrush1}"
+                BorderBrush="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}"
                 BorderThickness="0" />
         <StackPanel Orientation="Vertical">
             <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type local:Home}">
@@ -162,7 +162,7 @@
         </StackPanel>
         <Separator Grid.Row="1"
                    Margin="20"
-                   Background="{DynamicResource GrayBrush1}" />
+                   Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}" />
         <StackPanel Grid.Row="2">
             <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type archive:ArchivesView}">
                 <Grid>
@@ -187,7 +187,7 @@
         </StackPanel>
         <Separator Grid.Row="3"
                    Margin="20"
-                   Background="{DynamicResource GrayBrush1}" />
+                   Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}" />
         <StackPanel Grid.Row="4">
             <Button Command="{Binding NavigateToCommand}"
                     CommandParameter="{x:Type settings:SettingsView}"
@@ -228,7 +228,7 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <ContentControl Background="{DynamicResource WhiteBrush}" Content="{DynamicResource MailIcon}" />
+                    <ContentControl Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundChromeWhite}" Content="{DynamicResource MailIcon}" />
                     <TextBlock Grid.Column="1" Text="{DynamicResource ContactUsText}" />
                 </Grid>
             </Button>
@@ -249,7 +249,7 @@
     </Grid>
 
 
-    <!--<StackPanel Background="{DynamicResource AccentColorBrush}"
+    <!--<StackPanel Background="{DynamicResource MahApps.Brushes.Accent}"
                 DataContext="{Binding Source={StaticResource Locator},
                                       Path=StaticServices}"
                 Orientation="Vertical"
@@ -348,7 +348,7 @@
                 <TextBlock Grid.Column="1" Text="{DynamicResource Specialites}" />
             </Grid>
         </Button>
-        <Separator Margin="20" Background="{DynamicResource GrayBrush1}" />
+        <Separator Margin="20" Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}" />
 
         <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type archive:ArchivesView}">
             <Grid>
@@ -360,7 +360,7 @@
                 <TextBlock Grid.Column="1" Text="{DynamicResource Bordereau}" />
             </Grid>
         </Button>
-        <Separator Margin="20" Background="{DynamicResource GrayBrush1}" />
+        <Separator Margin="20" Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}" />
         <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type designTime:ImportDataView}">
             <Grid>
                 <Grid.ColumnDefinitions>
