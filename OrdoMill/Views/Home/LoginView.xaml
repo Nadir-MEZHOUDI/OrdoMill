@@ -4,7 +4,7 @@
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions;assembly=SmartApp.Helpers"
+             xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              MaxWidth="700"
              d:DataContext="{Binding Main.LoginDialog.ViewModel,

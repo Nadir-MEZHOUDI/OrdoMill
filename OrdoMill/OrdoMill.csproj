@@ -29,11 +29,11 @@
      <PackageReference Include="PropertyChanged.Fody" Version="4.1.0">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="System.Management" Version="9.0.0" />
     <PackageReference Include="WpfBindingErrors" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SmartApp.Utils\SmartApp.Helpers\SmartApp.Helpers.csproj" />
     <ProjectReference Include="..\OrdoMill.Data\OrdoMill.Data.csproj" />
     <ProjectReference Include="..\OrdoMill.Resources\OrdoMill.GlobalResources.csproj" />
   </ItemGroup>

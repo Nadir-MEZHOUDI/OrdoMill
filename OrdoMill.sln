@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.4.11519.219 insiders
+VisualStudioVersion = 18.4.11519.219
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdoMill.Data", "OrdoMill.Data\OrdoMill.Data.csproj", "{75857EAA-DD66-43B8-BF7B-1CFD929FD1E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdoMill.GlobalResources", "OrdoMill.Resources\OrdoMill.GlobalResources.csproj", "{0D4E5092-AD5C-4AE9-B7E1-1A5D9BF026D4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartApp.Helpers", "..\SmartApp.Utils\SmartApp.Helpers\SmartApp.Helpers.csproj", "{F8DA29B5-0D4B-4B5F-8435-CE45BD73A5F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdoMill", "OrdoMill\OrdoMill.csproj", "{C5D5431B-0684-4777-A1DE-F7C39579CA54}"
 EndProject
@@ -40,14 +38,6 @@ Global
 		{0D4E5092-AD5C-4AE9-B7E1-1A5D9BF026D4}.Release|Any CPU.ActiveCfg = Release|x86
 		{0D4E5092-AD5C-4AE9-B7E1-1A5D9BF026D4}.Release|x86.ActiveCfg = Release|x86
 		{0D4E5092-AD5C-4AE9-B7E1-1A5D9BF026D4}.Release|x86.Build.0 = Release|x86
-		{F8DA29B5-0D4B-4B5F-8435-CE45BD73A5F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8DA29B5-0D4B-4B5F-8435-CE45BD73A5F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8DA29B5-0D4B-4B5F-8435-CE45BD73A5F2}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{F8DA29B5-0D4B-4B5F-8435-CE45BD73A5F2}.Debug|x86.Build.0 = Debug|Any CPU
-		{F8DA29B5-0D4B-4B5F-8435-CE45BD73A5F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8DA29B5-0D4B-4B5F-8435-CE45BD73A5F2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F8DA29B5-0D4B-4B5F-8435-CE45BD73A5F2}.Release|x86.ActiveCfg = Release|Any CPU
-		{F8DA29B5-0D4B-4B5F-8435-CE45BD73A5F2}.Release|x86.Build.0 = Release|Any CPU
 		{C5D5431B-0684-4777-A1DE-F7C39579CA54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C5D5431B-0684-4777-A1DE-F7C39579CA54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5D5431B-0684-4777-A1DE-F7C39579CA54}.Debug|x86.ActiveCfg = Debug|Any CPU

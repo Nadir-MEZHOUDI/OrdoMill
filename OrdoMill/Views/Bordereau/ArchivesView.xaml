@@ -4,7 +4,7 @@
              xmlns:bordereau="clr-namespace:OrdoMill.Views.Bordereau"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
-             xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions;assembly=SmartApp.Helpers"
+             xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              d:DesignHeight="500"
              d:DesignWidth="1200"

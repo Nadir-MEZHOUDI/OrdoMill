@@ -5,7 +5,7 @@
                        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
-                      xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions;assembly=SmartApp.Helpers"
+                      xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       dialog:DialogParticipation.Register="{Binding}"
                       Closing="DbConnectorView_OnClosing"
@@ -390,7 +390,6 @@
 
     </Grid>-->
 </controls:MetroWindow>
-
 
 
 
