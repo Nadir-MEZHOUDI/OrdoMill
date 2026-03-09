@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MethodTimer;
 using Moq;
 using NUnit.Framework;
 using OrdoMill.Data.Model;

@@ -1,19 +1,20 @@
-﻿<UserControl x:Class="OrdoMill.Views.Clients.ClientDetailsView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+﻿<UserControl
+    x:Class="OrdoMill.Views.Clients.ClientDetailsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions;assembly=SmartApp.Helpers"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions;assembly=SmartApp.Helpers"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             d:DataContext="{Binding Source={StaticResource Locator},
-                                     Path=ClientViewModel}"
-             d:DesignWidth="700"
-             Style="{StaticResource EditBoxStyle}"
-             mc:Ignorable="d">
-    <Grid Margin="5"
-          extensions:MarginSetter.Margin="3"
-          IsEnabled="{Binding IsEditable}">
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DataContext="{Binding Source={StaticResource Locator}, Path=ClientViewModel}"
+    d:DesignWidth="700"
+    Style="{StaticResource EditBoxStyle}"
+    mc:Ignorable="d">
+    <Grid
+        Margin="5"
+        extensions:MarginSetter.Margin="3"
+        IsEnabled="{Binding IsEditable}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -39,77 +40,69 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="1"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Center"
-               Content="{StaticResource NssD}" />
-        <TextBox Grid.Row="1"
-                 Grid.Column="1"
-                 VerticalAlignment="Center"
-                 controls:TextBoxHelper.ClearTextButton="True"
-                 controls:TextBoxHelper.SelectAllOnFocus="True"
-                 CharacterCasing="Upper"
-                 PreviewTextInput="MyTextBox_PreviewTextInput"
-                 Text="{Binding SelectedItem.Matricule,
-                                Mode=TwoWay,
-                                UpdateSourceTrigger=PropertyChanged,
-                                NotifyOnValidationError=True,
-                                ValidatesOnDataErrors=True}"
-                 TextAlignment="Center">
+        <Label
+            Grid.Row="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="{StaticResource NssD}" />
+        <TextBox
+            Grid.Row="1"
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            controls:TextBoxHelper.ClearTextButton="True"
+            controls:TextBoxHelper.SelectAllOnFocus="True"
+            CharacterCasing="Upper"
+            PreviewTextInput="MyTextBox_PreviewTextInput"
+            Text="{Binding SelectedItem.Matricule, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"
+            TextAlignment="Center">
             <!--<interactivity:Interaction.Behaviors>
                 <services:AllowableCharactersTextBoxBehavior MaxLength="50" RegularExpression="^[0-9]+$" />
             </interactivity:Interaction.Behaviors>-->
         </TextBox>
-        <Label Grid.Row="1"
-               Grid.Column="2"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Center"
-               Content="{DynamicResource SuspenduD}" />
-        <controls:ToggleSwitch Grid.Row="1"
-                               Grid.Column="3"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               IsOn="{Binding SelectedItem.Suspende,
-                                                   Mode=TwoWay,
-                                                   UpdateSourceTrigger=PropertyChanged,
-                                                   NotifyOnValidationError=True,
-                                                   ValidatesOnDataErrors=True}"
-                               OffContent="{DynamicResource No}"
-                               OnContent="{DynamicResource Yes}" />
-        <Label Grid.Row="2"
-               Grid.Column="0"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Center"
-               Content="{DynamicResource NomD}" />
-        <TextBox Grid.Row="2"
-                 Grid.Column="1"
-                 VerticalAlignment="Center"
-                 controls:TextBoxHelper.ClearTextButton="True"
-                 controls:TextBoxHelper.SelectAllOnFocus="True"
-                 CharacterCasing="Upper"
-                 GotFocus="FrenshTextFocus_OnFocus"
-                 Text="{Binding SelectedItem.Nom,
-                                Mode=TwoWay,
-                                UpdateSourceTrigger=PropertyChanged,
-                                NotifyOnValidationError=True,
-                                ValidatesOnDataErrors=True}" />
-        <Label Grid.Row="2"
-               Grid.Column="2"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Center"
-               Content="{DynamicResource PrénomD}" />
-        <TextBox Grid.Row="2"
-                 Grid.Column="3"
-                 VerticalAlignment="Center"
-                 controls:TextBoxHelper.ClearTextButton="True"
-                 controls:TextBoxHelper.SelectAllOnFocus="True"
-                 CharacterCasing="Upper"
-                 GotFocus="FrenshTextFocus_OnFocus"
-                 Text="{Binding SelectedItem.Prenom,
-                                Mode=TwoWay,
-                                UpdateSourceTrigger=PropertyChanged,
-                                NotifyOnValidationError=True,
-                                ValidatesOnDataErrors=True}" />
+        <Label
+            Grid.Row="1"
+            Grid.Column="2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="{DynamicResource SuspenduD}" />
+        <controls:ToggleSwitch
+            Grid.Row="1"
+            Grid.Column="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            IsOn="{Binding SelectedItem.Suspende, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"
+            OffContent="{DynamicResource No}"
+            OnContent="{DynamicResource Yes}" />
+        <Label
+            Grid.Row="2"
+            Grid.Column="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="{DynamicResource NomD}" />
+        <TextBox
+            Grid.Row="2"
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            controls:TextBoxHelper.ClearTextButton="True"
+            controls:TextBoxHelper.SelectAllOnFocus="True"
+            CharacterCasing="Upper"
+            GotFocus="FrenshTextFocus_OnFocus"
+            Text="{Binding SelectedItem.Nom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+        <Label
+            Grid.Row="2"
+            Grid.Column="2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="{DynamicResource PrénomD}" />
+        <TextBox
+            Grid.Row="2"
+            Grid.Column="3"
+            VerticalAlignment="Center"
+            controls:TextBoxHelper.ClearTextButton="True"
+            controls:TextBoxHelper.SelectAllOnFocus="True"
+            CharacterCasing="Upper"
+            GotFocus="FrenshTextFocus_OnFocus"
+            Text="{Binding SelectedItem.Prenom, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
 
         <!--<Label Grid.Row="3"
                HorizontalAlignment="Left"
@@ -148,18 +141,16 @@
                                 ValidatesOnDataErrors=True}" />-->
 
 
-        <Label Grid.Row="4"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Center"
-               Content="{StaticResource NeLeD}" />
+        <Label
+            Grid.Row="4"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="{StaticResource NeLeD}" />
 
-        <DatePicker Grid.Row="4"
-                    Grid.Column="1"
-                    SelectedDate="{Binding SelectedItem.DateNaissance,
-                                           Mode=TwoWay,
-                                           UpdateSourceTrigger=PropertyChanged,
-                                           NotifyOnValidationError=True,
-                                           ValidatesOnDataErrors=True}" />
+        <DatePicker
+            Grid.Row="4"
+            Grid.Column="1"
+            SelectedDate="{Binding SelectedItem.DateNaissance, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
         <!--<Label Grid.Row="4"
                Grid.Column="2"
                HorizontalAlignment="Left"
@@ -180,108 +171,95 @@
                                 NotifyOnValidationError=True,
                                 ValidatesOnDataErrors=True}" />-->
 
-        <Label Grid.Row="5"
-               Grid.Column="0"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Center"
-               Content="{StaticResource AddressD}" />
+        <Label
+            Grid.Row="5"
+            Grid.Column="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="{StaticResource AddressD}" />
 
-        <TextBox Grid.Row="5"
-                 Grid.Column="1"
-                 Grid.ColumnSpan="3"
-                 VerticalAlignment="Center"
-                 controls:TextBoxHelper.ClearTextButton="True"
-                 controls:TextBoxHelper.SelectAllOnFocus="True"
-                 CharacterCasing="Upper"
-                 GotFocus="FrenshTextFocus_OnFocus"
-                 Text="{Binding SelectedItem.Adresse,
-                                Mode=TwoWay,
-                                UpdateSourceTrigger=PropertyChanged,
-                                NotifyOnValidationError=True,
-                                ValidatesOnDataErrors=True}" />
+        <TextBox
+            Grid.Row="5"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalAlignment="Center"
+            controls:TextBoxHelper.ClearTextButton="True"
+            controls:TextBoxHelper.SelectAllOnFocus="True"
+            CharacterCasing="Upper"
+            GotFocus="FrenshTextFocus_OnFocus"
+            Text="{Binding SelectedItem.Adresse, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
 
-        <Label Grid.Row="6"
-               Grid.Column="0"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Center"
-               Content="{StaticResource CcpD}" />
+        <Label
+            Grid.Row="6"
+            Grid.Column="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="{StaticResource CcpD}" />
 
-        <TextBox Grid.Row="6"
-                 Grid.Column="1"
-                 VerticalAlignment="Center"
-                 controls:TextBoxHelper.ClearTextButton="True"
-                 controls:TextBoxHelper.SelectAllOnFocus="True"
-                 CharacterCasing="Upper"
-                 GotFocus="FrenshTextFocus_OnFocus"
-                 Text="{Binding SelectedItem.Ccp,
-                                Mode=TwoWay,
-                                UpdateSourceTrigger=PropertyChanged,
-                                NotifyOnValidationError=True,
-                                ValidatesOnDataErrors=True}" />
+        <TextBox
+            Grid.Row="6"
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            controls:TextBoxHelper.ClearTextButton="True"
+            controls:TextBoxHelper.SelectAllOnFocus="True"
+            CharacterCasing="Upper"
+            GotFocus="FrenshTextFocus_OnFocus"
+            Text="{Binding SelectedItem.Ccp, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
 
-        <Label Grid.Row="6"
-               Grid.Column="2"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Center"
-               Content="{DynamicResource TeleD}" />
-        <TextBox Grid.Row="6"
-                 Grid.Column="3"
-                 VerticalAlignment="Center"
-                 controls:TextBoxHelper.ClearTextButton="True"
-                 controls:TextBoxHelper.SelectAllOnFocus="True"
-                 CharacterCasing="Upper"
-                 Text="{Binding SelectedItem.Tel,
-                                Mode=TwoWay,
-                                UpdateSourceTrigger=PropertyChanged,
-                                NotifyOnValidationError=True,
-                                ValidatesOnDataErrors=True}" />
-        <Label Grid.Row="7"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Center"
-               Content="{DynamicResource Grad}" />
-        <ComboBox Grid.Row="7"
-                  Grid.Column="1"
-                  VerticalAlignment="Center"
-                  GotKeyboardFocus="cboToUpper_GotKeyboardFocus"
-                  IsEditable="True"
-                  ItemsSource="{Binding Grades}"
-                  Text="{Binding SelectedItem.Grade,
-                                 Mode=TwoWay,
-                                 UpdateSourceTrigger=PropertyChanged,
-                                 NotifyOnValidationError=True,
-                                 ValidatesOnDataErrors=True}" />
-        <Label Grid.Row="8"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Center"
-               Content="{DynamicResource Contractuel}" />
-        <controls:ToggleSwitch Name="ContratSwitch"
-                               Grid.Row="8"
-                               Grid.Column="1"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               IsOn="{Binding SelectedItem.IsContractial,
-                                                   Mode=TwoWay,
-                                                   UpdateSourceTrigger=PropertyChanged,
-                                                   NotifyOnValidationError=True,
-                                                   ValidatesOnDataErrors=True}"
-                               OffContent="{DynamicResource No}"
-                               OnContent="{DynamicResource Yes}" />
-        <Label Grid.Row="8"
-               Grid.Column="2"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Center"
-               Content="{DynamicResource Jusque}"
-               Visibility="{Binding ElementName=ContratSwitch,
-                                    Path=IsChecked,
-                                    Converter={StaticResource VisibileToHiddenConverter}}" />
-        <DatePicker Grid.Row="8"
-                    Grid.Column="3"
-                    VerticalAlignment="Center"
-                    SelectedDate="{Binding SelectedItem.Jusquea,
-                                           Mode=TwoWay}"
-                    Visibility="{Binding ElementName=ContratSwitch,
-                                         Path=IsChecked,
-                                         Converter={StaticResource VisibilityConverter}}" />
+        <Label
+            Grid.Row="6"
+            Grid.Column="2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="{DynamicResource TeleD}" />
+        <TextBox
+            Grid.Row="6"
+            Grid.Column="3"
+            VerticalAlignment="Center"
+            controls:TextBoxHelper.ClearTextButton="True"
+            controls:TextBoxHelper.SelectAllOnFocus="True"
+            CharacterCasing="Upper"
+            Text="{Binding SelectedItem.Tel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+        <Label
+            Grid.Row="7"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="{DynamicResource Grad}" />
+        <ComboBox
+            Grid.Row="7"
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            GotKeyboardFocus="cboToUpper_GotKeyboardFocus"
+            IsEditable="True"
+            ItemsSource="{Binding Grades}"
+            Text="{Binding SelectedItem.Grade, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+        <Label
+            Grid.Row="8"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="{DynamicResource Contractuel}" />
+        <controls:ToggleSwitch
+            Name="ContratSwitch"
+            Grid.Row="8"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            IsOn="{Binding SelectedItem.IsContractial, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"
+            OffContent="{DynamicResource No}"
+            OnContent="{DynamicResource Yes}" />
+        <Label
+            Grid.Row="8"
+            Grid.Column="2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Content="{DynamicResource Jusque}"
+            Visibility="{Binding ElementName=ContratSwitch, Path=IsOn, Converter={StaticResource VisibileToHiddenConverter}}" />
+        <DatePicker
+            Grid.Row="8"
+            Grid.Column="3"
+            VerticalAlignment="Center"
+            SelectedDate="{Binding SelectedItem.Jusquea, Mode=TwoWay}"
+            Visibility="{Binding ElementName=ContratSwitch, Path=IsOn, Converter={StaticResource VisibilityConverter}}" />
 
     </Grid>
 </UserControl>

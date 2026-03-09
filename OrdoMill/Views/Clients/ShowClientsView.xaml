@@ -1,18 +1,18 @@
-﻿<UserControl x:Class="OrdoMill.Views.Clients.ShowClientsView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:dto="clr-namespace:OrdoMill.Data.Model;assembly=OrdoMill.Data"
-             xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions;assembly=SmartApp.Helpers"
-             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:shared="clr-namespace:OrdoMill.Views.Shared"
-             d:DataContext="{Binding Source={StaticResource Locator},
-                                     Path=ClientViewModel}"
-             d:DesignHeight="500"
-             d:DesignWidth="1000"
-             Style="{DynamicResource CustomUserControl}"
-             mc:Ignorable="d">
+﻿<UserControl
+    x:Class="OrdoMill.Views.Clients.ShowClientsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dto="clr-namespace:OrdoMill.Data.Model;assembly=OrdoMill.Data"
+    xmlns:extensions="clr-namespace:SmartApp.Helpers.Extensions;assembly=SmartApp.Helpers"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:shared="clr-namespace:OrdoMill.Views.Shared"
+    d:DataContext="{Binding Source={StaticResource Locator}, Path=ClientViewModel}"
+    d:DesignHeight="500"
+    d:DesignWidth="1000"
+    Style="{DynamicResource CustomUserControl}"
+    mc:Ignorable="d">
     <Grid Margin="0" extensions:MarginSetter.Margin="3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
@@ -32,13 +32,13 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </TextBox>
-        <ListView Grid.Row="1"
-                  Grid.Column="0"
-                  HorizontalContentAlignment="Stretch"
-                  IsEnabled="{Binding IsEditable,
-                                      Converter={StaticResource BoolInverser}}"
-                  ItemsSource="{Binding ListToDisplay}"
-                  SelectedValue="{Binding SelectedItem}">
+        <ListView
+            Grid.Row="1"
+            Grid.Column="0"
+            HorizontalContentAlignment="Stretch"
+            IsEnabled="{Binding IsEditable, Converter={StaticResource BoolInverser}}"
+            ItemsSource="{Binding ListToDisplay}"
+            SelectedValue="{Binding SelectedItem}">
             <ListView.Resources>
                 <DataTemplate DataType="{x:Type dto:Assure}">
                     <Grid Height="35">
@@ -54,45 +54,47 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <CheckBox Margin="10,0"
-                                      HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"
-                                      IsChecked="{Binding IsCheck,
-                                                          UpdateSourceTrigger=PropertyChanged,
-                                                          Mode=TwoWay}" />
-                            <TextBlock Grid.Column="1"
-                                       Margin="10,0"
-                                       VerticalAlignment="Center"
-                                       FontWeight="Bold"
-                                       Foreground="{DynamicResource GrayBrush1}"
-                                       Text="{Binding Matricule}" />
-                            <ContentControl Grid.Column="2"
-                                            Height="25"
-                                            Margin="15,0"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            Content="{DynamicResource Soldier}" />
-                            <TextBlock Grid.Column="3"
-                                       VerticalAlignment="Center"
-                                       FontStyle="Italic"
-                                       Text="{Binding Nom}" />
-                            <TextBlock Grid.Column="4"
-                                       VerticalAlignment="Center"
-                                       FontStyle="Italic"
-                                       Text="{Binding Prenom}" />
-                            <TextBlock Grid.Column="5"
-                                       VerticalAlignment="Center"
-                                       FontStyle="Italic"
-                                       Text="{Binding DateNaissance,
-                                                      StringFormat='{}{0:dd/MM/yyyy}'}" />
+                            <CheckBox
+                                Margin="10,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                IsChecked="{Binding IsCheck, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Margin="10,0"
+                                VerticalAlignment="Center"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource GrayBrush1}"
+                                Text="{Binding Matricule}" />
+                            <ContentControl
+                                Grid.Column="2"
+                                Height="25"
+                                Margin="15,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{DynamicResource Soldier}" />
+                            <TextBlock
+                                Grid.Column="3"
+                                VerticalAlignment="Center"
+                                FontStyle="Italic"
+                                Text="{Binding Nom}" />
+                            <TextBlock
+                                Grid.Column="4"
+                                VerticalAlignment="Center"
+                                FontStyle="Italic"
+                                Text="{Binding Prenom}" />
+                            <TextBlock
+                                Grid.Column="5"
+                                VerticalAlignment="Center"
+                                FontStyle="Italic"
+                                Text="{Binding DateNaissance, StringFormat='{}{0:dd/MM/yyyy}'}" />
                             <ToggleButton Grid.Column="6" IsChecked="{Binding Activé, Mode=OneWay}" />
-                            <WrapPanel Grid.Column="7"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Background="Transparent"
-                                       Visibility="{Binding RelativeSource={RelativeSource AncestorType=ListViewItem},
-                                                            Path=IsMouseOver,
-                                                            Converter={StaticResource VisibileToHiddenConverter}}">
+                            <WrapPanel
+                                Grid.Column="7"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Background="Transparent"
+                                Visibility="{Binding RelativeSource={RelativeSource AncestorType=ListViewItem}, Path=IsMouseOver, Converter={StaticResource VisibileToHiddenConverter}}">
                                 <WrapPanel.Resources>
                                     <ResourceDictionary Source="../../Resources/Styles/BarButtonsStyle.xaml" />
                                 </WrapPanel.Resources>
@@ -117,44 +119,49 @@
             </ListView.Resources>
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Command="{Binding AddCommand}"
-                              Header="{DynamicResource Addtxt}"
-                              Icon="{DynamicResource Add}" />
-                    <MenuItem Command="{Binding UpdateCommand}"
-                              Header="{DynamicResource Edit}"
-                              Icon="{DynamicResource Editor}" />
+                    <MenuItem
+                        Command="{Binding AddCommand}"
+                        Header="{DynamicResource Addtxt}"
+                        Icon="{DynamicResource Add}" />
+                    <MenuItem
+                        Command="{Binding UpdateCommand}"
+                        Header="{DynamicResource Edit}"
+                        Icon="{DynamicResource Editor}" />
                     <Separator />
-                    <MenuItem Command="{Binding DeleteCommand}"
-                              Header="{DynamicResource Del}"
-                              Icon="{DynamicResource Recycle-Bin}" />
+                    <MenuItem
+                        Command="{Binding DeleteCommand}"
+                        Header="{DynamicResource Del}"
+                        Icon="{DynamicResource Recycle-Bin}" />
                     <Separator />
-                    <MenuItem Command="{Binding SuspendCommand}"
-                              Header="{DynamicResource Suspender}"
-                              Icon="{DynamicResource BlockUser}" />
+                    <MenuItem
+                        Command="{Binding SuspendCommand}"
+                        Header="{DynamicResource Suspender}"
+                        Icon="{DynamicResource BlockUser}" />
 
-                    <MenuItem Command="{Binding UnSuspendCommand}"
-                              Header="{DynamicResource UnSuspender}"
-                              Icon="{DynamicResource UnBlock}" />
+                    <MenuItem
+                        Command="{Binding UnSuspendCommand}"
+                        Header="{DynamicResource UnSuspender}"
+                        Icon="{DynamicResource UnBlock}" />
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>
-        <GridSplitter Grid.Row="1"
-                      Grid.Column="1"
-                      Width="5"
-                      HorizontalAlignment="Stretch"
-                      Background="{DynamicResource AccentColorBrush}" />
-        <ListView Grid.Row="1"
-                  Grid.Column="2"
-                  ItemsSource="{Binding SelectedItem.Patients}">
+        <GridSplitter
+            Grid.Row="1"
+            Grid.Column="1"
+            Width="5"
+            HorizontalAlignment="Stretch"
+            Background="{DynamicResource AccentColorBrush}" />
+        <ListView
+            Grid.Row="1"
+            Grid.Column="2"
+            ItemsSource="{Binding SelectedItem.Patients}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Height="35"
-                          HorizontalAlignment="{Binding HorizontalAlignment,
-                                                        Mode=OneWayToSource,
-                                                        RelativeSource={RelativeSource AncestorType={x:Type ContentPresenter},
-                                                                                       Mode=FindAncestor}}"
-                          d:DesignWidth="500"
-                          extensions:MarginSetter.Margin="5,1">
+                    <Grid
+                        Height="35"
+                        HorizontalAlignment="{Binding HorizontalAlignment, Mode=OneWayToSource, RelativeSource={RelativeSource AncestorType={x:Type ContentPresenter}, Mode=FindAncestor}}"
+                        d:DesignWidth="500"
+                        extensions:MarginSetter.Margin="5,1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="50" />
                             <ColumnDefinition Width="Auto" />
@@ -163,32 +170,34 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <CheckBox Margin="10,0"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"
-                                  IsChecked="{Binding IsCheck,
-                                                      UpdateSourceTrigger=PropertyChanged,
-                                                      Mode=TwoWay}" />
+                        <CheckBox
+                            Margin="10,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            IsChecked="{Binding IsCheck, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
 
-                        <ContentControl Grid.Column="1"
-                                        Height="25"
-                                        Margin="15,0"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        Content="{DynamicResource Patient-01-Wf}" />
-                        <TextBlock Grid.Column="2"
-                                   VerticalAlignment="Center"
-                                   FontStyle="Italic"
-                                   Text="{Binding Nom}" />
-                        <TextBlock Grid.Column="3"
-                                   VerticalAlignment="Center"
-                                   FontStyle="Italic"
-                                   Text="{Binding Prenom}" />
-                        <TextBlock Grid.Column="4"
-                                   VerticalAlignment="Center"
-                                   FontStyle="Italic"
-                                   Text="{Binding DateNaissance,
-                                                  StringFormat='{}{0:dd/MM/yyyy}'}" />
+                        <ContentControl
+                            Grid.Column="1"
+                            Height="25"
+                            Margin="15,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="{DynamicResource Patient-01-Wf}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            FontStyle="Italic"
+                            Text="{Binding Nom}" />
+                        <TextBlock
+                            Grid.Column="3"
+                            VerticalAlignment="Center"
+                            FontStyle="Italic"
+                            Text="{Binding Prenom}" />
+                        <TextBlock
+                            Grid.Column="4"
+                            VerticalAlignment="Center"
+                            FontStyle="Italic"
+                            Text="{Binding DateNaissance, StringFormat='{}{0:dd/MM/yyyy}'}" />
                         <ToggleButton Grid.Column="5" IsChecked="{Binding Activé, Mode=OneWay}" />
 
                     </Grid>

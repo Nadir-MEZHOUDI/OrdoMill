@@ -35,7 +35,7 @@ namespace OrdoMill.Views.ThemeChanger
             try
             {
                 var currentTheme = ThemeManager.Current.DetectTheme(Application.Current);
-                var accent = ThemeManager.Current.Themes.FirstOrDefault(t => t.DisplayName == Name && t.IsAccent);
+                var accent = ThemeManager.Current.Themes.FirstOrDefault(t => t.DisplayName == Name && t.ColorScheme != null);
                 if (accent != null)
                 {
                     Settings.Default.AppAccent = Name;

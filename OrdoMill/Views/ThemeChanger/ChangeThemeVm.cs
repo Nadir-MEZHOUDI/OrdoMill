@@ -14,13 +14,17 @@ namespace OrdoMill.Views.ThemeChanger
         public ChangeThemeVm()
         {
             AccentColors = ThemeManager.Current.Themes
-                .Where(t => t.IsAccent)
+                .Where(t => !string.IsNullOrEmpty(t.ColorScheme) && t.BaseColorScheme == ThemeManager.BaseColorLight)
+                .GroupBy(t => t.ColorScheme)
+                .Select(g => g.First())
                 .Select(
                     a => new AccentColorMenuData { Name = a.DisplayName, ColorBrush = a.Resources["MahApps.Brushes.Accent"] as Brush })
                 .ToList();
 
             AppThemes = ThemeManager.Current.Themes
-                .Where(t => t.IsTheme)
+                .Where(t => !string.IsNullOrEmpty(t.BaseColorScheme))
+                .GroupBy(t => t.BaseColorScheme)
+                .Select(g => g.First())
                 .Select(
                     a => new AppThemeMenuData
                     {
@@ -42,8 +46,8 @@ namespace OrdoMill.Views.ThemeChanger
                 var theme = ThemeManager.Current.DetectTheme(Application.Current);
                 if (theme != null) return;
 
-                var appTheme = ThemeManager.Current.Themes.FirstOrDefault(t => t.DisplayName == Settings.Default.AppTheme && t.IsTheme);
-                var accent = ThemeManager.Current.Themes.FirstOrDefault(t => t.DisplayName == Settings.Default.AppAccent && t.IsAccent);
+                var appTheme = ThemeManager.Current.Themes.FirstOrDefault(t => t.DisplayName == Settings.Default.AppTheme && !string.IsNullOrEmpty(t.BaseColorScheme));
+                var accent = ThemeManager.Current.Themes.FirstOrDefault(t => t.DisplayName == Settings.Default.AppAccent && !string.IsNullOrEmpty(t.ColorScheme));
 
                 if (appTheme != null && accent != null)
                 {

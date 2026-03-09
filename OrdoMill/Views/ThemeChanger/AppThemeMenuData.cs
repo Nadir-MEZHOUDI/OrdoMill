@@ -9,7 +9,7 @@ namespace OrdoMill.Views.ThemeChanger
         public override void DoChangeTheme(object sender)
         {
             var currentTheme = ThemeManager.Current.DetectTheme(Application.Current);
-            var appTheme = ThemeManager.Current.Themes.FirstOrDefault(t => t.DisplayName == Name && t.IsTheme);
+            var appTheme = ThemeManager.Current.Themes.FirstOrDefault(t => t.DisplayName == Name && t.BaseColorScheme != null);
             if (appTheme != null)
             {
                 Settings.Default.AppTheme = Name;

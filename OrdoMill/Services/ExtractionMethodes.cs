@@ -3,7 +3,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using MethodTimer;
 using OfficeOpenXml;
 using OrdoMill.Data.Model;
 using OrdoMill.Interfaces;
@@ -237,7 +236,7 @@ namespace OrdoMill.Services
             }
         });
 
-        [Time]
+        
         private static void FillExcelFactureDetails(Facture facture, Info info, ref ExcelPackage package, IActionProgress<int> progress)
         {
             try
