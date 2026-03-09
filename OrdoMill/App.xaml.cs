@@ -23,7 +23,7 @@ namespace OrdoMill
                var listener = new BindingErrorListener();
                listener.ErrorCatched += async s => await new BindingException(s).AppLoggingAsync();
              }
-            catch (Exception ex)
+            catch (Exception)
             {
                   //ex.AppLogging();
             }

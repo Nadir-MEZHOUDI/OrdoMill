@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using MahApps.Metro.Controls.Dialogs;
+using Microsoft.Win32;
 using OrdoMill.Data.Model;
 using OrdoMill.Services;
 using PropertyChanged;
@@ -60,15 +60,15 @@ namespace OrdoMill.Views.Medicaments
 
         public override async Task ExportEx()
         {
-            var save = new FolderBrowserDialog();
+            var save = new OpenFolderDialog();
 
-            if (save.ShowDialog() == DialogResult.OK)
+            if (save.ShowDialog() == true)
             {
                 var controller = await DialogCoordinator.ShowProgressAsync(this, "تصدير ", @"فضلا انتظر يتم الآن التصدير ", false,
                             Statics.MessageSettings);
                 controller.SetProgress(0);
-                var exportMedPath = save.SelectedPath + "\\Medicaments.xml";
-                var exportFormesPath = save.SelectedPath + "\\Forms.xml";
+                var exportMedPath = save.FolderName + "\\Medicaments.xml";
+                var exportFormesPath = save.FolderName + "\\Forms.xml";
 
                 try
                 {

@@ -113,7 +113,7 @@ namespace OrdoMill.Services
                 {
                     return new SqlConnectionStringBuilder(context.Database.Connection.ConnectionString);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return null;
                 }
@@ -126,7 +126,7 @@ namespace OrdoMill.Services
                 if (prefix == null) prefix = Settings.Default.dbName;
                 return prefix + DateTime.Now.ToString("yyyyMMdd");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return string.Empty;
             }

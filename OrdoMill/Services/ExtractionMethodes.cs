@@ -208,7 +208,7 @@ namespace OrdoMill.Services
                     action = FillExcelFactureMoreThen25Ord;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }

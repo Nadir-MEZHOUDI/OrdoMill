@@ -35,7 +35,7 @@ namespace OrdoMill.Services
                     //get the value of property and try to assign it to the property of T type object:
                     tmp.GetType().GetProperty(pi.Name).SetValue(tmp, pi.GetValue(obj, null), null);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
                     //tmp.GetType().GetProperty(pi.Name).SetValue(tmp, pi.GetValue(obj, null).ToTypeOf(pi), null);

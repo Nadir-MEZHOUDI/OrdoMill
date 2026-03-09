@@ -5,9 +5,9 @@ using System.Data.Entity;
 using System.Data.SqlClient;
 using System.IO;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Win32;
 using OrdoMill.Data.Model;
 using OrdoMill.Properties;
 using OrdoMill.Services;
@@ -112,7 +112,7 @@ namespace OrdoMill.Views.DbConnector
                 Settings.Default.Save();
                 await ShowMessage("تهانينا", "تم حفظ الإعدادات بنجاح");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // ex
             }
@@ -160,7 +160,7 @@ namespace OrdoMill.Views.DbConnector
         private void BrowseDb_Ex()
         {
             var op = new OpenFileDialog { Filter = @"Database File *.MDF|*.mdf" };
-            if (op.ShowDialog() == DialogResult.OK)
+            if (op.ShowDialog() == true)
             {
                 DbPath = op.FileName;
                 var a = new FileInfo(DbPath);

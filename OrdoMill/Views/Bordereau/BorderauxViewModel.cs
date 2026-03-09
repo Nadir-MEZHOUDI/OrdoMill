@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using Microsoft.Win32;
 using OrdoMill.Services;
 using PropertyChanged;
 using SmartApp.Helpers.Helpers;
@@ -41,16 +41,12 @@ namespace OrdoMill.Views.Bordereau
         {
             try
             {
-                var op = new FolderBrowserDialog
-                {
-                    ShowNewFolderButton = true,
-                    RootFolder = Environment.SpecialFolder.Desktop
-                };
+                var op = new OpenFolderDialog();
 
-                if ((op.ShowDialog() == DialogResult.OK) && (SelectedItem != null))
+                if ((op.ShowDialog() == true) && (SelectedItem != null))
                 {
                     var bordereau = await FacturesAndBordereauService.GetFullBordereauInfo(SelectedItem.Id);
-                    var savePath = op.SelectedPath;
+                    var savePath = op.FolderName;
                     await bordereau.ExtractBordereauResume(savePath, PharmacieInfo);
                 }
             }
@@ -64,15 +60,11 @@ namespace OrdoMill.Views.Bordereau
         {
             try
             {
-                var op = new FolderBrowserDialog
-                {
-                    ShowNewFolderButton = true,
-                    RootFolder = Environment.SpecialFolder.Desktop
-                };
-                if ((op.ShowDialog() == DialogResult.OK) && await GetPharmacieInfo() && (SelectedItem != null))
+                var op = new OpenFolderDialog();
+                if ((op.ShowDialog() == true) && await GetPharmacieInfo() && (SelectedItem != null))
                 {
                     var bordereau = await FacturesAndBordereauService.GetFullBordereauInfo(SelectedItem.Id);
-                    var savePath = op.SelectedPath;
+                    var savePath = op.FolderName;
                     await bordereau.ExtractBordereauEtiquette(savePath, PharmacieInfo);
                 }
             }
@@ -107,20 +99,16 @@ namespace OrdoMill.Views.Bordereau
         {
             try
             {
-                var op = new FolderBrowserDialog
-                {
-                    ShowNewFolderButton = true,
-                    RootFolder = Environment.SpecialFolder.Desktop
-                };
-                if ((op.ShowDialog() == DialogResult.OK) && await GetPharmacieInfo() && (SelectedItem != null))
+                var op = new OpenFolderDialog();
+                if ((op.ShowDialog() == true) && await GetPharmacieInfo() && (SelectedItem != null))
                 {
                     var controller = await ShowProgressMessage("Extraction", "...");
                     controller.SetIndeterminate();
                     await Task.Delay(1000);
-                    var savePath = op.SelectedPath;
+                    var savePath = op.FolderName;
                     var bordereau = await FacturesAndBordereauService.GetFullBordereauInfo(SelectedItem.Id);
                     //await Task.Run(() =>  
-                    bordereau.ExtractAllBordereauFactures(savePath, PharmacieInfo);
+                    await bordereau.ExtractAllBordereauFactures(savePath, PharmacieInfo);
                     //);
                     await controller.CloseAsync();
                 }

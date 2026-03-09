@@ -4,9 +4,9 @@ using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using Microsoft.Win32;
 using OrdoMill.Data.Model;
 using OrdoMill.Properties;
 using OrdoMill.Services;
@@ -119,12 +119,8 @@ namespace OrdoMill.Views.Bordereau
 
         private async Task ConvertFacturToExcel()
         {
-            var op = new FolderBrowserDialog
-            {
-                ShowNewFolderButton = true,
-                RootFolder = Environment.SpecialFolder.Desktop
-            };
-            if ((op.ShowDialog() == DialogResult.OK) && (SelectedItem != null))
+            var op = new OpenFolderDialog();
+            if ((op.ShowDialog() == true) && (SelectedItem != null))
             {
                 var controller =
                     await ShowProgressMessage("Transformation de la Facture en Excel ...", "S'il vous pla�t, attendez");
@@ -150,7 +146,7 @@ namespace OrdoMill.Views.Bordereau
                         controller.SetMessage("S'il vous pla�t, attendez \n" + v + " % ");
                     });
 
-                    var savePath = op.SelectedPath;
+                    var savePath = op.FolderName;
                     var factur = await FacturesAndBordereauService.GetAllFactureInfosAsync(SelectedItem.Id);
                     await Task.Run(() => factur.ExtractFactureToExcel(savePath, PharmacieInfo, progress));
 

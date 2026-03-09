@@ -34,22 +34,22 @@ namespace OrdoMill.Data.Migrations
                 if (context?.Operations?.Count() < 9)
                 {
                     context.Operations.AddOrUpdate(o => o.Name,
-                        new Operation { Name = "есйзгои чгзои гАхМгДгй" },
-                        new Operation { Name = "йслМА гАняФл" },
-                        new Operation { Name = "йслМА гАонФА" },
-                        new Operation { Name = "есйМяго чгфЦи гАЦФгьДМД" },
-                        new Operation { Name = "йуоМя чгфЦи гАЦФгьДМД" },
-                        new Operation { Name = "ьхгзи тЕгои ечгЦи" },
-                        new Operation { Name = "ьхгзи хьгчи ечгЦи" },
-                        new Operation { Name = " йзоМА ЦФгьД" },
-                        new Operation { Name = "ежгщи ЦФгьД" }
+                        new Operation { Name = "О©╫О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫" },
+                        new Operation { Name = "О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫" },
+                        new Operation { Name = "О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫" },
+                        new Operation { Name = "О©╫О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫" },
+                        new Operation { Name = "О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫" },
+                        new Operation { Name = "О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫" },
+                        new Operation { Name = "О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫" },
+                        new Operation { Name = " О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫" },
+                        new Operation { Name = "О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫" }
                     );
                     context.SaveChanges();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                // throw new ApplicationException("мок ньг щМ ежгщи гАзЦАМгй\n" + ex.Message);
+                // throw new ApplicationException("О©╫О©╫О©╫ О©╫О©╫О©╫ О©╫О©╫ О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫\n" + ex.Message);
             }
 
             try
@@ -73,7 +73,7 @@ namespace OrdoMill.Data.Migrations
                 }
             }
 
-            catch(Exception ex)
+            catch(Exception)
             {
                 //
              }

@@ -58,7 +58,7 @@ namespace OrdoMill.Views.Home
                 Application.Current.Resources.MergedDictionaries.Remove(resourceDictionary);
                 Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // ex.ToString().ToMsg();
             }

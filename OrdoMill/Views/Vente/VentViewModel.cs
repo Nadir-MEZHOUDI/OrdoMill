@@ -320,11 +320,11 @@ namespace OrdoMill.Views.Vente
                     .FirstOrDefaultAsync(x => x.Matricule == Matricule, token);
 
             }
-            catch (OperationCanceledException c)
+            catch (OperationCanceledException)
             {
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 // await ex.AppLoggingAsync();

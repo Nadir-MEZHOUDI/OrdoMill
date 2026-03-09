@@ -5,7 +5,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.Input;
-using LinqKit;
 using MahApps.Metro.Controls.Dialogs;
 using OrdoMill.Data.Model;
 using OrdoMill.Services;
@@ -35,7 +34,7 @@ namespace OrdoMill.Views.Ordonnance
                     o => true);
                 var initial = AsyncIntialiser();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -370,7 +369,7 @@ namespace OrdoMill.Views.Ordonnance
                         //                               .Include(x => x.Facture)
                         //                               .Include(x => x.Patient.Assure)
                         //                               .Include(x => x.Medicaments.Select(ord => ord.Medicament))
-                        .AsExpandable()
+                      
                         .Where(SearchExpression)
                         .OrderBy(x => x.Id)
                     .Select(o => new Dto.Ordonnance

@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using Microsoft.Win32;
 using MahApps.Metro.Controls.Dialogs;
 using OrdoMill.Data.Model;
 using OrdoMill.Properties;
@@ -26,8 +26,8 @@ namespace OrdoMill.Services
 
         internal static async Task CreateDemoFactureToExcel(object caller)
         {
-            var op = new FolderBrowserDialog { ShowNewFolderButton = true, RootFolder = Environment.SpecialFolder.Desktop };
-            if (op.ShowDialog() == DialogResult.OK)
+            var op = new OpenFolderDialog();
+            if (op.ShowDialog() == true)
             {
                 var controller = await DialogCoordinator.ShowProgressAsync(caller, "Transformation de la Facture en Excel ...", "S'il vous plaît, attendez");
                 controller.SetProgress(0);
@@ -44,7 +44,7 @@ namespace OrdoMill.Services
                         controller.SetMessage("S'il vous plaît, attendez \n       " + v + " % ");
                     });
 
-                    var savePath = op.SelectedPath;
+                    var savePath = op.FolderName;
                     var facture = DbCon.Factures.FirstOrDefault();
                     if (facture != null)
                     {

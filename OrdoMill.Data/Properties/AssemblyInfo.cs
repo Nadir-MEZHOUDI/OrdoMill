@@ -4,6 +4,7 @@
 
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 using System.Windows;
 
 [assembly: AssemblyTitle("OrdoMill.Data")]
@@ -20,6 +21,7 @@ using System.Windows;
 // COM, set the ComVisible attribute to true on that type.
 
 [assembly: ComVisible(false)]
+[assembly: SupportedOSPlatform("windows")]
 
 //In order to begin building localizable applications, set
 //<UICulture>CultureYouAreCodingWith</UICulture> in your .csproj file

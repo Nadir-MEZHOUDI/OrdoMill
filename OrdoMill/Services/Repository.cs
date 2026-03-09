@@ -307,7 +307,7 @@ namespace OrdoMill.Services
                 if (typeof(THomeView) != typeof(TDetailsView))
                     await NavigateTo(typeof(TDetailsView));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 IsEditable = false;
                 IsFocused = false;

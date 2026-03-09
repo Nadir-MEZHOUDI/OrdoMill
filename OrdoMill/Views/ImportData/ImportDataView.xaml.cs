@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Forms;
 using MahApps.Metro.Controls.Dialogs;
+using Microsoft.Win32;
 using OrdoMill.Data.Model;
 using OrdoMill.Properties;
 using OrdoMill.Serializables;
@@ -19,8 +19,6 @@ using PropertyChanged;
 using SmartApp.Helpers.Helpers;
 using Application = System.Windows.Application;
 using MessageBox = System.Windows.MessageBox;
-using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
-
 namespace OrdoMill.Views.ImportData
 {
 
@@ -174,7 +172,7 @@ namespace OrdoMill.Views.ImportData
                             meds.Add(med1);
                             ProgressIndicator = (double)100 * I / count;
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             // MessageBox.Show(ex.Message);
                         }
@@ -194,11 +192,11 @@ namespace OrdoMill.Views.ImportData
         {
             ProgressIndicator = 0;
 
-            var save = new FolderBrowserDialog();
+            var save = new OpenFolderDialog();
 
-            if (save.ShowDialog() == DialogResult.OK)
+            if (save.ShowDialog() == true)
             {
-                var exportMedPath = save.SelectedPath + "\\Assures.xml";
+                var exportMedPath = save.FolderName + "\\Assures.xml";
                 try
                 {
                     var assurSers =
@@ -234,7 +232,7 @@ namespace OrdoMill.Views.ImportData
                             count++;
                             await Context.SaveChangesAsync();
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
 
                         }
@@ -344,11 +342,11 @@ namespace OrdoMill.Views.ImportData
         private async void ExportFormesBtn_OnClick(object sender, RoutedEventArgs e)
         {
 
-            var save = new FolderBrowserDialog();
+            var save = new OpenFolderDialog();
 
-            if (save.ShowDialog() == DialogResult.OK)
+            if (save.ShowDialog() == true)
             {
-                var exportMedPath = save.SelectedPath + "\\Forms.xml";
+                var exportMedPath = save.FolderName + "\\Forms.xml";
                 try
                 {
                     var medArray = await Context.Formes.ToListAsync();

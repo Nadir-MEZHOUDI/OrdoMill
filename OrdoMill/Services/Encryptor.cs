@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Management;
 using System.Security.Cryptography;
 using System.Text;
+using System.Runtime.Versioning;
 
 namespace OrdoMill.Services
 {
@@ -12,6 +13,7 @@ namespace OrdoMill.Services
 
         static string GetKey() => Encrypt(GetPrimaryKey(), "Mill").Substring(0, 16);
 
+        [SupportedOSPlatform("windows")]
         private static string GetCpuId()
         {
             string cpuInfo = string.Empty;
@@ -44,7 +46,7 @@ namespace OrdoMill.Services
 
         private static byte[] GenerateSaltedHash(byte[] plainText, byte[] salt)
         {
-            HashAlgorithm algorithm = new SHA256Managed();
+            using HashAlgorithm algorithm = SHA256.Create();
 
             byte[] plainTextWithSaltBytes =
                 new byte[plainText.Length + salt.Length];

@@ -37,7 +37,7 @@ namespace OrdoMill.Services
                         await AppLogger.SendExceptionToMailAsync(ex);
                 }
             }
-            catch (Exception exe)
+            catch (Exception)
             {
                 // 
             }
@@ -57,7 +57,7 @@ namespace OrdoMill.Services
                         AppLogger.SendExceptionToMail(ex);
                 }
             }
-            catch (Exception exe)
+            catch (Exception)
             {
                 // 
             }

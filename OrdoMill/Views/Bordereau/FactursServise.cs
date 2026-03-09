@@ -48,7 +48,7 @@ namespace OrdoMill.Views.Bordereau
                     return bordereau;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
