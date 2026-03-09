@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
@@ -16,8 +16,8 @@ using OrdoMill.Interfaces;
 using OrdoMill.Properties;
 using OrdoMill.ViewModel;
 using PropertyChanged;
-using SmartApp.Helpers.Bases;
-using SmartApp.Helpers.Helpers;
+using OrdoMill.Helpers.Bases;
+using OrdoMill.Helpers;
 using static MahApps.Metro.Controls.Dialogs.MessageDialogStyle;
 
 namespace OrdoMill.Services

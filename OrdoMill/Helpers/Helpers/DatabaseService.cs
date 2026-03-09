@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.DirectoryServices;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SmartApp.Helpers.Helpers
+namespace OrdoMill.Helpers
 {
     public class DatabaseService : IDatabaseService
     {

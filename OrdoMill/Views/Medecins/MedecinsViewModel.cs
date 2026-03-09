@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using OrdoMill.Data.Model;
 using OrdoMill.Services;
 using PropertyChanged;
-using SmartApp.Helpers.Helpers;
+using OrdoMill.Helpers;
 
 namespace OrdoMill.Views.Medecins
 {

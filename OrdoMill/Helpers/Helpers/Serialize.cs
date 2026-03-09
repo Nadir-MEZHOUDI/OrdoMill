@@ -1,10 +1,10 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace SmartApp.Helpers.Helpers
+namespace OrdoMill.Helpers
 {
     public static class Serialize
     {

@@ -1,10 +1,10 @@
-using System;
+﻿using System;
 using System.Globalization;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace SmartApp.Helpers.Converters
+namespace OrdoMill.Helpers.Converters
 {
     public class RowToIndexConverter : MarkupExtension, IValueConverter
     {

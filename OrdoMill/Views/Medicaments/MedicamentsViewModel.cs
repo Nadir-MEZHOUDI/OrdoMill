@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
@@ -8,7 +8,7 @@ using Microsoft.Win32;
 using OrdoMill.Data.Model;
 using OrdoMill.Services;
 using PropertyChanged;
-using SmartApp.Helpers.Helpers;
+using OrdoMill.Helpers;
 using MessageBox = System.Windows.MessageBox;
 
 namespace OrdoMill.Views.Medicaments

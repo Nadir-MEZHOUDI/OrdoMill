@@ -1,10 +1,10 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 
-namespace SmartApp.Helpers.Helpers
+namespace OrdoMill.Helpers
 {
     public static class StringHelper
     {

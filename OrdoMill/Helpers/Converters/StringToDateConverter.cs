@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Globalization;
 using System.Windows.Data;
 
-namespace SmartApp.Helpers.Converters
+namespace OrdoMill.Helpers.Converters
 {
     public class StringToDateConverter : IValueConverter
     {

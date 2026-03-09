@@ -1,7 +1,7 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using PropertyChanged;
-using SmartApp.Helpers.Bases;
+using OrdoMill.Helpers.Bases;
 
 namespace OrdoMill.Data.Model
 {

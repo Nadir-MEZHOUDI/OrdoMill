@@ -10,7 +10,7 @@ using OrdoMill.ViewModel;
 using OrdoMill.Views.DbConnector;
 using OrdoMill.Views.ThemeChanger;
 using PropertyChanged;
-using SmartApp.Helpers.Helpers;
+using OrdoMill.Helpers;
 
 namespace OrdoMill.Views.Home
 {

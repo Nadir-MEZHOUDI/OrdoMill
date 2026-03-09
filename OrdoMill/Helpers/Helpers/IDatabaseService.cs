@@ -1,7 +1,7 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SmartApp.Helpers.Helpers
+namespace OrdoMill.Helpers
 {
     public interface IDatabaseService
     {

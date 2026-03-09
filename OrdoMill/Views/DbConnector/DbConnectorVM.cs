@@ -12,7 +12,7 @@ using OrdoMill.Data.Model;
 using OrdoMill.Properties;
 using OrdoMill.Services;
 using PropertyChanged;
-using SmartApp.Helpers.Helpers;
+using OrdoMill.Helpers;
 
 namespace OrdoMill.Views.DbConnector
 {

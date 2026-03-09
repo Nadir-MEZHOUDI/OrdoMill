@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows;
 using AutoMapper;
 using CommunityToolkit.Mvvm.Messaging;
@@ -25,7 +25,7 @@ using OrdoMill.Views.ThemeChanger;
 using OrdoMill.Views.Users;
 using OrdoMill.Views.Vente;
 using PropertyChanged;
-using SmartApp.Helpers.Helpers;
+using OrdoMill.Helpers;
 
 namespace OrdoMill.ViewModel
 {

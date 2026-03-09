@@ -4,7 +4,7 @@ using System.Windows.Input;
 using System.Windows.Threading;
 using MahApps.Metro.Controls;
 using OrdoMill.Services;
-using SmartApp.Helpers.Extensions;
+using OrdoMill.Helpers.Extensions;
 using WpfBindingErrors;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;

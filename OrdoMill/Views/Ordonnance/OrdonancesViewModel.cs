@@ -11,7 +11,7 @@ using OrdoMill.Services;
 using OrdoMill.ViewModel;
 using OrdoMill.Views.Vente;
 using PropertyChanged;
-using SmartApp.Helpers.Helpers;
+using OrdoMill.Helpers;
 using Assure = OrdoMill.Dto.Assure;
 using Patient = OrdoMill.Dto.Patient;
 

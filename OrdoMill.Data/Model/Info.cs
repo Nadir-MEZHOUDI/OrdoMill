@@ -1,6 +1,6 @@
 ﻿using System;
 using PropertyChanged;
-using SmartApp.Helpers.Bases;
+using OrdoMill.Helpers.Bases;
 
 namespace OrdoMill.Data.Model
 {

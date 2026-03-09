@@ -18,7 +18,7 @@ using OrdoMill.Views.Clients;
 using OrdoMill.Views.Ordonnance;
 using OrdoMill.Views.Patients;
 using PropertyChanged;
-using SmartApp.Helpers.Helpers;
+using OrdoMill.Helpers;
 
 namespace OrdoMill.Views.Vente
 {

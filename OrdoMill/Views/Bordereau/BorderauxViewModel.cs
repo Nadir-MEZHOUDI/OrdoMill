@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
@@ -8,7 +8,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Win32;
 using OrdoMill.Services;
 using PropertyChanged;
-using SmartApp.Helpers.Helpers;
+using OrdoMill.Helpers;
 
 namespace OrdoMill.Views.Bordereau
 {

@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using OrdoMill.Properties;
 using OrdoMill.Services;
-using static SmartApp.Helpers.Helpers.Helper;
+using static OrdoMill.Helpers.Helper;
 
 namespace OrdoMill.ViewModel
 {

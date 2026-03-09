@@ -1,8 +1,8 @@
-using MahApps.Metro.Controls.Dialogs;
+﻿using MahApps.Metro.Controls.Dialogs;
 using OrdoMill.Data.Model;
 using OrdoMill.Properties;
 using OrdoMill.ViewModel;
-using SmartApp.Helpers.Helpers;
+using OrdoMill.Helpers;
 using System;
 using System.Data.SqlClient;
 using System.IO;

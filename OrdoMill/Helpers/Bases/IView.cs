@@ -1,4 +1,4 @@
-namespace SmartApp.Helpers.Bases
+﻿namespace OrdoMill.Helpers.Bases
 {
     public interface IView
     {

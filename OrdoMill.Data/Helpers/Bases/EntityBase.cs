@@ -1,10 +1,10 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using PropertyChanged;
 
-namespace SmartApp.Helpers.Bases
+namespace OrdoMill.Helpers.Bases
 {
     [AddINotifyPropertyChangedInterface]
     public class EntityBase : IEntity

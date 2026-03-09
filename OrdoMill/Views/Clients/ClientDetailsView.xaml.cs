@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Helper = SmartApp.Helpers.Helpers.Helper;
+using Helper = OrdoMill.Helpers.Helper;
 
 namespace OrdoMill.Views.Clients
 {

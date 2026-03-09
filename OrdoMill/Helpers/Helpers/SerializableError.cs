@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SmartApp.Helpers.Helpers
+namespace OrdoMill.Helpers
 {
     [Serializable]
     public class SerializableError

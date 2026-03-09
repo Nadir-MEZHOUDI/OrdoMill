@@ -16,7 +16,7 @@ using OrdoMill.Serializables;
 using OrdoMill.Services;
 using OrdoMill.ViewModel;
 using PropertyChanged;
-using SmartApp.Helpers.Helpers;
+using OrdoMill.Helpers;
 using Application = System.Windows.Application;
 using MessageBox = System.Windows.MessageBox;
 namespace OrdoMill.Views.ImportData

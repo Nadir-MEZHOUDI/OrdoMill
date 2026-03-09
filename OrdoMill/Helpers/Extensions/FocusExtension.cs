@@ -1,6 +1,6 @@
-using System.Windows;
+﻿using System.Windows;
 
-namespace SmartApp.Helpers.Extensions
+namespace OrdoMill.Helpers.Extensions
 {
     public class FocusExtension
     {

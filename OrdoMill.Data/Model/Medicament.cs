@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using PropertyChanged;
-using SmartApp.Helpers.Bases;
+using OrdoMill.Helpers.Bases;
 
 namespace OrdoMill.Data.Model
 {

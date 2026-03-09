@@ -1,7 +1,7 @@
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace SmartApp.Helpers.Extensions
+namespace OrdoMill.Helpers.Extensions
 {
     public class SelecteAll : DependencyObject
     {
