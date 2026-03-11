@@ -1,6 +1,5 @@
-﻿using System;
+using System;
 using System.Windows;
-using AutoMapper;
 using CommunityToolkit.Mvvm.Messaging;
 using MahApps.Metro.Controls.Dialogs;
 using Microsoft.Extensions.DependencyInjection;
@@ -41,7 +40,6 @@ namespace OrdoMill.ViewModel
 
             services.AddSingleton<IDialogCoordinator>(sp => MahApps.Metro.Controls.Dialogs.DialogCoordinator.Instance);
             services.AddTransient<DbCon>(sp => new DbCon(Settings.Default.ConnectionString));
-            services.AddSingleton<IMapper>(sp => CreateMap());
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddTransient<MainPage>();
@@ -72,12 +70,12 @@ namespace OrdoMill.ViewModel
             _serviceProvider = services.BuildServiceProvider();
         }
 
+        public Object CurrentView { get; set; }
+
         public ViewModelLocator()
         {
             WeakReferenceMessenger.Default?.Register<Data.Model.Ordonnance>(this, (r, msg) => SelectedOrdonnance = msg);
         }
-
-        public IMapper Mapper => _serviceProvider.GetRequiredService<IMapper>();
 
         public static ViewModelLocator Instance => Application.Current.Resources["Locator"] as ViewModelLocator;
 
@@ -124,38 +122,5 @@ namespace OrdoMill.ViewModel
         public BordereauxViewModel BordereauxViewModel => _serviceProvider.GetRequiredService<BordereauxViewModel>();
         public FacturesViewModel FacturesViewModel => _serviceProvider.GetRequiredService<FacturesViewModel>();
 
-        private static IMapper CreateMap()
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Assure, Assure>();
-                cfg.CreateMap<Bordereau, Bordereau>();
-                cfg.CreateMap<Info, Info>();
-                cfg.CreateMap<Facture, Facture>();
-                cfg.CreateMap<Forme, Forme>();
-                cfg.CreateMap<Historique, Historique>();
-                cfg.CreateMap<Medecin, Medecin>();
-                cfg.CreateMap<Medicament, Medicament>();
-                cfg.CreateMap<Pathologie, Pathologie>();
-                cfg.CreateMap<MedOrd, MedOrd>();
-                cfg.CreateMap<Ordonnance, Ordonnance>();
-                cfg.CreateMap<Patient, Patient>();
-                cfg.CreateMap<User, User>();
-                cfg.CreateMap<Operation, Operation>();
-
-                cfg.CreateMap<Assure, Dto.Assure>();
-                cfg.CreateMap<Dto.Assure, Assure>();
-                cfg.CreateMap<Patient, Dto.Patient>();
-                cfg.CreateMap<Dto.Patient, Patient>();
-                cfg.CreateMap<Ordonnance, Dto.Ordonnance>();
-                cfg.CreateMap<Dto.Ordonnance, Ordonnance>();
-                cfg.CreateMap<Facture, Dto.Facture>();
-                cfg.CreateMap<Dto.Facture, Facture>();
-                cfg.CreateMap<Bordereau, Dto.Bordereau>();
-                cfg.CreateMap<Dto.Bordereau, Bordereau>();
-            });
-            config.AssertConfigurationIsValid();
-            return config.CreateMapper();
-        }
     }
 }

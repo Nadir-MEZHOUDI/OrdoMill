@@ -156,10 +156,40 @@ namespace OrdoMill.Views.Vente
 
         public override bool SaveCanEx() => IsEditable && SearchedMed?.Id > 0 && SelectedItem?.Quantite > 0 && SelectedItem?.Ppa > 0;
 
+        private Medicament MapToMedicament(Medicament source)
+        {
+            if (source == null)
+            {
+                return null;
+            }
+
+            return new Medicament
+            {
+                Id = source.Id,
+                CnasId = source.CnasId,
+                Nom = source.Nom,
+                Dci = source.Dci,
+                Dose = source.Dose,
+                Boite = source.Boite,
+                Tr = source.Tr,
+                Unite = source.Unite,
+                Remboursable = source.Remboursable,
+                Controle = source.Controle,
+                FormeId = source.FormeId,
+                Forme = source.Forme == null
+                    ? null
+                    : new Forme
+                    {
+                        Id = source.Forme.Id,
+                        Abrg = source.Forme.Abrg
+                    }
+            };
+        }
+
         public override async Task SaveEx()
         {
             if (SelectedItem == null) return;
-            SelectedItem.Medicament = Locator.Mapper.Map<Medicament>(SearchedMed);
+            SelectedItem.Medicament = MapToMedicament(SearchedMed);
             SelectedItem.MedicamentId = SearchedMed?.Id ?? 0;
 
             //ToDO Revesion
