@@ -219,7 +219,7 @@
 
     <Style
         x:Key="SearshTextStyle"
-        BasedOn="{StaticResource MetroTextBox}"
+        BasedOn="{StaticResource MahApps.Styles.TextBox}"
         TargetType="TextBox">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="controls:TextBoxHelper.ClearTextButton" Value="True" />

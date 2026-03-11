@@ -7,14 +7,7 @@
     <converters1:TabSizeConverter x:Key="TabSizeConverter" />
     <Style x:Key="AzureTabItem" TargetType="{x:Type TabItem}">
         <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.Accent}" />
-        <Setter Property="Width">
-            <Setter.Value>
-                <MultiBinding Converter="{StaticResource TabSizeConverter}">
-                    <Binding RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type TabControl}}" />
-                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type TabControl}}" />
-                </MultiBinding>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="MinWidth" Value="120" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TabItem">

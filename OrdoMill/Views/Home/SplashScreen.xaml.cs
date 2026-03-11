@@ -27,7 +27,7 @@ namespace OrdoMill.Views.Home
         {
             try
             {
-                Dispatcher.Invoke(CheckDb);
+              await  Dispatcher.InvokeAsync(CheckDb);
                 ViewModelLocator.Instance.MainView.Show();
                 WeakReferenceMessenger.Default.Send<MetroWindow>(ViewModelLocator.Instance.MainView);
             }
@@ -42,7 +42,8 @@ namespace OrdoMill.Views.Home
         {
             try
             {
-                while (Settings.Default.ConnectionString.IsNullOrEmpty() || !new DbCon(Settings.Default.ConnectionString).Database.CanConnect())
+                // Check if the connection string is empty or if the database cannot connect, show the DbConnectorView dialog
+                if (Settings.Default.ConnectionString.IsNullOrEmpty() || !new DbCon(Settings.Default.ConnectionString).Database.CanConnect())
                     new DbConnectorView().ShowDialog();
             }
             catch (Exception ex)
@@ -53,7 +54,6 @@ namespace OrdoMill.Views.Home
 
         private async void SplashScreen_OnContentRendered(object sender, EventArgs e)
         {
-            await Task.Delay(1000);
             await LoadForms();
         }
     }
