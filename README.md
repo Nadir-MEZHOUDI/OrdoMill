@@ -15,14 +15,14 @@
 
 - واجهة مكتبية حديثة وسهلة الاستخدام
 - اعتماد نمط **MVVM** لفصل الواجهة عن منطق العمل
-- تخزين البيانات عبر **Entity Framework 6**
+- تخزين البيانات عبر **Entity Framework Core 10**
 - دعم العمليات غير المتزامنة لتحسين الأداء ⚡
 
 ## التقنيات المستخدمة 🛠️
 
 - .NET 10
 - WPF
-- Entity Framework 6
+- Entity Framework Core 10
 - CommunityToolkit.Mvvm
 - PropertyChanged.Fody
 - MahApps.Metro

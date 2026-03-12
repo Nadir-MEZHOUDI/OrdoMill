@@ -102,7 +102,7 @@ OrdoMill/
 ```csharp
 // 1. Using statements (sorted alphabetically, System first)
 using System;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using OrdoMill.Data.Model;
 
 // 2. Namespace matching folder structure
@@ -134,7 +134,7 @@ namespace OrdoMill.Services
 ```csharp
 // Order: System → Microsoft → Third-party → Project namespaces
 using System;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.Input;
 using MahApps.Metro.Controls.Dialogs;
@@ -286,7 +286,7 @@ public class Medicament : Data.Model.Medicament
 ## Key Technologies
 
 - **.NET 10** with WPF
-- **Entity Framework 6** (System.Data.Entity)
+- **Entity Framework Core 10** (Microsoft.EntityFrameworkCore)
 - **CommunityToolkit.Mvvm** - MVVM helpers
 - **PropertyChanged.Fody** - INotifyPropertyChanged weaving
 - **MahApps.Metro** - UI controls
