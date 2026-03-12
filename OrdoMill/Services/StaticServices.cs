@@ -20,6 +20,11 @@ public sealed class StaticServices
 
     public UserControl CurrentView { get; set; }
 
+    private void OnCurrentViewChanged()
+    {
+        NavigateToCommand?.NotifyCanExecuteChanged();
+    }
+
     public RelayCommand<Type> NavigateToCommand { get; set; }
 
     //TODO Check Navigation Conditions

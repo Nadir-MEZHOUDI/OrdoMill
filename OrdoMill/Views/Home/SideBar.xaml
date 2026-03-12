@@ -55,7 +55,7 @@
         </Style>
     </UserControl.Resources>
     <Grid
-        Background="{DynamicResource MahApps.Brushes.Gray10}"
+        Background="{DynamicResource MahApps.Brushes.Accent}"
         DataContext="{Binding Source={StaticResource Locator}, Path=StaticServices}"
         Style="{StaticResource AutoHideGrid}">
         <Grid.Resources>
