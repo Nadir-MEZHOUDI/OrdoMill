@@ -230,7 +230,7 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <ContentControl Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundChromeWhite}" Content="{DynamicResource MailIcon}" />
+                    <ContentControl Content="{DynamicResource MailIcon}" />
                     <TextBlock Grid.Column="1" Text="{DynamicResource ContactUsText}" />
                 </Grid>
             </Button>

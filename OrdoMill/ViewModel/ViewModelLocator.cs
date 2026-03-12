@@ -43,7 +43,7 @@ namespace OrdoMill.ViewModel
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddTransient<MainPage>();
-            services.AddTransient<StaticServices>();
+            services.AddSingleton<StaticServices>();
             services.AddTransient<VentViewModel>();
             services.AddTransient<MainViewModel>();
             services.AddTransient<ClientsViewModel>();

@@ -135,6 +135,7 @@ namespace OrdoMill.Views.ImportData
                 try
                 {
                     var meds = new List<Medicament>();
+                    var adjustedFormes = new List<string>();
                     var template = new FileInfo(@"Templates\MEDIC.txt");
                     if (!File.Exists(template.FullName))
                     {
@@ -147,6 +148,53 @@ namespace OrdoMill.Views.ImportData
                         return;
                     }
 
+                    var formeTemplate = new FileInfo(@"Templates\FORME.txt");
+                    if (!File.Exists(formeTemplate.FullName))
+                    {
+                        File.WriteAllBytes(formeTemplate.FullName, GlobalResources.Properties.Resources.FORME);
+                        Thread.Sleep(1000);
+                    }
+
+                    var existingFormes = await Context.Formes.AsNoTracking().ToListAsync();
+                    var formeById = existingFormes.ToDictionary(x => x.Id, x => x.Id);
+                    var formeByBusinessKey = existingFormes
+                        .Where(x => !string.IsNullOrWhiteSpace(x.Name) || !string.IsNullOrWhiteSpace(x.Abrg))
+                        .GroupBy(x => BuildFormeBusinessKey(x.Name, x.Abrg))
+                        .ToDictionary(g => g.Key, g => g.First().Id);
+
+                    var sourceToTargetFormeIds = new Dictionary<int, int>();
+                    if (File.Exists(formeTemplate.FullName))
+                    {
+                        var formeLines = File.ReadAllText(formeTemplate.FullName).Trim().Split('\n');
+                        foreach (var line in formeLines)
+                        {
+                            if (line.Length < 53)
+                            {
+                                continue;
+                            }
+
+                            var sourceId = line.Substring(0, 3).TrimAll().ToInt();
+                            if (sourceId <= 0)
+                            {
+                                continue;
+                            }
+
+                            if (formeById.ContainsKey(sourceId))
+                            {
+                                sourceToTargetFormeIds[sourceId] = sourceId;
+                                continue;
+                            }
+
+                            var formeName = line.Substring(3, 50).TrimAll() ?? "";
+                            var formeAbrg = line.Substring(52).TrimAll() ?? "";
+                            var businessKey = BuildFormeBusinessKey(formeName, formeAbrg);
+                            if (formeByBusinessKey.TryGetValue(businessKey, out var existingId))
+                            {
+                                sourceToTargetFormeIds[sourceId] = existingId;
+                            }
+                        }
+                    }
+
                     var text = File.ReadAllText(template.FullName).Trim().Split('\n');
                     var count = text.Length;
                     for (var I = 0; I < count; I++)
@@ -155,6 +203,20 @@ namespace OrdoMill.Views.ImportData
                         {
                             var a = text[I];
                             if (a.Length < 200) return;
+                            var sourceFormeId = a.Substring(212, 6).ToInt();
+                            int? resolvedFormeId = null;
+                            if (sourceFormeId > 0)
+                            {
+                                if (formeById.ContainsKey(sourceFormeId))
+                                {
+                                    resolvedFormeId = sourceFormeId;
+                                }
+                                else if (sourceToTargetFormeIds.TryGetValue(sourceFormeId, out var mappedFormeId))
+                                {
+                                    resolvedFormeId = mappedFormeId;
+                                }
+                            }
+
                             var med1 = new Medicament
                             {
                                 CnasId = a?.Substring(0, 5)?.TrimAll() ?? "",
@@ -164,10 +226,16 @@ namespace OrdoMill.Views.ImportData
                                 Unite = a.Substring(135, 20).TrimAll() ?? "",
                                 Boite = a.Substring(155, 11).TrimAll() ?? "",
                                 Tr = a.Substring(193, 19).TrimAll() ?? "",
-                                FormeId = a.Substring(212, 6).ToInt(),
+                                FormeId = resolvedFormeId,
                                 Remboursable = true,
                                 Controle = false
                             };
+
+                            if (sourceFormeId > 0 && !resolvedFormeId.HasValue)
+                            {
+                                adjustedFormes.Add($"CNAS={med1.CnasId}, Nom={med1.Nom}, FormeSource={sourceFormeId}");
+                            }
+
                             meds.Add(med1);
                             ProgressIndicator = (double)100 * I / count;
                         }
@@ -178,6 +246,21 @@ namespace OrdoMill.Views.ImportData
                     }
                     Context.Medicaments.AddRange(meds);
                     await Context.SaveChangesAsync();
+
+                    if (adjustedFormes.Count > 0)
+                    {
+                        var adjustedPreview = string.Join(Environment.NewLine, adjustedFormes.Take(10));
+                        MessageBox.Show(
+                            $"{adjustedFormes.Count} medicament(s) importes avec FormeId null (forme introuvable)." +
+                            Environment.NewLine +
+                            adjustedPreview,
+                            "Import Medicaments");
+                    }
+                }
+                catch (DbUpdateException dbEx)
+                {
+                    await dbEx.AppLoggingAsync();
+                    MessageBox.Show("Echec import medicaments: contrainte FK FormeId invalide.");
                 }
                 catch (Exception ex)
                 {
@@ -186,6 +269,13 @@ namespace OrdoMill.Views.ImportData
 
                 MessageBox.Show("Terminé");
             });
+
+        private static string BuildFormeBusinessKey(string name, string abrg)
+        {
+            var normalizedName = (name ?? string.Empty).TrimAll().ToUpperInvariant();
+            var normalizedAbrg = (abrg ?? string.Empty).TrimAll().ToUpperInvariant();
+            return normalizedName + "|" + normalizedAbrg;
+        }
 
         private async void ExportAssuresBtn_OnClick(object sender, RoutedEventArgs e)
         {
