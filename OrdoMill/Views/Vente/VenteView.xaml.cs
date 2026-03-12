@@ -7,9 +7,9 @@ namespace OrdoMill.Views.Vente;
 /// <summary>
 ///     Interaction logic for VentView.xaml
 /// </summary>
-public partial class VentView
+public partial class VenteView
 {
-    public VentView()
+    public VenteView()
     {
         InitializeComponent();
     }

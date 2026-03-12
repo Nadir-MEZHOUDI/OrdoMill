@@ -43,7 +43,7 @@ public class ViewModelLocator
 
         services.AddTransient<MainPage>();
         services.AddSingleton<StaticServices>();
-        services.AddTransient<VentViewModel>();
+        services.AddTransient<VenteViewModel>();
         services.AddTransient<MainViewModel>();
         services.AddTransient<ClientsViewModel>();
         services.AddTransient<MedecinsViewModel>();
@@ -90,7 +90,7 @@ public class ViewModelLocator
 
     public MedicamentsViewModel MedicamentsViewModel => _serviceProvider.GetRequiredService<MedicamentsViewModel>();
 
-    public VentViewModel VentViewModel => _serviceProvider.GetRequiredService<VentViewModel>();
+    public VenteViewModel VentViewModel => _serviceProvider.GetRequiredService<VenteViewModel>();
 
     public OrdonnanceViewModel OrdonancesViewModel => _serviceProvider.GetRequiredService<OrdonnanceViewModel>();
 
@@ -108,7 +108,7 @@ public class ViewModelLocator
 
     public Data.Model.Ordonnance SelectedOrdonnance { get; set; }
 
-    public PatientsViewModel VentPatientsViewModel => _serviceProvider.GetRequiredService<PatientsViewModel>();
+    public PatientsViewModel VentePatientsViewModel => _serviceProvider.GetRequiredService<PatientsViewModel>();
 
     public ClientsViewModel VentClientsViewModel => _serviceProvider.GetRequiredService<ClientsViewModel>();
 

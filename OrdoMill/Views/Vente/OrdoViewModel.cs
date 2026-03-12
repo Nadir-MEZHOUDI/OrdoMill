@@ -14,7 +14,7 @@ using PropertyChanged;
 namespace OrdoMill.Views.Vente;
 
 [AddINotifyPropertyChangedInterface]
-public sealed class OrdoViewModel : Repository<MedOrd, VentView, VentView>
+public sealed class OrdoViewModel : Repository<MedOrd, VenteView, VenteView>
 {
     public ObservableCollection<MedOrd> MedicamentsList { get; set; } = new ObservableCollection<MedOrd>();
 

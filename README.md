@@ -35,6 +35,16 @@ dotnet build OrdoMill.sln
 dotnet run --project OrdoMill/OrdoMill.csproj
 ```
 
+## لقطات الشاشة 🖼️
+
+| الصفحة الرئيسية | صفحة البيع |
+| --- | --- |
+| ![الصفحة الرئيسية](docs/01-home.png) | ![صفحة البيع](docs/02-vente.png) |
+
+| صفحة العملاء | صفحة المستفيدين |
+| --- | --- |
+| ![صفحة العملاء](docs/03-clients.png) | ![صفحة المستفيدين](docs/04-patients.png) |
+
 ## هيكل الحل 📂
 
 ```text

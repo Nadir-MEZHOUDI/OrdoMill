@@ -18,9 +18,9 @@ using OrdoMill.Helpers;
 namespace OrdoMill.Views.Vente;
 
 [AddINotifyPropertyChangedInterface]
-public sealed class VentViewModel : Repository<Data.Model.Ordonnance, VentView, VentView>
+public sealed class VenteViewModel : Repository<Data.Model.Ordonnance, VenteView, VenteView>
 {
-    public VentViewModel()
+    public VenteViewModel()
     {
         if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
         {
@@ -202,9 +202,9 @@ public sealed class VentViewModel : Repository<Data.Model.Ordonnance, VentView, 
     private async Task AddOrUpdatePatientEx()
     {
         if (SelectedItem?.Patient != null)
-            await Locator.VentPatientsViewModel.UpdateEx();
+            await Locator.VentePatientsViewModel.UpdateEx();
         else
-            await Locator.VentPatientsViewModel.ShowMeAddEx(Assure);
+            await Locator.VentePatientsViewModel.ShowMeAddEx(Assure);
         new EditPatientView().ShowDialog();
     }
 

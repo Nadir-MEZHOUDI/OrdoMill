@@ -28,9 +28,7 @@ public sealed class PatientsViewModel : Repository<Patient, ShowPatientsView, Pa
 
     public RelayCommand SuspendCommand { get; set; }
     public RelayCommand UnSuspendCommand { get; set; }
-
     public RelayCommand<Assure> ShowMeAndAddCommand { get; set; }
-
     public ObservableCollection<string> Alliances => new ObservableCollection<string>("Alliances".GetArray());
 
     public Assure SelectedAssure { get; set; }

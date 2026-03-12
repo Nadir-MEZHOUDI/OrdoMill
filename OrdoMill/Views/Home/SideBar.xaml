@@ -68,10 +68,9 @@
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Border Grid.RowSpan="4" BorderThickness="0" />
         <StackPanel Orientation="Vertical">
             <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type local:Home}">
-                <Grid HorizontalAlignment="Center">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition />
@@ -79,7 +78,6 @@
                     <ContentControl Content="{DynamicResource Pharmacy-02}" />
                     <TextBlock
                         Grid.Column="1"
-                        HorizontalAlignment="Center"
                         FontStyle="Italic"
                         FontWeight="Bold"
                         Text="OrdoMill" />
@@ -87,15 +85,14 @@
             </Button>
             <Button
                 Command="{Binding NavigateToCommand}"
-                CommandParameter="{x:Type vente:VentView}"
+                CommandParameter="{x:Type vente:VenteView}"
                 ToolTip="{DynamicResource Vente}">
-
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <ContentControl Content="{DynamicResource Sales-Order}" />
+                    <ContentControl Margin="0,0,0,0" Content="{DynamicResource Sales-Order}" />
                     <TextBlock Grid.Column="1" Text="{DynamicResource Vente}" />
                 </Grid>
             </Button>
@@ -165,7 +162,7 @@
         </StackPanel>
         <Separator
             Grid.Row="1"
-            Margin="20"
+            Margin="0,20"
             Background="{DynamicResource MahApps.Brushes.Gray1}" />
         <StackPanel Grid.Row="2">
             <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type archive:ArchivesView}">
@@ -191,7 +188,7 @@
         </StackPanel>
         <Separator
             Grid.Row="3"
-            Margin="20"
+            Margin="0,20"
             Background="{DynamicResource MahApps.Brushes.Gray1}" />
         <StackPanel Grid.Row="4">
             <Button

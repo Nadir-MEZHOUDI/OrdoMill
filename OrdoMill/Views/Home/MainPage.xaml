@@ -12,6 +12,7 @@
     xmlns:themeChanger="clr-namespace:OrdoMill.Views.ThemeChanger"
     Title="OrdoMill"
     Width="1000"
+    Height="700"
     dialog:DialogParticipation.Register="{Binding}"
     Closing="MetroWindow_Closing"
     DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
@@ -152,25 +153,15 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
 
-        <Viewbox
-            x:Name="SideBarGrid"
-            Grid.RowSpan="2"
-            Margin="0">
+        <Viewbox x:Name="SideBarGrid" Margin="0">
             <home:SideBar />
         </Viewbox>
         <ContentControl
             Grid.Column="1"
-            Margin="0"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
-            Background="White"
-            Content="{Binding CurrentView}"
-            DataContext="{Binding Source={StaticResource Locator}, Path=StaticServices}"
+            Content="{Binding Source={StaticResource Locator}, Path=StaticServices.CurrentView}"
             IsTabStop="False" />
 
     </Grid>

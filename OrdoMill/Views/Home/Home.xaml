@@ -1,15 +1,16 @@
-﻿<UserControl x:Class="OrdoMill.Views.Home.Home"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:extensions="clr-namespace:OrdoMill.Helpers.Extensions"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             d:DesignHeight="700"
-             d:DesignWidth="900"
-              Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundChromeWhite}"
-             FlowDirection="{DynamicResource Direction}"
-             FontStyle="Italic"
-             mc:Ignorable="d">
+﻿<UserControl
+    x:Class="OrdoMill.Views.Home.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:extensions="clr-namespace:OrdoMill.Helpers.Extensions"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="700"
+    d:DesignWidth="900"
+    Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundChromeWhite}"
+    FlowDirection="{DynamicResource Direction}"
+    FontStyle="Italic"
+    mc:Ignorable="d">
     <Grid FlowDirection="{DynamicResource Direction}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
@@ -22,15 +23,17 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Viewbox Grid.Column="1">
-            <Border Margin="10,30"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
-                    BorderThickness="0"
+            <Border
+                Margin="10,30"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                BorderBrush="{DynamicResource MahApps.Brushes.Accent}"
+                BorderThickness="0"
+                FlowDirection="LeftToRight">
+                <Grid
+                    Margin="5"
+                    extensions:MarginSetter.Margin="3"
                     FlowDirection="LeftToRight">
-                <Grid Margin="5"
-                      extensions:MarginSetter.Margin="3"
-                      FlowDirection="LeftToRight">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
@@ -44,29 +47,33 @@
                         <RowDefinition Height="Auto" />
 
                     </Grid.RowDefinitions>
-                    <Image Grid.RowSpan="3"
-                           Grid.ColumnSpan="3"
-                           Width="160"
-                           Margin="10"
-                           Source="../../Resources/Icons/SmartApp_Logo.png" />
-                    <TextBlock Grid.Row="0"
-                               Grid.Column="3"
-                               Margin="20"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               FontSize="35"
-                               Text="OrdoMill" />
-                    <TextBlock Grid.Row="1"
-                               Grid.Column="3"
-                               Margin="20,0"
-                               VerticalAlignment="Center"
-                               FontSize="28"
-                               Text="{Binding Version}" />
-                    <TextBlock Grid.Row="2"
-                               Grid.Column="3"
-                               VerticalAlignment="Center"
-                               FontSize="20"
-                               Text="Copyright © SmartApp" />
+                    <Image
+                        Grid.RowSpan="3"
+                        Grid.ColumnSpan="3"
+                        Width="160"
+                        Margin="10"
+                        Source="../../Resources/Icons/SmartApp_Logo.png" />
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        Margin="20"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="35"
+                        Text="OrdoMill" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        Margin="20,0"
+                        VerticalAlignment="Center"
+                        FontSize="28"
+                        Text="{Binding Version}" />
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="3"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        Text="Copyright © SmartApp" />
                     <GroupBox Grid.Row="3" Grid.ColumnSpan="4">
                         <Grid Margin="5" extensions:MarginSetter.Margin="3">
                             <Grid.ColumnDefinitions>
@@ -79,36 +86,42 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <ContentControl Grid.Row="0"
-                                            Grid.Column="0"
-                                            Width="30"
-                                            Height="30"
-                                            Content="{DynamicResource PhoneIcon}" />
-                            <TextBlock Grid.Row="0"
-                                       Grid.Column="1"
-                                       FontSize="20"
-                                       Text="07.75.98.70.96" />
-                            <ContentControl Grid.Row="0"
-                                            Grid.Column="2"
-                                            Width="30"
-                                            Height="30"
-                                            Content="{DynamicResource PhoneIcon}" />
-                            <TextBlock Grid.Row="0"
-                                       Grid.Column="3"
-                                       HorizontalAlignment="Center"
-                                       FontSize="20"
-                                       Text="06.66.34.60.66" />
-                            <ContentControl Grid.Row="1"
-                                            Grid.Column="0"
-                                            Width="30"
-                                            Height="30"
-                                            Content="{DynamicResource MailIcon}" />
-                            <TextBlock Grid.Row="1"
-                                       Grid.Column="1"
-                                       Grid.ColumnSpan="3"
-                                       HorizontalAlignment="Center"
-                                       FontSize="20"
-                                       Text="Support@Smart-App.info" />
+                            <ContentControl
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Width="30"
+                                Height="30"
+                                Content="{DynamicResource PhoneIcon}" />
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                FontSize="20"
+                                Text="07.75.98.70.96" />
+                            <ContentControl
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                Width="30"
+                                Height="30"
+                                Content="{DynamicResource PhoneIcon}" />
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="3"
+                                HorizontalAlignment="Center"
+                                FontSize="20"
+                                Text="06.66.34.60.66" />
+                            <ContentControl
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Width="30"
+                                Height="30"
+                                Content="{DynamicResource MailIcon}" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="3"
+                                HorizontalAlignment="Center"
+                                FontSize="20"
+                                Text="Support@Smart-App.info" />
                         </Grid>
                     </GroupBox>
                 </Grid>
@@ -129,20 +142,22 @@
             <TextBlock Grid.Row="2" Text="{DynamicResource Version}" />-->
         </Grid>
         <Viewbox Grid.Column="3">
-            <Image Margin="20"
-                   FlowDirection="{DynamicResource InvesdDirection}"
-                   Source="../../Resources/Icons/OrdoMill.png" />
+            <Image
+                Margin="20"
+                FlowDirection="{DynamicResource InvesdDirection}"
+                Source="../../Resources/Icons/OrdoMill.png" />
         </Viewbox>
 
         <Viewbox Grid.Row="1" Grid.ColumnSpan="4">
-            <TextBlock Margin="30,0"
-                       Background="Transparent"
-                       FontFamily="../../Resources/Fonts/#Wendelin"
-                       FontSize="80"
-                       FontStyle="Normal"
-                       FontWeight="Bold"
-                       Foreground="{DynamicResource MahApps.Brushes.Accent}"
-                       Text="OrdoMill">
+            <TextBlock
+                Margin="30,0"
+                Background="Transparent"
+                FontFamily="../../Resources/Fonts/#Wendelin"
+                FontSize="80"
+                FontStyle="Normal"
+                FontWeight="Bold"
+                Foreground="{DynamicResource MahApps.Brushes.Accent}"
+                Text="OrdoMill">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform />
@@ -152,11 +167,12 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
                 <TextBlock.BitmapEffect>
-                    <DropShadowBitmapEffect Direction="150"
-                                            Opacity="0.5"
-                                            ShadowDepth="4"
-                                            Softness="0.25"
-                                            Color="Black" />
+                    <DropShadowBitmapEffect
+                        Direction="150"
+                        Opacity="0.5"
+                        ShadowDepth="4"
+                        Softness="0.25"
+                        Color="Black" />
                 </TextBlock.BitmapEffect>
             </TextBlock>
         </Viewbox>

@@ -304,7 +304,7 @@ public class OrdonnanceViewModel : Repository<Data.Model.Ordonnance, ShowOrdonan
         try
         {
             await Locator.VentViewModel.AddEx();
-            await ViewModelLocator.Instance.StaticServices.NavigationEx(typeof(VentView));
+            await ViewModelLocator.Instance.StaticServices.NavigationEx(typeof(VenteView));
         }
         catch (Exception ex)
         {
@@ -318,7 +318,7 @@ public class OrdonnanceViewModel : Repository<Data.Model.Ordonnance, ShowOrdonan
 
         {
             await ViewModelLocator.Instance.VentViewModel.UpdateEx(id);
-            await ViewModelLocator.Instance.StaticServices.NavigationEx(typeof(VentView));
+            await ViewModelLocator.Instance.StaticServices.NavigationEx(typeof(VenteView));
         }
         catch (Exception ex)
         {
