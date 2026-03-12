@@ -1,13 +1,12 @@
-﻿namespace OrdoMill.Views.Shared
+﻿namespace OrdoMill.Views.Shared;
+
+/// <summary>
+/// Interaction logic for Pagenation.xaml
+/// </summary>
+public partial class Pagenation
 {
-    /// <summary>
-    /// Interaction logic for Pagenation.xaml
-    /// </summary>
-    public partial class Pagenation
+    public Pagenation()
     {
-        public Pagenation()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

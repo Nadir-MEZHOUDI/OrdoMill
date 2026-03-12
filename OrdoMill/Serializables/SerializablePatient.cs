@@ -1,9 +1,8 @@
-using System;
 using System.ComponentModel;
 
-namespace OrdoMill.Serializables
-{
-    [Serializable]
+namespace OrdoMill.Serializables;
+
+[Serializable]
 	public class SerializablePatient
 	{ 
 		public string Nom { get; set; }
@@ -18,7 +17,6 @@ namespace OrdoMill.Serializables
 
 		public string Au { get; set; }
 
-        [DefaultValue(false)]
+    [DefaultValue(false)]
 		public bool Suspende { get; set; }
 	}
-}

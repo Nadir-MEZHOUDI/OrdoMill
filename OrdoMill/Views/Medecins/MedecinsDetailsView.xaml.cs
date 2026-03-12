@@ -1,13 +1,12 @@
-﻿namespace OrdoMill.Views.Medecins
+﻿namespace OrdoMill.Views.Medecins;
+
+/// <summary>
+///     Interaction logic for MedecinsDetailsView.xaml
+/// </summary>
+public partial class MedecinsDetailsView
 {
-    /// <summary>
-    ///     Interaction logic for MedecinsDetailsView.xaml
-    /// </summary>
-    public partial class MedecinsDetailsView
-    {
 		public MedecinsDetailsView()
 		{
 			InitializeComponent();
 		}
 	}
-}

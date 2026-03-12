@@ -2,20 +2,19 @@ using System.Windows;
 using ControlzEx.Theming;
 using OrdoMill.Properties;
 
-namespace OrdoMill.Views.ThemeChanger
+namespace OrdoMill.Views.ThemeChanger;
+
+public class AppThemeMenuData : AccentColorMenuData
 {
-    public class AppThemeMenuData : AccentColorMenuData
+    public override void DoChangeTheme(object sender)
     {
-        public override void DoChangeTheme(object sender)
+        var currentTheme = ThemeManager.Current.DetectTheme(Application.Current);
+        var appTheme = ThemeManager.Current.Themes.FirstOrDefault(t => t.DisplayName == Name && t.BaseColorScheme != null);
+        if (appTheme != null)
         {
-            var currentTheme = ThemeManager.Current.DetectTheme(Application.Current);
-            var appTheme = ThemeManager.Current.Themes.FirstOrDefault(t => t.DisplayName == Name && t.BaseColorScheme != null);
-            if (appTheme != null)
-            {
-                Settings.Default.AppTheme = Name;
-                Settings.Default.Save();
-                ThemeManager.Current.ChangeTheme(Application.Current, $"{appTheme.BaseColorScheme}.{currentTheme?.ColorScheme ?? "Teal"}");
-            }
+            Settings.Default.AppTheme = Name;
+            Settings.Default.Save();
+            ThemeManager.Current.ChangeTheme(Application.Current, $"{appTheme.BaseColorScheme}.{currentTheme?.ColorScheme ?? "Teal"}");
         }
     }
 }

@@ -1,10 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using PropertyChanged;
 using OrdoMill.Helpers.Bases;
 
-namespace OrdoMill.Data.Model
-{
+namespace OrdoMill.Data.Model;
+
 	[AddINotifyPropertyChangedInterface]
 	public  class Historique:EntityBase
 	{       
@@ -27,4 +26,3 @@ namespace OrdoMill.Data.Model
 		[ForeignKey(nameof(UserId))]
 		public virtual User User { get; set; }
 	}
-}

@@ -1,13 +1,12 @@
-﻿namespace OrdoMill.Views.Bordereau
+﻿namespace OrdoMill.Views.Bordereau;
+
+/// <summary>
+/// Interaction logic for BordereauView.xaml
+/// </summary>
+public partial class BordereauView
 {
-    /// <summary>
-    /// Interaction logic for BordereauView.xaml
-    /// </summary>
-    public partial class BordereauView
-    {
 		public BordereauView()
 		{
 			InitializeComponent();
 		}
 	}
-}

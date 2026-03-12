@@ -1,12 +1,12 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace OrdoMill.Views.Users
-{
-    /// <summary>
-    /// Interaction logic for UsersView.xaml
-    /// </summary>
-    public partial class UsersView : UserControl
+namespace OrdoMill.Views.Users;
+
+/// <summary>
+/// Interaction logic for UsersView.xaml
+/// </summary>
+public partial class UsersView : UserControl
 	{
 		public UsersView()
 		{
@@ -18,4 +18,3 @@ namespace OrdoMill.Views.Users
 			TxtFullName.Focus();
 		}
 	}
-}

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using PropertyChanged;
 using OrdoMill.Helpers.Bases;
-namespace OrdoMill.Data.Model
-{
+namespace OrdoMill.Data.Model;
+
 	[Serializable]
 	[AddINotifyPropertyChangedInterface]
 	public  class Pathologie : EntityBase
@@ -13,4 +11,3 @@ namespace OrdoMill.Data.Model
 		public string Nom { get; set; }
 		public virtual ICollection<Ordonnance> Ordonnances { get; set; } = new Collection<Ordonnance>();
 	}
-}

@@ -1,13 +1,12 @@
-﻿namespace OrdoMill.Views.Medicaments
+﻿namespace OrdoMill.Views.Medicaments;
+
+/// <summary>
+/// Interaction logic for EditMedicamentView.xaml
+/// </summary>
+public partial class EditMedicamentView 
 {
-    /// <summary>
-    /// Interaction logic for EditMedicamentView.xaml
-    /// </summary>
-    public partial class EditMedicamentView 
+    public EditMedicamentView()
     {
-        public EditMedicamentView()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

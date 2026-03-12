@@ -11,8 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdoMill", "OrdoMill\OrdoMi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5DDF47D0-564C-46F8-9BBF-A745F495CDFC}"
 	ProjectSection(SolutionItems) = preProject
-		FIXES_APPLIED.md = FIXES_APPLIED.md
-		Review_Report.md = Review_Report.md
+		AGENTS.md = AGENTS.md
 	EndProjectSection
 EndProject
 Global

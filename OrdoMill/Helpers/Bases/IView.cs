@@ -1,7 +1,6 @@
-﻿namespace OrdoMill.Helpers.Bases
+﻿namespace OrdoMill.Helpers.Bases;
+
+public interface IView
 {
-    public interface IView
-    {
-        string Title { get; }
-    }
+    string Title { get; }
 }

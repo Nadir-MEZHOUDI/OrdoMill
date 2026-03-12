@@ -80,7 +80,7 @@ OrdoMill/
 │   └── Serializables/           # Serialization models
 │
 ├── OrdoMill.Data/               # Data access layer
-│   ├── Model/                   # EF6 entities and DbContext
+│   ├── Model/                   # EF Core entities and DbContext
 │   └── Migrations/              # EF migrations
 │
 └── OrdoMill.Resources/          # Global resources and localization

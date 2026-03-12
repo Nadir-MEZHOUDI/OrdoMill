@@ -1,15 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using PropertyChanged;
 using OrdoMill.Helpers.Bases;
 
-namespace OrdoMill.Data.Model
-{
+namespace OrdoMill.Data.Model;
+
 	[AddINotifyPropertyChangedInterface]
 	public  class User : EntityBase    
-    {         
+{         
 		public string UserName { get; set; }
 		public string Password { get; set; }
 		public string FullName { get; set; }
@@ -21,6 +20,5 @@ namespace OrdoMill.Data.Model
 		public bool AllowAdd { get; set; }
 		public bool AllowUpdate { get; set; }
 		public bool AllowPrintDocs { get; set; }
-        public virtual ICollection<Historique> Historiques { get; set; } = new Collection<Historique>();
-    }
+    public virtual ICollection<Historique> Historiques { get; set; } = new Collection<Historique>();
 }

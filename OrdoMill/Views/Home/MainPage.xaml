@@ -23,7 +23,7 @@
     TextOptions.TextFormattingMode="Ideal"
     TextOptions.TextRenderingMode="ClearType"
     WindowState="Maximized"
-    WindowTitleBrush="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}"
+    WindowTitleBrush="{DynamicResource MahApps.Brushes.Gray1}"
     mc:Ignorable="d">
     <controls:MetroWindow.TitleTemplate>
         <DataTemplate>

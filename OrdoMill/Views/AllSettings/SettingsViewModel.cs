@@ -1,40 +1,38 @@
-﻿using System;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using OrdoMill.Properties;
 using OrdoMill.Services;
 using OrdoMill.Views.DbConnector;
 using PropertyChanged;
 
-namespace OrdoMill.Views.AllSettings
+namespace OrdoMill.Views.AllSettings;
+
+[AddINotifyPropertyChangedInterface]
+public class SettingsViewModel : NavigableViewModel
 {
-    [AddINotifyPropertyChangedInterface]
-    public class SettingsViewModel : NavigableViewModel
+    private int pageSize;
+    public RelayCommand SetDbPathCommand { get; set; }
+
+    public SettingsViewModel()
     {
-        private int pageSize;
-        public RelayCommand SetDbPathCommand { get; set; }
+        SetDbPathCommand = new RelayCommand(SetDbPathe_Excute);
+        pageSize = Settings.Default.PageSize;
+    }
 
-        public SettingsViewModel()
-        {
-            SetDbPathCommand = new RelayCommand(SetDbPathe_Excute);
-            pageSize = Settings.Default.PageSize;
-        }
+    public static void SetDbPathe_Excute()
+    {
+        new DbConnectorView().Show();
+    }
 
-        public static void SetDbPathe_Excute()
+    public int PageSize
+    {
+        get { return pageSize; }
+        set
         {
-            new DbConnectorView().Show();
-        }
-
-        public int PageSize
-        {
-            get { return pageSize; }
-            set
-            {
-                pageSize = value;
-                Settings.Default.PageSize = value;
-                Settings.Default.Save();
-                WeakReferenceMessenger.Default.Send(new Tuple<string, int>("PageSize", value));
-            }
+            pageSize = value;
+            Settings.Default.PageSize = value;
+            Settings.Default.Save();
+            WeakReferenceMessenger.Default.Send(new Tuple<string, int>("PageSize", value));
         }
     }
 }

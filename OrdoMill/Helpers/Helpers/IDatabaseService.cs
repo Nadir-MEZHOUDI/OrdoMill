@@ -1,14 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿namespace OrdoMill.Helpers;
 
-namespace OrdoMill.Helpers
+public interface IDatabaseService
 {
-    public interface IDatabaseService
-    {
-        Task<IEnumerable<string>> GetDatabasesFromServerAsync(string serverName);
+    Task<IEnumerable<string>> GetDatabasesFromServerAsync(string serverName);
 
-        Task<IEnumerable<string>> GetSqlServerInstancesAsync(string machineName);
+    Task<IEnumerable<string>> GetSqlServerInstancesAsync(string machineName);
 
-        Task<IEnumerable<string>> GetAllPCsOnLocalNetworkAsync();
-    }
+    Task<IEnumerable<string>> GetAllPCsOnLocalNetworkAsync();
 }

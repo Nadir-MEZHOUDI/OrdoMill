@@ -1,8 +1,7 @@
-namespace OrdoMill.Interfaces
+namespace OrdoMill.Interfaces;
+
+public interface IActionProgress<T>
 {
-    public interface IActionProgress<T>
-    {
-        void Report(T data);
-        T Value { get; set; }
-    }
+    void Report(T data);
+    T Value { get; set; }
 }

@@ -1,13 +1,12 @@
-﻿namespace OrdoMill.Views.Home
+﻿namespace OrdoMill.Views.Home;
+
+/// <summary>
+/// Interaction logic for SideBar.xaml
+/// </summary>
+public partial class SideBar
 {
-    /// <summary>
-    /// Interaction logic for SideBar.xaml
-    /// </summary>
-    public partial class SideBar
+    public SideBar()
     {
-        public SideBar()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

@@ -1,43 +1,41 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace OrdoMill.Helpers.Converters
+namespace OrdoMill.Helpers.Converters;
+
+public class VisibileToCollapsedConverter : IValueConverter
 {
-    public class VisibileToCollapsedConverter : IValueConverter
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        if (value == null)
         {
-            if (value == null)
-            {
-                return Visibility.Collapsed;
-            }
-
-            return (bool)value ? Visibility.Visible : Visibility.Collapsed;
+            return Visibility.Collapsed;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return value;
-        }
+        return (bool)value ? Visibility.Visible : Visibility.Collapsed;
     }
 
-    public class VisibleToHiddenConverter : IValueConverter
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (value == null)
-            {
-                return Visibility.Hidden;
-            }
+        return value;
+    }
+}
 
-            return (bool)value ? Visibility.Visible : Visibility.Hidden;
+public class VisibleToHiddenConverter : IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        if (value == null)
+        {
+            return Visibility.Hidden;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return value;
-        }
+        return (bool)value ? Visibility.Visible : Visibility.Hidden;
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        return value;
     }
 }

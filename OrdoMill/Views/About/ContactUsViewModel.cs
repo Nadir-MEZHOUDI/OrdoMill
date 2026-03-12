@@ -1,14 +1,13 @@
-﻿using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MahApps.Metro.Controls.Dialogs;
 using OrdoMill.Services;
 using PropertyChanged;
 using OrdoMill.Helpers;
 
-namespace OrdoMill.Views.About
-{
-    [AddINotifyPropertyChangedInterface]
+namespace OrdoMill.Views.About;
+
+[AddINotifyPropertyChangedInterface]
 	public sealed class  ContactUsViewModel : ObservableObject
 	{
 		public EmailSender Sender { get; set; }
@@ -41,4 +40,3 @@ namespace OrdoMill.Views.About
 
 		public string MessageBody { get; set; }
 	}
-}

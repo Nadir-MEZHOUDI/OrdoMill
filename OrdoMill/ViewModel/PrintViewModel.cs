@@ -4,9 +4,9 @@ using OrdoMill.Services;
 using OrdoMill.Helpers.Bases;
 using static OrdoMill.ViewModel.PrintHelper;
 
-namespace OrdoMill.ViewModel
-{
-    public class PrintViewModel : IView
+namespace OrdoMill.ViewModel;
+
+public class PrintViewModel : IView
 	{
 		public PrintViewModel()
 		{
@@ -19,4 +19,3 @@ namespace OrdoMill.ViewModel
 
 		public string Title => "Aper�u".GetString();
 	}
-}

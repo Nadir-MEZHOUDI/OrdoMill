@@ -1,5 +1,5 @@
-﻿namespace OrdoMill.Views.Home
-{
+﻿namespace OrdoMill.Views.Home;
+
 	/// <summary>
 	///     Interaction logic for LoginView.xaml
 	/// </summary>
@@ -10,4 +10,3 @@
 			InitializeComponent();
 		}
 	}
-}

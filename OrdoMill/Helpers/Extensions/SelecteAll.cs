@@ -1,42 +1,41 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace OrdoMill.Helpers.Extensions
+namespace OrdoMill.Helpers.Extensions;
+
+public class SelecteAll : DependencyObject
 {
-    public class SelecteAll : DependencyObject
+    public static readonly DependencyProperty SelecteProperty = DependencyProperty.RegisterAttached(
+        "Selecte",
+        typeof(string),
+        typeof(SelecteAll),
+        new PropertyMetadata(string.Empty, SelecteChanged));
+
+    public static string GetSelecte(DependencyObject obj)
     {
-        public static readonly DependencyProperty SelecteProperty = DependencyProperty.RegisterAttached(
-            "Selecte",
-            typeof(string),
-            typeof(SelecteAll),
-            new PropertyMetadata(string.Empty, SelecteChanged));
+        return (string)obj.GetValue(SelecteProperty);
+    }
 
-        public static string GetSelecte(DependencyObject obj)
+    public static void SetSelecte(DependencyObject obj, string value)
+    {
+        obj.SetValue(SelecteProperty, value);
+    }
+
+    private static void SelecteChanged(DependencyObject d, DependencyPropertyChangedEventArgs args)
+    {
+        if (d is not TextBox textBox)
         {
-            return (string)obj.GetValue(SelecteProperty);
+            return;
         }
 
-        public static void SetSelecte(DependencyObject obj, string value)
+        bool b = bool.Parse(args.NewValue.ToString());
+        if (b)
         {
-            obj.SetValue(SelecteProperty, value);
+            textBox.SelectAll();
         }
-
-        private static void SelecteChanged(DependencyObject d, DependencyPropertyChangedEventArgs args)
+        else
         {
-            if (d is not TextBox textBox)
-            {
-                return;
-            }
-
-            bool b = bool.Parse(args.NewValue.ToString());
-            if (b)
-            {
-                textBox.SelectAll();
-            }
-            else
-            {
-                textBox.Select(0, 0);
-            }
+            textBox.Select(0, 0);
         }
     }
 }

@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using OrdoMill.Data.Properties;
+﻿using System.Collections.ObjectModel;
 using PropertyChanged;
 using OrdoMill.Helpers.Bases;
 
-namespace OrdoMill.Data.Model
-{
-    [Serializable]
+namespace OrdoMill.Data.Model;
+
+[Serializable]
 	[AddINotifyPropertyChangedInterface]
 	public  class Forme : EntityBase
 	{       
@@ -17,4 +12,3 @@ namespace OrdoMill.Data.Model
 		public string Abrg { get; set; }
 		public virtual ICollection<Medicament> Medicaments { get; set; } = new Collection<Medicament>();
 	}
-}

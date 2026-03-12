@@ -1,13 +1,12 @@
-﻿namespace OrdoMill.Views.Home
+﻿namespace OrdoMill.Views.Home;
+
+/// <summary>
+/// Interaction logic for LicenseView.xaml
+/// </summary>
+public partial class LicenseView 
 {
-    /// <summary>
-    /// Interaction logic for LicenseView.xaml
-    /// </summary>
-    public partial class LicenseView 
+    public LicenseView()
     {
-        public LicenseView()
-        {
-            InitializeComponent();
-        } 
-    }
+        InitializeComponent();
+    } 
 }

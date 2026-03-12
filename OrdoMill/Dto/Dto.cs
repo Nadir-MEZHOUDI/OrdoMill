@@ -4,84 +4,84 @@
 
 using PropertyChanged;
 
-namespace OrdoMill.Dto
+namespace OrdoMill.Dto;
+
+[AddINotifyPropertyChangedInterface]
+public class Assure : Data.Model.Assure
 {
-    [AddINotifyPropertyChangedInterface]
-    public class Assure : Data.Model.Assure
-    {
-    }
+}
 
-    [AddINotifyPropertyChangedInterface]
-    public class Bordereau : Data.Model.Bordereau
-    {
-        public int OrdonancesCount { get; set; }
-        public int FacturesCount { get; set; }
-        public double? MontantGlobal { get; set; }
+[AddINotifyPropertyChangedInterface]
+public class Bordereau : Data.Model.Bordereau
+{
+    public int OrdonancesCount { get; set; }
+    public int FacturesCount { get; set; }
+    public double? MontantGlobal { get; set; }
 
-    }
+}
 
-    [AddINotifyPropertyChangedInterface]
-    public class Info : Data.Model.Info
-    {
-    }
+[AddINotifyPropertyChangedInterface]
+public class Info : Data.Model.Info
+{
+}
 
-    [AddINotifyPropertyChangedInterface]
-    public class Facture : Data.Model.Facture
-    {
-        public int OrdonancesCount { get; set; }
-    //    public double? MontantGlobal { get; set; }
+[AddINotifyPropertyChangedInterface]
+public class Facture : Data.Model.Facture
+{
+    public int OrdonancesCount { get; set; }
+//    public double? MontantGlobal { get; set; }
 
-    }
+}
 
-    [AddINotifyPropertyChangedInterface]
-    public class Forme : Data.Model.Forme
-    {
-    }
+[AddINotifyPropertyChangedInterface]
+public class Forme : Data.Model.Forme
+{
+}
 
-    [AddINotifyPropertyChangedInterface]
-    public class Historique : Data.Model.Historique
-    {
-    }
+[AddINotifyPropertyChangedInterface]
+public class Historique : Data.Model.Historique
+{
+}
 
-    [AddINotifyPropertyChangedInterface]
-    public class Medecin : Data.Model.Medecin
-    {
-    }
+[AddINotifyPropertyChangedInterface]
+public class Medecin : Data.Model.Medecin
+{
+}
 
-    [AddINotifyPropertyChangedInterface]
-    public class Medicament : Data.Model.Medicament
-    {
-    }
+[AddINotifyPropertyChangedInterface]
+public class Medicament : Data.Model.Medicament
+{
+}
 
-    [AddINotifyPropertyChangedInterface]
-    public class Pathologie : Data.Model.Pathologie
-    {
-    }
+[AddINotifyPropertyChangedInterface]
+public class Pathologie : Data.Model.Pathologie
+{
+}
 
-    [AddINotifyPropertyChangedInterface]
-    public class MedOrd : Data.Model.MedOrd
-    {
-    }
+[AddINotifyPropertyChangedInterface]
+public class MedOrd : Data.Model.MedOrd
+{
+}
 
-    [AddINotifyPropertyChangedInterface]
-    public class Ordonnance : Data.Model.Ordonnance
-    {
-    }
+[AddINotifyPropertyChangedInterface]
+public class Ordonnance : Data.Model.Ordonnance
+{
+}
 
-    [AddINotifyPropertyChangedInterface]
-    public class Patient : Data.Model.Patient
-    {
-    }
+[AddINotifyPropertyChangedInterface]
+public class Patient : Data.Model.Patient
+{
+}
 
-    [AddINotifyPropertyChangedInterface]
-    public class User : Data.Model.User
-    {
-    }
+[AddINotifyPropertyChangedInterface]
+public class User : Data.Model.User
+{
+}
 
-    [AddINotifyPropertyChangedInterface]
-    public class Operation : Data.Model.Operation
-    {
-    }
+[AddINotifyPropertyChangedInterface]
+public class Operation : Data.Model.Operation
+{
+}
 
 //    #region POCO classes
 
@@ -450,4 +450,3 @@ namespace OrdoMill.Dto
 //    }
 
 //    #endregion
-}

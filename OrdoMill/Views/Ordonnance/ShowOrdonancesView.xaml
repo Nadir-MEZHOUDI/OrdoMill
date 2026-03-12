@@ -118,7 +118,7 @@
                                             Width="25"
                                             Height="25"
                                             Margin="20,0"
-                                            Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}"
+                                            Background="{DynamicResource MahApps.Brushes.Gray1}"
                                             Content="{DynamicResource MoneyIcon}" />
 
                             <TextBlock Grid.Column="6"

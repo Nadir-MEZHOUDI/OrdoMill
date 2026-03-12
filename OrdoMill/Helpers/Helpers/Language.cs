@@ -1,9 +1,8 @@
-﻿namespace OrdoMill.Helpers
+﻿namespace OrdoMill.Helpers;
+
+public enum Language
 {
-    public enum Language
-    {
-        Arabic,
-        French,
-        English
-    }
+    Arabic,
+    French,
+    English
 }

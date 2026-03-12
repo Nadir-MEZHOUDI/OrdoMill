@@ -55,7 +55,7 @@
         </Style>
     </UserControl.Resources>
     <Grid
-        Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}"
+        Background="{DynamicResource MahApps.Brushes.Gray10}"
         DataContext="{Binding Source={StaticResource Locator}, Path=StaticServices}"
         Style="{StaticResource AutoHideGrid}">
         <Grid.Resources>
@@ -68,10 +68,7 @@
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Border
-            Grid.RowSpan="4"
-            BorderBrush="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}"
-            BorderThickness="0" />
+        <Border Grid.RowSpan="4" BorderThickness="0" />
         <StackPanel Orientation="Vertical">
             <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type local:Home}">
                 <Grid HorizontalAlignment="Center">
@@ -169,7 +166,7 @@
         <Separator
             Grid.Row="1"
             Margin="20"
-            Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}" />
+            Background="{DynamicResource MahApps.Brushes.Gray1}" />
         <StackPanel Grid.Row="2">
             <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type archive:ArchivesView}">
                 <Grid>
@@ -195,7 +192,7 @@
         <Separator
             Grid.Row="3"
             Margin="20"
-            Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}" />
+            Background="{DynamicResource MahApps.Brushes.Gray1}" />
         <StackPanel Grid.Row="4">
             <Button
                 Command="{Binding NavigateToCommand}"
@@ -350,7 +347,7 @@
                 <TextBlock Grid.Column="1" Text="{DynamicResource Specialites}" />
             </Grid>
         </Button>
-        <Separator Margin="20" Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}" />
+        <Separator Margin="20" Background="{DynamicResource MahApps.Brushes.Gray1}" />
 
         <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type archive:ArchivesView}">
             <Grid>
@@ -362,7 +359,7 @@
                 <TextBlock Grid.Column="1" Text="{DynamicResource Bordereau}" />
             </Grid>
         </Button>
-        <Separator Margin="20" Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}" />
+        <Separator Margin="20" Background="{DynamicResource MahApps.Brushes.Gray1}" />
         <Button Command="{Binding NavigateToCommand}" CommandParameter="{x:Type designTime:ImportDataView}">
             <Grid>
                 <Grid.ColumnDefinitions>

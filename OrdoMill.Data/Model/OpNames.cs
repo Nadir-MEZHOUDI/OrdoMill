@@ -1,5 +1,5 @@
-namespace OrdoMill.Data.Model
-{
+namespace OrdoMill.Data.Model;
+
 	public enum OpNames
 	{
 		RestorDb = 1,
@@ -25,4 +25,3 @@ namespace OrdoMill.Data.Model
 		//ExportHistoList,
 		//ImportHistoList
 	}
-}

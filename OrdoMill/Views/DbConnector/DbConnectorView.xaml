@@ -88,7 +88,7 @@
                                 <controls:TextBoxHelper.ButtonContent>
                                     <ContentControl
                                         Margin="4"
-                                        Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}"
+                                        Background="{DynamicResource MahApps.Brushes.Gray1}"
                                         Content="{DynamicResource NetworkIcon}" />
                                 </controls:TextBoxHelper.ButtonContent>
                             </ComboBox>
@@ -216,7 +216,7 @@
                             <controls:TextBoxHelper.ButtonContent>
                                 <ContentControl
                                     Margin="4"
-                                    Background="{DynamicResource MahApps.Brushes.SystemControlBackgroundAltHigh}"
+                                    Background="{DynamicResource MahApps.Brushes.Gray1}"
                                     Content="{DynamicResource Data-Synchronize}" />
                             </controls:TextBoxHelper.ButtonContent>
                         </ComboBox>
